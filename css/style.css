@@ -178,6 +178,31 @@ p {
     padding: 10px;
 }
 
+/* Logo container for flexible layout */
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* User logo styling */
+.user-logo {
+    max-width: 100%;
+    height: auto;
+    width: 324px;
+    max-height: 324px;
+    object-fit: contain;
+    filter: brightness(1.3) contrast(1.2) saturate(1.4) hue-rotate(5deg);
+    transition: filter 0.3s ease;
+}
+
+/* User logo hover effect for enhanced green pop */
+.user-logo:hover {
+    filter: brightness(1.4) contrast(1.3) saturate(1.5) hue-rotate(5deg);
+}
+
 .logo-svg {
     max-width: 100%;
     height: auto;
@@ -409,6 +434,18 @@ p {
     }
     
     /* SVG banner responsive sizing */
+    .logo-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .user-logo {
+        width: 270px;
+        max-height: 270px;
+        order: -1; /* Place user logo above BSides logo on mobile */
+        filter: brightness(1.3) contrast(1.2) saturate(1.4) hue-rotate(5deg);
+    }
+    
     .logo-svg {
         width: 95%;
         max-width: 500px;
@@ -489,6 +526,18 @@ p {
     }
     
     /* SVG banner responsive sizing for very small screens */
+    .logo-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .user-logo {
+        width: 216px;
+        max-height: 216px;
+        order: -1; /* Place user logo above BSides logo on mobile */
+        filter: brightness(1.3) contrast(1.2) saturate(1.4) hue-rotate(5deg);
+    }
+    
     .logo-svg {
         width: 98%;
         max-width: 400px;
