@@ -23,6 +23,19 @@ class PageConfig {
      */
     applySplashMode() {
         if (this.ENABLE_SPLASH_ONLY) {
+            // Check if we're not on the home page
+            const currentPath = window.location.pathname;
+            const isHomePage = currentPath === '/' || 
+                              currentPath === '/index.html' || 
+                              currentPath.endsWith('/index.html') ||
+                              currentPath.endsWith('/');
+            
+            if (!isHomePage) {
+                // Redirect to home page when splash mode is active
+                window.location.href = 'index.html';
+                return;
+            }
+            
             document.documentElement.classList.add('splash-only');
         }
     }
