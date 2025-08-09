@@ -59,7 +59,7 @@
             <!-- SVG Logo Banner -->
             <div class="svg-banner">
                 <div class="logo-container">
-                    <img src="images/devil.gif" alt="BSides South Jersey Cybersecurity Conference Primary Logo" class="user-logo" width="180" height="180" loading="lazy">
+                    <video id="devil-video" src="images/devil.mov" alt="BSides South Jersey Cybersecurity Conference Primary Logo" class="user-logo" width="180" height="180" autoplay muted playsinline disablePictureInPicture style="object-fit: contain;" onended="handleVideoEnd();" onloadeddata="this.currentTime=0; this.playbackRate=1;"></video>
                     <img src="images/bsides-logo.png" alt="BSides South Jersey Security Conference Wordmark" class="logo-svg" loading="lazy">
                 </div>
             </div>
@@ -257,6 +257,72 @@
         if (ENABLE_SPLASH_ONLY) {
             document.documentElement.classList.add('splash-only');
         }
+
+        // Devil video random replay functionality
+        let isReversed = false; // Track if next play should be reversed
+        let reverseInterval = null; // Store interval for reverse playback
+
+        function handleVideoEnd() {
+            const video = document.getElementById('devil-video');
+            video.pause();
+            scheduleNextPlay();
+        }
+
+        function checkReverseEnd() {
+            // This function is no longer needed with manual reverse playback
+        }
+
+        function playReverse(video) {
+            // Clear any existing reverse interval
+            if (reverseInterval) {
+                clearInterval(reverseInterval);
+            }
+            
+            // Start from the end
+            video.currentTime = video.duration || 3;
+            video.pause(); // Make sure video is paused
+            
+            // Manually step backwards through the video
+            reverseInterval = setInterval(() => {
+                if (video.currentTime <= 0.1) {
+                    // Reached the beginning, stop reverse playback
+                    clearInterval(reverseInterval);
+                    reverseInterval = null;
+                    scheduleNextPlay();
+                } else {
+                    // Step backwards by small increments (adjust for smoothness)
+                    video.currentTime = Math.max(0, video.currentTime - 0.1);
+                }
+            }, 50); // 50ms intervals for smooth reverse playback
+        }
+
+        function scheduleNextPlay() {
+            // Random interval between 15-35 seconds (15000-35000 milliseconds)
+            const randomDelay = Math.floor(Math.random() * 20000) + 15000;
+            
+            setTimeout(() => {
+                const video = document.getElementById('devil-video');
+                if (video) {
+                    // Toggle direction for next play
+                    isReversed = !isReversed;
+                    
+                    if (isReversed) {
+                        // Play in reverse using manual control
+                        playReverse(video);
+                    } else {
+                        // Play normally: start from beginning
+                        video.currentTime = 0;
+                        video.playbackRate = 1; // Ensure normal playback rate
+                        video.play();
+                    }
+                }
+            }, randomDelay);
+        }
+
+        // Start the random replay cycle after initial load
+        document.addEventListener('DOMContentLoaded', () => {
+            scheduleNextPlay();
+        });
         </script>
         <script type="application/ld+json">
         {
