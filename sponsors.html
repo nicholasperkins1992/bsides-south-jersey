@@ -426,6 +426,11 @@
     </div>
 
     <!-- JavaScript -->
+        <script>
+        // Feature Flag: Splash Only Mode (shared)
+        const ENABLE_SPLASH_ONLY = true; // Set to false to restore full site
+        if (ENABLE_SPLASH_ONLY) { document.documentElement.classList.add('splash-only'); }
+        </script>
         <script type="application/ld+json">
         {
             "@context": "https://schema.org",

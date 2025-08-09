@@ -627,3 +627,37 @@ p {
         background-color: white !important;
     }
 }
+
+/* =============================================
+   Feature Flag: Splash-Only (Logo) Mode
+   When the <html> element has class `splash-only` all
+   site content except the primary logo banner is hidden.
+   To disable, remove the class or set the flag script to false.
+   ============================================= */
+html.splash-only body { overflow: hidden; }
+html.splash-only .terminal-header,
+html.splash-only .nav-menu,
+html.splash-only .content-section,
+html.splash-only .event-info,
+html.splash-only .footer,
+html.splash-only .ascii-art,
+html.splash-only .ascii-divider,
+html.splash-only .mobile-banner,
+html.splash-only .mobile-ascii {
+    display: none !important;
+}
+/* Keep only the logo container centered */
+html.splash-only .terminal-window {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 70vh;
+}
+html.splash-only .svg-banner {
+    margin: 0;
+    padding: 40px 0;
+}
+html.splash-only .logo-container {
+    flex-direction: column;
+    gap: 30px;
+}
