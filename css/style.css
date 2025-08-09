@@ -744,10 +744,17 @@ html.splash-only .logo-container {
     gap: 30px;
 }
 
-/* Safari iOS Detection - Disable scanlines only */
+/* Safari iOS Detection - Disable all problematic terminal effects */
 @supports (-webkit-touch-callout: none) {
     /* This targets Safari on iOS specifically */
+    
+    /* Disable scanlines */
     body::before {
         display: none !important;
+    }
+    
+    /* Disable flicker animation */
+    .terminal-container {
+        animation: none !important;
     }
 }
