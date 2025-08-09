@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.bsidessouthjersey.com/sitemap.xml
-Host: www.bsidessouthjersey.com
+Sitemap: https://www.bsidessouthjersey.org/sitemap.xml
+Host: www.bsidessouthjersey.org
 
 # Disallow unnecessary paths (none currently)
