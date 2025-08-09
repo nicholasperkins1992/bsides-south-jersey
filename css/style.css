@@ -412,6 +412,22 @@ p {
     color: var(--terminal-light-green);
 }
 
+/* Link styling inside terminal prompt blocks (keep consistent green theme) */
+.command-prompt a,
+.command-prompt a:visited {
+    color: var(--terminal-green);
+    text-decoration: underline dotted; /* make it clearly clickable */
+    text-underline-offset: 3px;
+    cursor: pointer;
+}
+.command-prompt a:hover,
+.command-prompt a:focus {
+    color: var(--terminal-light-green);
+    text-shadow: 0 0 8px var(--terminal-green);
+    text-decoration-color: var(--terminal-light-green);
+    outline: none;
+}
+
 /* Responsive design */
 @media (max-width: 1024px) {
     .terminal-container {
@@ -658,7 +674,7 @@ p {
 
 /* Safari iOS specific optimizations */
 @supports (-webkit-touch-callout: none) {
-    /* Target Safari iOS specifically */
+    /* Target Safari on iOS specifically */
     .terminal-container {
         /* Reduce animation intensity on iOS Safari for better performance */
         animation: flicker 6s infinite;
