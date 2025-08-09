@@ -238,41 +238,6 @@ class TerminalEffects {
 }
 
 /**
- * ASCII Art Generator for dynamic content
- */
-class ASCIIArt {
-    /**
-     * Generate ASCII border
-     * @param {number} width - Border width
-     * @param {string} char - Character to use
-     * @returns {string} ASCII border
-     */
-    static generateBorder(width = 50, char = '=') {
-        return char.repeat(width);
-    }
-
-    /**
-     * Generate ASCII box
-     * @param {string} text - Text to box
-     * @param {string} char - Border character
-     * @returns {string} ASCII box
-     */
-    static generateBox(text, char = '█') {
-        const lines = text.split('\n');
-        const maxLength = Math.max(...lines.map(line => line.length));
-        const border = char.repeat(maxLength + 4);
-        
-        let result = border + '\n';
-        lines.forEach(line => {
-            result += char + ' ' + line.padEnd(maxLength) + ' ' + char + '\n';
-        });
-        result += border;
-        
-        return result;
-    }
-}
-
-/**
  * Date and time utilities for event information
  */
 class DateTimeUtils {
@@ -330,5 +295,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Export for use in other scripts if needed
 if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { TerminalEffects, ASCIIArt, DateTimeUtils };
+    module.exports = { TerminalEffects, DateTimeUtils };
 }

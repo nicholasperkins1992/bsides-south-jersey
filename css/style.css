@@ -281,23 +281,7 @@ p {
     filter: drop-shadow(0 0 12px var(--terminal-green)) drop-shadow(0 0 20px var(--terminal-green));
 } */
 
-/* ASCII art and special text styling */
-.ascii-art {
-    font-family: 'Courier New', monospace;
-    white-space: pre;
-    text-align: center;
-    margin: 20px 0;
-    font-size: 14px;
-    color: var(--terminal-light-green);
-    text-shadow: 0 0 5px var(--terminal-green);
-    overflow-x: auto;
-    padding: 10px;
-}
 
-/* Desktop ASCII art */
-.desktop-ascii {
-    display: block;
-}
 
 /* Mobile text banner - hidden on desktop, shown on mobile */
 .mobile-banner {
@@ -327,10 +311,7 @@ p {
     letter-spacing: 1px;
 }
 
-/* Mobile ASCII art */
-.mobile-ascii {
-    display: none;
-}
+
 
 /* Blinking cursor animation */
 .cursor {
@@ -406,18 +387,6 @@ p {
     color: var(--terminal-bg);
     font-size: 16px;
     text-align: center;
-}
-
-/* ASCII borders and dividers */
-.ascii-divider {
-    text-align: center;
-    margin: 30px 0;
-    font-family: 'Courier New', monospace;
-    color: var(--terminal-dim-green);
-    font-size: 14px;
-    overflow-x: auto;
-    white-space: nowrap;
-    padding: 0 10px;
 }
 
 /* Footer styling */
@@ -543,19 +512,7 @@ p {
     }
     
     .ascii-art {
-        font-size: 10px;
-        line-height: 1.2;
-        padding: 5px;
         display: none; /* Hide ASCII art on mobile */
-    }
-    
-    /* Hide both desktop and mobile ASCII on tablets */
-    .desktop-ascii {
-        display: none;
-    }
-    
-    .mobile-ascii {
-        display: none;
     }
     
     /* Show mobile text banner instead */
@@ -653,21 +610,7 @@ p {
     }
     
     .ascii-art {
-        font-size: 8px;
-        line-height: 1.1;
-        overflow-x: auto;
-        white-space: pre;
-        padding: 5px;
         display: none; /* Hide ASCII art on mobile */
-    }
-    
-    /* Hide ASCII art completely on mobile */
-    .desktop-ascii {
-        display: none;
-    }
-    
-    .mobile-ascii {
-        display: none;
     }
     
     /* Show mobile text banner instead */
@@ -705,12 +648,6 @@ p {
     .content-section {
         padding: 12px;
         margin: 15px 0;
-    }
-    
-    .ascii-divider {
-        font-size: 12px;
-        overflow-x: auto;
-        white-space: nowrap;
     }
     
     /* Better text contrast on small screens */
@@ -780,10 +717,7 @@ html.splash-only .nav-menu,
 html.splash-only .content-section,
 html.splash-only .event-info,
 html.splash-only .footer,
-html.splash-only .ascii-art,
-html.splash-only .ascii-divider,
-html.splash-only .mobile-banner,
-html.splash-only .mobile-ascii {
+html.splash-only .mobile-banner {
     display: none !important;
 }
 /* Keep only the logo container centered */
