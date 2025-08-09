@@ -229,6 +229,14 @@ p {
     will-change: filter;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
+    /* Mobile interaction enhancements */
+    cursor: pointer;
+    -webkit-tap-highlight-color: rgba(0, 255, 0, 0.3);
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 /* User logo hover effect for enhanced green pop - Safari iOS compatible */
@@ -486,6 +494,14 @@ p {
         will-change: filter;
         backface-visibility: hidden;
         -webkit-backface-visibility: hidden;
+        /* Enhanced mobile interaction */
+        cursor: pointer;
+        -webkit-tap-highlight-color: rgba(0, 255, 0, 0.3);
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
     }
     
     .logo-svg {
