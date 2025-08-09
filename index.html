@@ -59,7 +59,7 @@
             <!-- SVG Logo Banner -->
             <div class="svg-banner">
                 <div class="logo-container">
-                    <video id="devil-video" src="images/devil.mov" alt="BSides South Jersey Cybersecurity Conference Primary Logo" class="user-logo" width="180" height="180" autoplay muted playsinline disablePictureInPicture style="object-fit: contain;" onended="handleVideoEnd();" onloadeddata="this.currentTime=0; this.playbackRate=1;"></video>
+                    <video id="devil-video" src="images/devil.mov" alt="BSides South Jersey Cybersecurity Conference Primary Logo" class="user-logo" width="180" height="180" autoplay muted playsinline disablePictureInPicture webkit-playsinline="true" preload="auto" style="object-fit: contain;" onended="handleVideoEnd();" onloadeddata="this.currentTime=0; this.playbackRate=1;"></video>
                     <img src="images/bsides-logo.png" alt="BSides South Jersey Security Conference Wordmark" class="logo-svg" loading="lazy">
                 </div>
             </div>
@@ -257,6 +257,10 @@
         if (ENABLE_SPLASH_ONLY) {
             document.documentElement.classList.add('splash-only');
         }
+        
+        // Safari iOS detection
+        const isSafariIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && /Safari/.test(navigator.userAgent);
+        
         // Devil video random replay functionality
         let isReversed = false; // Track if next play should be reversed
         let reverseInterval = null; // Store interval for reverse playback
@@ -282,6 +286,10 @@
             video.pause(); // Make sure video is paused
             
             // Manually step backwards through the video
+            // Use longer intervals for Safari iOS for better performance
+            const stepInterval = isSafariIOS ? 100 : 50;
+            const stepSize = isSafariIOS ? 0.15 : 0.1;
+            
             reverseInterval = setInterval(() => {
                 if (video.currentTime <= 0.1) {
                     // Reached the beginning, stop reverse playback
@@ -289,15 +297,18 @@
                     reverseInterval = null;
                     scheduleNextPlay();
                 } else {
-                    // Step backwards by small increments (adjust for smoothness)
-                    video.currentTime = Math.max(0, video.currentTime - 0.1);
+                    // Step backwards by small increments (adjust for Safari iOS)
+                    video.currentTime = Math.max(0, video.currentTime - stepSize);
                 }
-            }, 50); // 50ms intervals for smooth reverse playback
+            }, stepInterval);
         }
 
         function scheduleNextPlay() {
             // Random interval between 15-35 seconds (15000-35000 milliseconds)
-            const randomDelay = Math.floor(Math.random() * 20000) + 15000;
+            // Slightly longer intervals for Safari iOS to improve performance
+            const baseDelay = 15000;
+            const randomRange = isSafariIOS ? 25000 : 20000;
+            const randomDelay = Math.floor(Math.random() * randomRange) + baseDelay;
             
             setTimeout(() => {
                 const video = document.getElementById('devil-video');
@@ -312,14 +323,55 @@
                         // Play normally: start from beginning
                         video.currentTime = 0;
                         video.playbackRate = 1; // Ensure normal playback rate
-                        video.play();
+                        
+                        // Safari iOS specific play handling
+                        if (isSafariIOS) {
+                            // Force play on Safari iOS with error handling
+                            const playPromise = video.play();
+                            if (playPromise !== undefined) {
+                                playPromise.catch(error => {
+                                    console.log("Safari iOS autoplay prevented:", error);
+                                    // Fallback: try again after user interaction
+                                });
+                            }
+                        } else {
+                            video.play();
+                        }
                     }
                 }
             }, randomDelay);
         }
 
+        // Enhanced video initialization for Safari iOS
+        function initializeVideo() {
+            const video = document.getElementById('devil-video');
+            if (video && isSafariIOS) {
+                // Safari iOS specific initialization
+                video.load(); // Preload the video
+                
+                // Attempt initial play with error handling
+                const playPromise = video.play();
+                if (playPromise !== undefined) {
+                    playPromise.catch(error => {
+                        console.log("Safari iOS initial autoplay prevented:", error);
+                        
+                        // Add user interaction listener for Safari iOS
+                        const enableAutoplay = () => {
+                            video.play();
+                            document.removeEventListener('touchstart', enableAutoplay);
+                            document.removeEventListener('click', enableAutoplay);
+                        };
+                        
+                        document.addEventListener('touchstart', enableAutoplay, { once: true });
+                        document.addEventListener('click', enableAutoplay, { once: true });
+                    });
+                }
+            }
+        }
+
         // Start the random replay cycle after initial load
         document.addEventListener('DOMContentLoaded', () => {
+            initializeVideo();
             scheduleNextPlay();
         });
         </script>

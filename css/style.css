@@ -32,7 +32,7 @@ body {
     text-size-adjust: 100%;
 }
 
-/* CRT Monitor effect with scanlines */
+/* CRT Monitor effect with scanlines - Safari iOS compatible */
 body::before {
     content: '';
     position: fixed;
@@ -48,22 +48,40 @@ body::before {
     pointer-events: none;
     z-index: 1000;
     animation: scanlines 0.1s linear infinite;
+    /* Safari iOS specific fixes */
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 }
 
-/* Scanline animation */
+/* Scanline animation - Safari iOS compatible */
 @keyframes scanlines {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(4px); }
+    0% { 
+        transform: translateY(0); 
+        -webkit-transform: translateY(0);
+    }
+    100% { 
+        transform: translateY(4px); 
+        -webkit-transform: translateY(4px);
+    }
 }
 
-/* CRT flicker effect */
+/* CRT flicker effect - Safari iOS compatible */
 @keyframes flicker {
-    0%, 98% { opacity: 1; }
-    99% { opacity: 0.98; }
-    100% { opacity: 1; }
+    0%, 98% { 
+        opacity: 1; 
+    }
+    99% { 
+        opacity: 0.98; 
+    }
+    100% { 
+        opacity: 1; 
+    }
 }
 
-/* Container for terminal window */
+/* Container for terminal window - Safari iOS compatible */
 .terminal-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -71,6 +89,12 @@ body::before {
     animation: flicker 3s infinite;
     width: 100%;
     box-sizing: border-box;
+    /* Safari iOS performance optimizations */
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    will-change: opacity;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 }
 
 /* Terminal window styling */
@@ -187,19 +211,29 @@ p {
     flex-wrap: wrap;
 }
 
-/* User logo styling */
+/* User logo styling - Safari iOS compatible */
 .user-logo {
     max-width: 100%;
     height: auto;
     width: 324px;
     max-height: 324px;
     object-fit: contain;
+    /* Safari iOS compatible filters */
+    -webkit-filter: brightness(1.3) contrast(1.2) saturate(1.4) hue-rotate(5deg);
     filter: brightness(1.3) contrast(1.2) saturate(1.4) hue-rotate(5deg);
-    transition: filter 0.3s ease;
+    -webkit-transition: filter 0.3s ease, -webkit-filter 0.3s ease;
+    transition: filter 0.3s ease, -webkit-filter 0.3s ease;
+    /* Hardware acceleration for smooth playback */
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    will-change: filter;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 }
 
-/* User logo hover effect for enhanced green pop */
+/* User logo hover effect for enhanced green pop - Safari iOS compatible */
 .user-logo:hover {
+    -webkit-filter: brightness(1.4) contrast(1.3) saturate(1.5) hue-rotate(5deg);
     filter: brightness(1.4) contrast(1.3) saturate(1.5) hue-rotate(5deg);
 }
 
@@ -443,7 +477,15 @@ p {
         width: 270px;
         max-height: 270px;
         order: -1; /* Place user logo above BSides logo on mobile */
+        /* Safari iOS compatible filters */
+        -webkit-filter: brightness(1.3) contrast(1.2) saturate(1.4) hue-rotate(5deg);
         filter: brightness(1.3) contrast(1.2) saturate(1.4) hue-rotate(5deg);
+        /* Hardware acceleration for mobile Safari */
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        will-change: filter;
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
     }
     
     .logo-svg {
@@ -535,7 +577,15 @@ p {
         width: 216px;
         max-height: 216px;
         order: -1; /* Place user logo above BSides logo on mobile */
+        /* Safari iOS compatible filters */
+        -webkit-filter: brightness(1.3) contrast(1.2) saturate(1.4) hue-rotate(5deg);
         filter: brightness(1.3) contrast(1.2) saturate(1.4) hue-rotate(5deg);
+        /* Hardware acceleration for very small screens */
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        will-change: filter;
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
     }
     
     .logo-svg {
@@ -608,6 +658,38 @@ p {
     /* Better text contrast on small screens */
     p, .prompt-line {
         line-height: 1.8;
+    }
+}
+
+/* Safari iOS specific optimizations */
+@supports (-webkit-touch-callout: none) {
+    /* Target Safari iOS specifically */
+    .terminal-container {
+        /* Reduce animation intensity on iOS Safari for better performance */
+        animation: flicker 6s infinite;
+    }
+    
+    body::before {
+        /* Optimize scanlines for iOS Safari */
+        animation: scanlines 0.2s linear infinite;
+        opacity: 0.7;
+    }
+    
+    .user-logo {
+        /* Enhanced hardware acceleration for iOS Safari */
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+        -webkit-perspective: 1000px;
+        perspective: 1000px;
+    }
+}
+
+/* Additional iOS Safari video optimizations */
+@media screen and (-webkit-min-device-pixel-ratio: 2) {
+    .user-logo {
+        /* High DPI screen optimizations */
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
     }
 }
 
