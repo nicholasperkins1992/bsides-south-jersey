@@ -3,26 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, minimum-scale=1.0, maximum-scale=3.0">
-    <title>BSides South Jersey | Home</title>
-    <meta name="description" content="BSides South Jersey cybersecurity conference - Join us for workshops, presentations, networking, and CTF challenges in a vintage terminal-themed environment.">
+    <title>BSides South Jersey Cybersecurity Conference | South Jersey, Philadelphia & Delaware</title>
+    <meta name="description" content="BSides South Jersey cybersecurity conference: hands-on workshops, presentations, networking & CTF challenges for infosec professionals across South Jersey, Philadelphia & Delaware.">
     <!-- <meta name="keywords" content="cybersecurity, conference, BSides, South Jersey, hacking, security, workshops, CTF, networking"> -->
     <meta name="author" content="BSides South Jersey">
-    <!-- <meta name="robots" content="index, follow"> -->
+    <meta name="robots" content="index,follow">
+    <link rel="canonical" href="https://www.bsidessouthjersey.com/" />
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://nicholasperkins1992.github.io/bsides-south-jersey/">
-    <meta property="og:title" content="BSides South Jersey | Cybersecurity Conference">
-    <meta property="og:description" content="Join BSides South Jersey for a day of cybersecurity workshops, presentations, networking, and CTF challenges. All skill levels welcome.">
-    <meta property="og:image" content="https://nicholasperkins1992.github.io/bsides-south-jersey/images/logo.png">
+    <meta property="og:url" content="https://www.bsidessouthjersey.com/">
+    <meta property="og:title" content="BSides South Jersey Cybersecurity Conference (NJ / Philadelphia / Delaware)">
+    <meta property="og:description" content="Regional cybersecurity event featuring workshops, talks, networking & CTF for infosec pros and students in South Jersey, Philadelphia & Delaware.">
+    <meta property="og:image" content="https://www.bsidessouthjersey.com/images/logo.png">
     <meta property="og:site_name" content="BSides South Jersey">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://nicholasperkins1992.github.io/bsides-south-jersey/">
-    <meta property="twitter:title" content="BSides South Jersey | Cybersecurity Conference">
-    <meta property="twitter:description" content="Join BSides South Jersey for a day of cybersecurity workshops, presentations, networking, and CTF challenges. All skill levels welcome.">
-    <meta property="twitter:image" content="https://nicholasperkins1992.github.io/bsides-south-jersey/images/logo.png">
+    <meta property="twitter:url" content="https://www.bsidessouthjersey.com/">
+    <meta property="twitter:title" content="BSides South Jersey Cybersecurity Conference">
+    <meta property="twitter:description" content="Workshops, talks & CTF for cybersecurity community across South Jersey, Philadelphia & Delaware.">
+    <meta property="twitter:image" content="https://www.bsidessouthjersey.com/images/logo.png">
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
@@ -58,8 +59,8 @@
             <!-- SVG Logo Banner -->
             <div class="svg-banner">
                 <div class="logo-container">
-                    <img src="images/logo.png" alt="Conference Logo" class="user-logo">
-                    <img src="images/bsides-logo.svg" alt="BSides South Jersey" class="logo-svg">
+                    <img src="images/logo.png" alt="BSides South Jersey Cybersecurity Conference Primary Logo" class="user-logo" width="180" height="180" loading="lazy">
+                    <img src="images/bsides-logo.svg" alt="BSides South Jersey Security Conference Wordmark" class="logo-svg" loading="lazy">
                 </div>
             </div>
 
@@ -113,11 +114,11 @@
                 </div>
                 
                 <div class="event-date">
-                    <strong>DATE:</strong> [INSERT DATE HERE]
+                    <strong>DATE:</strong> <span id="event-date">[INSERT DATE HERE]</span>
                 </div>
                 
                 <div class="event-venue">
-                    <strong>VENUE:</strong> [INSERT VENUE HERE]
+                    <strong>VENUE:</strong> <span id="event-venue">[INSERT VENUE HERE]</span>
                 </div>
                 
                 <div class="event-venue">
@@ -131,7 +132,7 @@
 
             <!-- Welcome Message -->
             <div class="content-section">
-                <h2>WELCOME TO THE MATRIX</h2>
+                <h2>WELCOME TO THE MATRIX </h2>
                 <p>
                     Greetings, cyber warriors and digital defenders! You've successfully connected to 
                     BSides South Jersey's mainframe. This is not your average cybersecurity conference - 
@@ -249,6 +250,56 @@
     </div>
 
     <!-- JavaScript -->
-    <script src="js/terminal.js"></script>
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Event",
+            "name": "BSides South Jersey Cybersecurity Conference",
+            "description": "Regional cybersecurity conference featuring workshops, presentations, networking and CTF for professionals and students across South Jersey, Philadelphia and Delaware.",
+            "eventStatus": "https://schema.org/EventScheduled",
+            "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+            "startDate": "2025-11-15T09:00:00-05:00",
+            "endDate": "2025-11-15T18:00:00-05:00",
+            "location": {
+                "@type": "Place",
+                "name": "[INSERT VENUE NAME]",
+                "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "[INSERT STREET]",
+                    "addressLocality": "[City]",
+                    "addressRegion": "NJ",
+                    "postalCode": "[ZIP]",
+                    "addressCountry": "US"
+                }
+            },
+            "organizer": {
+                "@type": "Organization",
+                "name": "BSides South Jersey",
+                "url": "https://www.bsidessouthjersey.com/",
+                "logo": "https://www.bsidessouthjersey.com/images/logo.png"
+            },
+            "image": [
+                "https://www.bsidessouthjersey.com/images/logo.png"
+            ],
+            "keywords": "cybersecurity conference, South Jersey, Philadelphia, Delaware, BSides, infosec, CTF, security workshops"
+        }
+        </script>
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "BSides South Jersey",
+            "url": "https://www.bsidessouthjersey.com/",
+            "logo": "https://www.bsidessouthjersey.com/images/logo.png",
+            "sameAs": [
+                "https://twitter.com/",
+                "https://www.linkedin.com/",
+                "https://infosec.exchange/"
+            ],
+            "areaServed": ["US-NJ","US-PA","US-DE"],
+            "keywords": "cybersecurity, South Jersey, Philadelphia, Delaware, BSides, information security"
+        }
+        </script>
+        <script src="js/terminal.js"></script>
 </body>
 </html>
