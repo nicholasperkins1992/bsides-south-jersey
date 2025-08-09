@@ -1,0 +1,4 @@
+Contact: mailto:bsidessouthjersey@gmail.com
+Policy: https://www.bsidessouthjersey.org/about.html
+Preferred-Languages: en
+Expires: 2026-01-01T00:00:00Z
