@@ -252,7 +252,7 @@ p {
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
     /* Mobile interaction enhancements */
-    cursor: pointer;
+    cursor: default;
     -webkit-tap-highlight-color: rgba(0, 255, 0, 0.3);
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -512,7 +512,7 @@ p {
         backface-visibility: hidden;
         -webkit-backface-visibility: hidden;
         /* Enhanced mobile interaction */
-        cursor: pointer;
+        cursor: default;
         -webkit-tap-highlight-color: rgba(0, 255, 0, 0.3);
         -webkit-touch-callout: none;
         -webkit-user-select: none;
