@@ -168,7 +168,7 @@ body::before {
 
 .nav-links {
     display: flex;
-    gap: 30px;
+    gap: 15px;
 }
 
 .nav-link {
