@@ -185,9 +185,10 @@ body::before {
 .nav-link:hover,
 .nav-link.active {
     border-color: var(--terminal-green);
-    background-color: rgba(0, 255, 0, 0.1);
-    box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
-    text-shadow: 0 0 5px var(--terminal-green);
+    background-color: var(--terminal-green);
+    color: var(--terminal-bg);
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
+    text-shadow: none;
 }
 
 /* Hamburger menu button */
