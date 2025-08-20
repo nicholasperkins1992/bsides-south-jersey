@@ -354,6 +354,26 @@ p {
     margin: 10px 0;
 }
 
+/* Address link styling */
+.address-link {
+    color: var(--terminal-light-green);
+    text-decoration: underline;
+    text-decoration-style: dashed;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.address-link:hover {
+    color: var(--terminal-green);
+    text-shadow: 0 0 8px var(--terminal-green);
+    text-decoration-style: solid;
+}
+
+.address-link:focus {
+    outline: 1px dashed var(--terminal-green);
+    outline-offset: 2px;
+}
+
 /* Sponsor grid */
 .sponsors-grid {
     display: grid;
