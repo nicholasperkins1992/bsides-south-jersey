@@ -283,33 +283,7 @@ p {
 
 
 
-/* Mobile text banner - hidden on desktop, shown on mobile */
-.mobile-banner {
-    display: none;
-    text-align: center;
-    margin: 30px 0;
-    padding: 20px;
-    border: 2px solid var(--terminal-green);
-    border-radius: 8px;
-    background: rgba(0, 255, 0, 0.05);
-}
-
-.mobile-title {
-    font-family: 'VT323', 'Courier New', monospace;
-    font-size: 32px;
-    color: var(--terminal-green);
-    margin: 0 0 10px 0;
-    text-shadow: 0 0 10px var(--terminal-green);
-    letter-spacing: 2px;
-}
-
-.mobile-subtitle {
-    font-family: 'VT323', 'Courier New', monospace;
-    font-size: 18px;
-    color: var(--terminal-light-green);
-    margin: 0;
-    letter-spacing: 1px;
-}
+/* Content sections */
 
 
 
@@ -649,20 +623,6 @@ p {
         display: none; /* Hide ASCII art on mobile */
     }
     
-    /* Show mobile text banner instead */
-    .mobile-banner {
-        display: block;
-    }
-    
-    .mobile-title {
-        font-size: 24px;
-        margin: 0 0 6px 0;
-    }
-    
-    .mobile-subtitle {
-        font-size: 14px;
-    }
-    
     .nav-link {
         padding: 10px 12px;
         font-size: 16px;
@@ -748,12 +708,10 @@ p {
    To disable, remove the class or set the flag script to false.
    ============================================= */
 html.splash-only body { overflow: hidden; }
-html.splash-only .terminal-header,
-html.splash-only .nav-menu,
 html.splash-only .content-section,
+html.splash-only .nav-menu,
 html.splash-only .event-info,
-html.splash-only .footer,
-html.splash-only .mobile-banner {
+html.splash-only .footer {
     display: none !important;
 }
 /* Keep only the logo container centered */
