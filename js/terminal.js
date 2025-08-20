@@ -83,8 +83,64 @@ class TerminalEffects {
             });
         });
 
+        // Setup hamburger menu
+        this.setupHamburgerMenu();
+
         // Konami code easter egg
         this.setupKonamiCode();
+    }
+
+    /**
+     * Setup hamburger menu functionality for mobile navigation
+     */
+    setupHamburgerMenu() {
+        const hamburgerToggle = document.getElementById('hamburgerToggle');
+        const navLinks = document.getElementById('navLinks');
+        
+        if (hamburgerToggle && navLinks) {
+            hamburgerToggle.addEventListener('click', () => {
+                // Toggle active class on hamburger button
+                hamburgerToggle.classList.toggle('active');
+                
+                // Toggle active class on nav links
+                navLinks.classList.toggle('active');
+                
+                // Update ARIA attributes for accessibility
+                const isExpanded = navLinks.classList.contains('active');
+                hamburgerToggle.setAttribute('aria-expanded', isExpanded);
+                
+                // Play terminal click sound effect
+                console.log('> MENU_TOGGLE_EXECUTED');
+            });
+
+            // Close menu when clicking on a nav link (for mobile)
+            const links = navLinks.querySelectorAll('.nav-link');
+            links.forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburgerToggle.classList.remove('active');
+                    navLinks.classList.remove('active');
+                    hamburgerToggle.setAttribute('aria-expanded', 'false');
+                });
+            });
+
+            // Close menu when clicking outside (for mobile)
+            document.addEventListener('click', (e) => {
+                if (!hamburgerToggle.contains(e.target) && !navLinks.contains(e.target)) {
+                    hamburgerToggle.classList.remove('active');
+                    navLinks.classList.remove('active');
+                    hamburgerToggle.setAttribute('aria-expanded', 'false');
+                }
+            });
+
+            // Close menu on escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+                    hamburgerToggle.classList.remove('active');
+                    navLinks.classList.remove('active');
+                    hamburgerToggle.setAttribute('aria-expanded', 'false');
+                }
+            });
+        }
     }
 
     /**
