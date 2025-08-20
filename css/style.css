@@ -32,28 +32,8 @@ body {
     text-size-adjust: 100%;
 }
 
-/* CRT Monitor effect with scanlines - Safari iOS compatible */
 body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-        transparent 50%, 
-        var(--scanline-color) 50%
-    );
-    background-size: 100% 4px;
-    pointer-events: none;
-    z-index: 1000;
-    animation: scanlines 0.1s linear infinite;
-    /* Safari iOS specific fixes */
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-    will-change: transform;
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
+    display: none;
 }
 
 /* Scanline animation - Safari iOS compatible */
@@ -81,12 +61,10 @@ body::before {
     }
 }
 
-/* Container for terminal window - Safari iOS compatible */
 .terminal-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
-    animation: flicker 3s infinite;
     width: 100%;
     box-sizing: border-box;
     /* Safari iOS performance optimizations */
@@ -124,7 +102,6 @@ body::before {
     font-size: 24px;
     font-weight: bold;
     color: var(--terminal-light-green);
-    text-shadow: 0 0 10px var(--terminal-green);
 }
 
 .terminal-title-link {
@@ -134,7 +111,6 @@ body::before {
 
 .terminal-title-link:hover {
     color: var(--terminal-green);
-    text-shadow: 0 0 10px var(--terminal-green);
 }
 
 .terminal-title::after {
@@ -148,7 +124,6 @@ body::before {
     font-family: 'VT323', 'Courier New', monospace;
     font-size: 16px;
     color: var(--terminal-green);
-    text-shadow: 0 0 5px var(--terminal-green);
 }
 
 .current-time {
@@ -237,7 +212,6 @@ h1 {
     font-size: 36px;
     margin: 20px 0;
     text-align: center;
-    text-shadow: 0 0 20px var(--terminal-green);
     font-weight: normal;
 }
 
@@ -245,7 +219,6 @@ h2 {
     font-size: 28px;
     margin: 20px 0 15px 0;
     color: var(--terminal-light-green);
-    text-shadow: 0 0 10px var(--terminal-green);
     font-weight: normal;
 }
 
@@ -383,7 +356,6 @@ p {
 
 .address-link:hover {
     color: var(--terminal-green);
-    text-shadow: 0 0 8px var(--terminal-green);
     text-decoration-style: solid;
 }
 
@@ -508,7 +480,6 @@ p {
 .command-prompt a:hover,
 .command-prompt a:focus {
     color: var(--terminal-light-green);
-    text-shadow: 0 0 8px var(--terminal-green);
     text-decoration-color: var(--terminal-light-green);
     outline: none;
 }
@@ -813,18 +784,13 @@ p {
     }
 }
 
-/* Safari iOS specific optimizations */
 @supports (-webkit-touch-callout: none) {
-    /* Target Safari on iOS specifically */
     .terminal-container {
-        /* Reduce animation intensity on iOS Safari for better performance */
-        animation: flicker 6s infinite;
+        animation: none;
     }
     
     body::before {
-        /* Optimize scanlines for iOS Safari */
-        animation: scanlines 0.2s linear infinite;
-        opacity: 0.7;
+        display: none;
     }
     
     .user-logo {
@@ -891,17 +857,10 @@ html.splash-only .logo-container {
     gap: 30px;
 }
 
-/* Safari iOS Detection - Disable all problematic terminal effects */
-@supports (-webkit-touch-callout: none) {
-    /* This targets Safari on iOS specifically */
-    
-    /* Disable scanlines */
-    body::before {
-        display: none !important;
-    }
-    
-    /* Disable flicker animation */
-    .terminal-container {
-        animation: none !important;
-    }
+body::before {
+    display: none !important;
+}
+
+.terminal-container {
+    animation: none !important;
 }
