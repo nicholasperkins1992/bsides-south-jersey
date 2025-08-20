@@ -156,43 +156,38 @@ body::before {
 }
 
 /* Navigation menu styling */
+/* Navigation menu */
 .nav-menu {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    margin: 20px 0;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--terminal-green);
     position: relative;
 }
 
 .nav-links {
     display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
+    gap: 30px;
 }
 
 .nav-link {
     color: var(--terminal-green);
     text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
     padding: 8px 16px;
     border: 1px solid var(--terminal-green);
-    border-radius: 4px;
     transition: all 0.3s ease;
-    background-color: transparent;
-    font-family: inherit;
-    font-size: 16px;
-    display: block;
-    text-align: center;
-    min-height: 44px;
-    line-height: 1.5;
-    touch-action: manipulation;
+    position: relative;
 }
 
 .nav-link:hover,
 .nav-link.active {
-    background-color: var(--terminal-green);
-    color: var(--terminal-bg);
-    box-shadow: 0 0 15px var(--terminal-green);
-    text-shadow: none;
+    border-color: var(--terminal-green);
+    background-color: rgba(0, 255, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+    text-shadow: 0 0 5px var(--terminal-green);
 }
 
 /* Hamburger menu button */
@@ -599,23 +594,20 @@ p {
         transform: translateY(0);
         opacity: 1;
         visibility: visible;
+        padding: 10px 0;
     }
     
     .nav-link {
         text-align: center;
         padding: 15px 20px;
         font-size: 18px;
-        border: none;
-        border-bottom: 1px solid var(--terminal-green);
+        border: 1px solid var(--terminal-green);
         border-radius: 0;
-        margin: 0;
-        width: 100%;
+        margin: 5px 10px;
+        width: calc(100% - 20px);
         box-sizing: border-box;
-    }
-    
-    .nav-link:last-child {
-        border-bottom: none;
-        border-radius: 0 0 4px 4px;
+        background: transparent;
+        display: block;
     }
     
     .sponsors-grid {
