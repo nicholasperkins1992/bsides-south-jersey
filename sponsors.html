@@ -43,9 +43,19 @@
 
             <!-- Navigation menu -->
             <nav class="nav-menu">
-                <a href="index.html" class="nav-link">HOME</a>
-                <a href="about.html" class="nav-link">ABOUT</a>
-                <a href="sponsors.html" class="nav-link active">SPONSORS</a>
+                <!-- Hamburger menu button for mobile -->
+                <button type="button" class="hamburger-menu" id="hamburgerToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span class="hamburger-bar"></span>
+                    <span class="hamburger-bar"></span>
+                    <span class="hamburger-bar"></span>
+                </button>
+                
+                <!-- Navigation links -->
+                <div class="nav-links" id="navLinks">
+                    <a href="index.html" class="nav-link">HOME</a>
+                    <a href="about.html" class="nav-link">ABOUT</a>
+                    <a href="sponsors.html" class="nav-link active">SPONSORS</a>
+                </div>
             </nav>
 
             <!-- Page Header -->
@@ -433,16 +443,19 @@
             "about": {
                 "@type": "Event",
                 "name": "BSides South Jersey Cybersecurity Conference",
-                "startDate": "2025-11-15T09:00:00-05:00",
-                "endDate": "2025-11-15T18:00:00-05:00",
+                "startDate": "2026-04-18T09:00:00-05:00",
+                "endDate": "2026-04-18T16:00:00-05:00",
                 "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
                 "eventStatus": "https://schema.org/EventScheduled",
                 "location": {
                     "@type": "Place",
-                    "name": "[INSERT VENUE NAME]",
+                    "name": "Rowan University Chamberlain Student Center",
                     "address": {
                         "@type": "PostalAddress",
+                        "streetAddress": "201 Mullica Hill Rd",
+                        "addressLocality": "Glassboro",
                         "addressRegion": "NJ",
+                        "postalCode": "08028",
                         "addressCountry": "US"
                     }
                 },

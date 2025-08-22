@@ -83,8 +83,54 @@ class TerminalEffects {
             });
         });
 
+        // Setup hamburger menu
+        this.setupHamburgerMenu();
+
         // Konami code easter egg
         this.setupKonamiCode();
+    }
+
+    /**
+     * Setup hamburger menu functionality for mobile navigation
+     * Simple, reliable approach without complex event handling
+     */
+    setupHamburgerMenu() {
+        const hamburgerToggle = document.getElementById('hamburgerToggle');
+        const navLinks = document.getElementById('navLinks');
+        
+        if (!hamburgerToggle || !navLinks) return;
+        
+        // Simple click handler - no complex debouncing or state tracking
+        hamburgerToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Simple toggle using CSS classes
+            hamburgerToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+            
+            // Update aria-expanded for accessibility
+            const isOpen = navLinks.classList.contains('active');
+            hamburgerToggle.setAttribute('aria-expanded', isOpen);
+        });
+        
+        // Close menu when clicking nav links
+        const links = navLinks.querySelectorAll('.nav-link');
+        links.forEach(link => {
+            link.addEventListener('click', function() {
+                hamburgerToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+                hamburgerToggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!hamburgerToggle.contains(e.target) && !navLinks.contains(e.target)) {
+                hamburgerToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+                hamburgerToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
     }
 
     /**

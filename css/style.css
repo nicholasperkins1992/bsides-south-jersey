@@ -32,28 +32,8 @@ body {
     text-size-adjust: 100%;
 }
 
-/* CRT Monitor effect with scanlines - Safari iOS compatible */
 body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-        transparent 50%, 
-        var(--scanline-color) 50%
-    );
-    background-size: 100% 4px;
-    pointer-events: none;
-    z-index: 1000;
-    animation: scanlines 0.1s linear infinite;
-    /* Safari iOS specific fixes */
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-    will-change: transform;
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
+    display: none;
 }
 
 /* Scanline animation - Safari iOS compatible */
@@ -81,12 +61,10 @@ body::before {
     }
 }
 
-/* Container for terminal window - Safari iOS compatible */
 .terminal-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
-    animation: flicker 3s infinite;
     width: 100%;
     box-sizing: border-box;
     /* Safari iOS performance optimizations */
@@ -124,7 +102,6 @@ body::before {
     font-size: 24px;
     font-weight: bold;
     color: var(--terminal-light-green);
-    text-shadow: 0 0 10px var(--terminal-green);
 }
 
 .terminal-title-link {
@@ -134,7 +111,6 @@ body::before {
 
 .terminal-title-link:hover {
     color: var(--terminal-green);
-    text-shadow: 0 0 10px var(--terminal-green);
 }
 
 .terminal-title::after {
@@ -148,7 +124,6 @@ body::before {
     font-family: 'VT323', 'Courier New', monospace;
     font-size: 16px;
     color: var(--terminal-green);
-    text-shadow: 0 0 5px var(--terminal-green);
 }
 
 .current-time {
@@ -156,36 +131,80 @@ body::before {
 }
 
 /* Navigation menu styling */
+/* Navigation menu */
 .nav-menu {
     display: flex;
-    gap: 20px;
-    margin: 20px 0;
-    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--terminal-green);
+    position: relative;
+}
+
+.nav-links {
+    display: flex;
+    gap: 15px;
 }
 
 .nav-link {
     color: var(--terminal-green);
     text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
     padding: 8px 16px;
     border: 1px solid var(--terminal-green);
-    border-radius: 4px;
     transition: all 0.3s ease;
-    background-color: transparent;
-    font-family: inherit;
-    font-size: 16px;
-    display: block;
-    text-align: center;
-    min-height: 44px;
-    line-height: 1.5;
-    touch-action: manipulation;
+    position: relative;
 }
 
 .nav-link:hover,
 .nav-link.active {
+    border-color: var(--terminal-green);
     background-color: var(--terminal-green);
     color: var(--terminal-bg);
-    box-shadow: 0 0 15px var(--terminal-green);
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
     text-shadow: none;
+}
+
+/* Hamburger menu button */
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 10;
+    outline: none;
+}
+
+.hamburger-bar {
+    width: 25px;
+    height: 3px;
+    background-color: var(--terminal-green);
+    transition: all 0.3s ease;
+    transform-origin: 1px;
+}
+
+.hamburger-menu:hover .hamburger-bar {
+    background-color: var(--terminal-light-green);
+    box-shadow: 0 0 5px var(--terminal-green);
+}
+
+/* Hamburger menu animation states */
+.hamburger-menu.active .hamburger-bar:nth-child(1) {
+    transform: rotate(45deg);
+}
+
+.hamburger-menu.active .hamburger-bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-menu.active .hamburger-bar:nth-child(3) {
+    transform: rotate(-45deg);
 }
 
 /* Typography styles */
@@ -193,7 +212,6 @@ h1 {
     font-size: 36px;
     margin: 20px 0;
     text-align: center;
-    text-shadow: 0 0 20px var(--terminal-green);
     font-weight: normal;
 }
 
@@ -201,7 +219,6 @@ h2 {
     font-size: 28px;
     margin: 20px 0 15px 0;
     color: var(--terminal-light-green);
-    text-shadow: 0 0 10px var(--terminal-green);
     font-weight: normal;
 }
 
@@ -283,33 +300,7 @@ p {
 
 
 
-/* Mobile text banner - hidden on desktop, shown on mobile */
-.mobile-banner {
-    display: none;
-    text-align: center;
-    margin: 30px 0;
-    padding: 20px;
-    border: 2px solid var(--terminal-green);
-    border-radius: 8px;
-    background: rgba(0, 255, 0, 0.05);
-}
-
-.mobile-title {
-    font-family: 'VT323', 'Courier New', monospace;
-    font-size: 32px;
-    color: var(--terminal-green);
-    margin: 0 0 10px 0;
-    text-shadow: 0 0 10px var(--terminal-green);
-    letter-spacing: 2px;
-}
-
-.mobile-subtitle {
-    font-family: 'VT323', 'Courier New', monospace;
-    font-size: 18px;
-    color: var(--terminal-light-green);
-    margin: 0;
-    letter-spacing: 1px;
-}
+/* Content sections */
 
 
 
@@ -352,6 +343,25 @@ p {
 .event-venue {
     font-size: 20px;
     margin: 10px 0;
+}
+
+/* Address link styling */
+.address-link {
+    color: var(--terminal-light-green);
+    text-decoration: underline;
+    text-decoration-style: dashed;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.address-link:hover {
+    color: var(--terminal-green);
+    text-decoration-style: solid;
+}
+
+.address-link:focus {
+    outline: 1px dashed var(--terminal-green);
+    outline-offset: 2px;
 }
 
 /* Sponsor grid */
@@ -398,6 +408,53 @@ p {
     color: var(--terminal-dim-green);
 }
 
+/* Social Media Section */
+.social-media-section {
+    margin: 30px 0 20px 0;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin: 15px 0;
+}
+
+.social-icon {
+    width: 32px;
+    height: 32px;
+    fill: var(--terminal-green);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.social-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.social-icons a:hover .social-icon {
+    fill: var(--terminal-light-green);
+    filter: drop-shadow(0 0 8px var(--terminal-green));
+    transform: scale(1.1);
+}
+
+.social-icons a:focus {
+    outline: 1px dashed var(--terminal-green);
+    outline-offset: 4px;
+}
+
+.social-icons a:focus .social-icon {
+    fill: var(--terminal-light-green);
+    filter: drop-shadow(0 0 8px var(--terminal-green));
+}
+
 /* Command prompt styling */
 .command-prompt {
     margin: 20px 0;
@@ -423,7 +480,6 @@ p {
 .command-prompt a:hover,
 .command-prompt a:focus {
     color: var(--terminal-light-green);
-    text-shadow: 0 0 8px var(--terminal-green);
     text-decoration-color: var(--terminal-light-green);
     outline: none;
 }
@@ -477,14 +533,53 @@ p {
     }
     
     .nav-menu {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+    
+    .hamburger-menu {
+        display: flex;
+    }
+    
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--terminal-bg);
+        border: 1px solid var(--terminal-green);
+        border-top: none;
         flex-direction: column;
-        gap: 10px;
+        gap: 0;
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 1000;
+        margin-top: 10px;
+        border-radius: 0 0 4px 4px;
+        box-shadow: 0 4px 15px rgba(0, 221, 0, 0.3);
+    }
+    
+    .nav-links.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+        padding: 10px 0;
     }
     
     .nav-link {
         text-align: center;
-        padding: 12px 16px;
+        padding: 15px 20px;
         font-size: 18px;
+        border: 1px solid var(--terminal-green);
+        border-radius: 0;
+        margin: 5px 10px;
+        width: calc(100% - 20px);
+        box-sizing: border-box;
+        background: transparent;
+        display: block;
     }
     
     .sponsors-grid {
@@ -598,6 +693,28 @@ p {
         margin: 10px 0 8px 0;
     }
     
+    /* Mobile navigation for smallest screens */
+    .hamburger-menu {
+        display: flex;
+        width: 28px;
+        height: 28px;
+    }
+    
+    .hamburger-bar {
+        width: 22px;
+        height: 2px;
+    }
+    
+    .nav-links {
+        border-radius: 0 0 3px 3px;
+        box-shadow: 0 3px 10px rgba(0, 221, 0, 0.3);
+    }
+    
+    .nav-link {
+        padding: 12px 16px;
+        font-size: 16px;
+    }
+    
     /* SVG banner responsive sizing for very small screens */
     .logo-container {
         flex-direction: column;
@@ -629,25 +746,6 @@ p {
         display: none; /* Hide ASCII art on mobile */
     }
     
-    /* Show mobile text banner instead */
-    .mobile-banner {
-        display: block;
-    }
-    
-    .mobile-title {
-        font-size: 24px;
-        margin: 0 0 6px 0;
-    }
-    
-    .mobile-subtitle {
-        font-size: 14px;
-    }
-    
-    .nav-link {
-        padding: 10px 12px;
-        font-size: 16px;
-    }
-    
     .sponsor-card {
         padding: 15px;
     }
@@ -670,20 +768,29 @@ p {
     p, .prompt-line {
         line-height: 1.8;
     }
+    
+    /* Social media icons responsive sizing */
+    .social-icon {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .social-icons {
+        gap: 15px;
+    }
+    
+    .social-icons a {
+        padding: 6px;
+    }
 }
 
-/* Safari iOS specific optimizations */
 @supports (-webkit-touch-callout: none) {
-    /* Target Safari on iOS specifically */
     .terminal-container {
-        /* Reduce animation intensity on iOS Safari for better performance */
-        animation: flicker 6s infinite;
+        animation: none;
     }
     
     body::before {
-        /* Optimize scanlines for iOS Safari */
-        animation: scanlines 0.2s linear infinite;
-        opacity: 0.7;
+        display: none;
     }
     
     .user-logo {
@@ -728,12 +835,10 @@ p {
    To disable, remove the class or set the flag script to false.
    ============================================= */
 html.splash-only body { overflow: hidden; }
-html.splash-only .terminal-header,
-html.splash-only .nav-menu,
 html.splash-only .content-section,
+html.splash-only .nav-menu,
 html.splash-only .event-info,
-html.splash-only .footer,
-html.splash-only .mobile-banner {
+html.splash-only .footer {
     display: none !important;
 }
 /* Keep only the logo container centered */
@@ -752,17 +857,10 @@ html.splash-only .logo-container {
     gap: 30px;
 }
 
-/* Safari iOS Detection - Disable all problematic terminal effects */
-@supports (-webkit-touch-callout: none) {
-    /* This targets Safari on iOS specifically */
-    
-    /* Disable scanlines */
-    body::before {
-        display: none !important;
-    }
-    
-    /* Disable flicker animation */
-    .terminal-container {
-        animation: none !important;
-    }
+body::before {
+    display: none !important;
+}
+
+.terminal-container {
+    animation: none !important;
 }

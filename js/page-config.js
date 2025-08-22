@@ -5,7 +5,7 @@
 
 class PageConfig {
     constructor() {
-        this.ENABLE_SPLASH_ONLY = true; // Feature flag for splash only mode
+        this.ENABLE_SPLASH_ONLY = false; // Feature flag for splash only mode
         this.init();
     }
 
