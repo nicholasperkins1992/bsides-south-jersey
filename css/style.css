@@ -350,6 +350,7 @@ p {
     color: var(--terminal-light-green);
     text-decoration: underline;
     text-decoration-style: dashed;
+    text-underline-offset: 3px;
     transition: all 0.3s ease;
     cursor: pointer;
 }
