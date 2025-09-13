@@ -364,6 +364,63 @@ p {
     outline-offset: 2px;
 }
 
+/* CTA Button styling */
+.cta-button-container {
+    text-align: center;
+    margin: 25px 0;
+}
+
+.cta-button-container.center {
+    text-align: center;
+}
+
+.cta-button-container.left {
+    text-align: left;
+}
+
+.cta-button-container.right {
+    text-align: right;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: transparent;
+    color: var(--terminal-green);
+    border: 2px solid var(--terminal-green);
+    text-decoration: none;
+    font-family: 'VT323', 'Courier New', monospace;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    position: relative;
+    cursor: pointer;
+}
+
+.cta-button:hover {
+    background-color: var(--terminal-green);
+    color: var(--terminal-bg);
+    box-shadow: 
+        0 0 20px var(--terminal-green),
+        inset 0 0 20px rgba(0, 255, 0, 0.2);
+    text-shadow: none;
+    transform: translateY(-2px);
+}
+
+.cta-button:focus {
+    outline: 1px dashed var(--terminal-light-green);
+    outline-offset: 4px;
+}
+
+.cta-button:active {
+    transform: translateY(0px);
+    box-shadow: 
+        0 0 15px var(--terminal-green),
+        inset 0 0 15px rgba(0, 255, 0, 0.3);
+}
+
 /* Sponsor grid */
 .sponsors-grid {
     display: grid;
