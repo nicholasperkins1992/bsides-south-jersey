@@ -284,6 +284,17 @@ p {
     filter: brightness(1.4) contrast(1.3) saturate(1.5) hue-rotate(5deg);
 }
 
+
+/* Hide the devil video */
+#devil-video {
+    display: none;
+}
+
+/* Center the BSides logo when devil video is hidden */
+.logo-container .logo-svg {
+    margin: 0 auto;
+}
+
 .logo-svg {
     max-width: 100%;
     height: auto;
