@@ -237,8 +237,8 @@ p {
 /* SVG Logo Banner */
 .svg-banner {
     text-align: center;
-    margin: 30px 0;
-    padding: 10px;
+    margin: 10px 0; /* Reduced from 20px */
+    padding: 5px; /* Reduced from 10px */
 }
 
 /* Logo container for flexible layout */
@@ -246,7 +246,7 @@ p {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 20px;
+    gap: 15px; /* Reduced from 20px */
     flex-wrap: wrap;
 }
 
@@ -331,7 +331,7 @@ p {
 
 /* Content sections */
 .content-section {
-    margin: 30px 0;
+    margin: 25px 0; /* Reduced from 30px */
     padding: 20px;
     border-left: 3px solid var(--terminal-green);
     background-color: rgba(0, 255, 0, 0.05);
@@ -340,20 +340,20 @@ p {
 /* Event info styling */
 .event-info {
     text-align: center;
-    margin: 30px 0;
-    padding: 20px;
+    margin: 15px 0; /* Reduced from 20px */
+    padding: 15px; /* Reduced from 20px */
     border: 1px dashed var(--terminal-green);
 }
 
 .event-date {
     font-size: 24px;
     color: var(--terminal-light-green);
-    margin: 10px 0;
+    margin: 8px 0; /* Reduced from 10px */
 }
 
 .event-venue {
     font-size: 20px;
-    margin: 10px 0;
+    margin: 8px 0; /* Reduced from 10px */
 }
 
 /* Address link styling */
@@ -361,6 +361,7 @@ p {
     color: var(--terminal-light-green);
     text-decoration: underline;
     text-decoration-style: dashed;
+    text-underline-offset: 3px;
     transition: all 0.3s ease;
     cursor: pointer;
 }
@@ -373,6 +374,94 @@ p {
 .address-link:focus {
     outline: 1px dashed var(--terminal-green);
     outline-offset: 2px;
+}
+
+/* CTA Button styling */
+.cta-button-container {
+    text-align: center;
+    margin: 25px 0;
+}
+
+.cta-button-container.center {
+    text-align: center;
+}
+
+.cta-button-container.left {
+    text-align: left;
+}
+
+.cta-button-container.right {
+    text-align: right;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: transparent;
+    color: var(--terminal-green);
+    border: 2px solid var(--terminal-green);
+    text-decoration: none;
+    font-family: 'VT323', 'Courier New', monospace;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    position: relative;
+    cursor: pointer;
+}
+
+.cta-button:hover {
+    background-color: var(--terminal-green);
+    color: var(--terminal-bg);
+    box-shadow: 
+        0 0 20px var(--terminal-green),
+        inset 0 0 20px rgba(0, 255, 0, 0.2);
+    text-shadow: none;
+}
+
+.cta-button:focus {
+    outline: 1px dashed var(--terminal-light-green);
+    outline-offset: 4px;
+}
+
+.cta-button:active {
+    box-shadow: 
+        0 0 15px var(--terminal-green),
+        inset 0 0 15px rgba(0, 255, 0, 0.3);
+}
+
+/* Vintage Terminal Orange Register Button - Special styling for registration */
+.cta-button.pulse-glow {
+    --vintage-orange: #FF6B00;
+    --vintage-orange-bright: #FF8F00;
+    --vintage-orange-dark: #E55A00;
+    --vintage-amber: #FFB000;
+    
+    background: transparent;
+    color: var(--vintage-orange);
+    border: 2px solid var(--vintage-orange);
+}
+
+.cta-button.pulse-glow:hover {
+    background: linear-gradient(135deg, var(--vintage-orange) 0%, var(--vintage-orange-bright) 100%);
+    color: #000000;
+    border-color: var(--vintage-amber);
+    box-shadow: 
+        0 0 20px var(--vintage-orange),
+        inset 0 0 20px rgba(255, 107, 0, 0.2);
+    text-shadow: none;
+}
+
+.cta-button.pulse-glow:focus {
+    outline: 1px dashed var(--vintage-amber);
+    outline-offset: 4px;
+}
+
+.cta-button.pulse-glow:active {
+    box-shadow: 
+        0 0 15px var(--vintage-orange),
+        inset 0 0 15px rgba(255, 107, 0, 0.3);
 }
 
 /* Sponsor grid */
