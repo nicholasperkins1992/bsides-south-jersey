@@ -75,13 +75,13 @@ class TerminalEffects {
             link.addEventListener('click', this.playClickSound);
         });
 
-        // Add click effects to sponsor cards
-        const sponsorCards = document.querySelectorAll('.sponsor-card');
-        sponsorCards.forEach(card => {
-            card.addEventListener('click', () => {
-                this.highlightCard(card);
-            });
-        });
+        // Add click effects to sponsor cards - DISABLED for static cards
+        // const sponsorCards = document.querySelectorAll('.sponsor-card');
+        // sponsorCards.forEach(card => {
+        //     card.addEventListener('click', () => {
+        //         this.highlightCard(card);
+        //     });
+        // });
 
         // Setup hamburger menu
         this.setupHamburgerMenu();

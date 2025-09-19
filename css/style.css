@@ -334,7 +334,7 @@ p {
     margin: 25px 0; /* Reduced from 30px */
     padding: 20px;
     border-left: 3px solid var(--terminal-green);
-    background-color: rgba(0, 255, 0, 0.05);
+    /* background-color: rgba(0, 255, 0, 0.05); */
 }
 
 /* Event info styling */
@@ -523,13 +523,20 @@ p {
 .sponsor-card {
     border: 1px solid var(--terminal-green);
     padding: 20px;
-    background-color: rgba(0, 255, 0, 0.05);
-    transition: all 0.3s ease;
+    /* background-color: rgba(0, 255, 0, 0.05); */
+    cursor: default;
+    transform: none !important;
+    transition: none !important;
 }
 
-.sponsor-card:hover {
-    box-shadow: 0 0 15px var(--terminal-green);
-    background-color: rgba(0, 255, 0, 0.1);
+.sponsor-card:hover,
+.sponsor-card:focus,
+.sponsor-card:active {
+    transform: none !important;
+    scale: none !important;
+    box-shadow: none !important;
+    background-color: inherit !important;
+    border: 1px solid var(--terminal-green) !important;
 }
 
 .sponsor-logo {
