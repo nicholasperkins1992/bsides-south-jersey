@@ -334,7 +334,7 @@ p {
     margin: 25px 0; /* Reduced from 30px */
     padding: 20px;
     border-left: 3px solid var(--terminal-green);
-    background-color: rgba(0, 255, 0, 0.05);
+    /* background-color: rgba(0, 255, 0, 0.05); */
 }
 
 /* Event info styling */
@@ -464,6 +464,54 @@ p {
         inset 0 0 15px rgba(255, 107, 0, 0.3);
 }
 
+/* Static glow for speaker proposal button */
+.cta-button.speaker-pulse {
+    background-color: rgba(0, 221, 0, 0.02);
+    border-color: var(--terminal-green);
+    color: var(--terminal-green);
+    box-shadow: 
+        0 0 3px var(--terminal-green),
+        0 0 6px var(--terminal-green),
+        0 0 10px rgba(0, 221, 0, 0.2);
+}
+
+.cta-button.speaker-pulse:hover {
+    background-color: var(--terminal-green);
+    color: var(--terminal-bg);
+    box-shadow: 
+        0 0 25px var(--terminal-green),
+        inset 0 0 20px rgba(0, 255, 0, 0.2);
+}
+
+/* Scroll button styling */
+.cta-button.scroll-button {
+    background-color: rgba(0, 221, 0, 0.02);
+    border: 1px solid var(--terminal-green);
+    color: var(--terminal-green);
+    font-size: 16px;
+    padding: 12px 25px;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+    box-shadow: 
+        0 0 3px var(--terminal-green),
+        0 0 6px var(--terminal-green),
+        0 0 10px rgba(0, 221, 0, 0.2);
+}
+
+.cta-button.scroll-button:hover {
+    background-color: var(--terminal-green);
+    color: var(--terminal-bg);
+    border-color: var(--terminal-green);
+    box-shadow: 
+        0 0 15px var(--terminal-green),
+        inset 0 0 15px rgba(0, 221, 0, 0.2);
+}
+
+.cta-button.scroll-button:focus {
+    outline: 1px dashed var(--terminal-green);
+    outline-offset: 4px;
+}
+
 /* Sponsor grid */
 .sponsors-grid {
     display: grid;
@@ -475,13 +523,20 @@ p {
 .sponsor-card {
     border: 1px solid var(--terminal-green);
     padding: 20px;
-    background-color: rgba(0, 255, 0, 0.05);
-    transition: all 0.3s ease;
+    /* background-color: rgba(0, 255, 0, 0.05); */
+    cursor: default;
+    transform: none !important;
+    transition: none !important;
 }
 
-.sponsor-card:hover {
-    box-shadow: 0 0 15px var(--terminal-green);
-    background-color: rgba(0, 255, 0, 0.1);
+.sponsor-card:hover,
+.sponsor-card:focus,
+.sponsor-card:active {
+    transform: none !important;
+    scale: none !important;
+    box-shadow: none !important;
+    background-color: inherit !important;
+    border: 1px solid var(--terminal-green) !important;
 }
 
 .sponsor-logo {
