@@ -331,6 +331,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 1000);
     }
     
+    // Add event listener for scroll to speakers button
+    const scrollButton = document.getElementById('scroll-to-speakers-btn');
+    if (scrollButton) {
+        scrollButton.addEventListener('click', scrollToSpeakers);
+    }
+    
     // Add loading effect
     document.body.style.opacity = '0';
     setTimeout(() => {
@@ -342,4 +348,36 @@ document.addEventListener('DOMContentLoaded', () => {
 // Export for use in other scripts if needed
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = { TerminalEffects, DateTimeUtils };
+}
+
+/**
+ * Smooth scroll to the Call for Speakers section
+ */
+function scrollToSpeakers() {
+    console.log('scrollToSpeakers function called'); // Debug log
+    const speakersSection = document.getElementById('call-for-speakers');
+    console.log('Found speakers section:', speakersSection); // Debug log
+    
+    if (speakersSection) {
+        speakersSection.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+        
+        // Optional: Add a slight highlight effect when scrolled to
+        speakersSection.style.backgroundColor = 'rgba(0, 255, 0, 0.1)';
+        setTimeout(() => {
+            speakersSection.style.backgroundColor = 'rgba(0, 255, 0, 0.05)';
+        }, 1000);
+    } else {
+        console.error('Could not find element with id: call-for-speakers');
+    }
+}
+
+// Make sure the function is available globally
+window.scrollToSpeakers = scrollToSpeakers;
+
+// Export for use in other scripts if needed
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = { TerminalEffects, DateTimeUtils, scrollToSpeakers };
 }
