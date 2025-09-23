@@ -4,12 +4,14 @@
 
 /* Root variables for consistent theming */
 :root {
-  --terminal-green: #00dd00;
+  --terminal-green: #71cd71;
   --terminal-bg: #000000;
   --terminal-light-green: #44ff44;
   --terminal-dim-green: #00bb00;
   --terminal-border: #00dd00;
   --scanline-color: rgba(0, 221, 0, 0.1);
+  --sponsor-card-width: 300px;
+  --text-note: #304431ff;
 }
 
 /* Global reset and base styles */
@@ -22,8 +24,8 @@
 body {
   background-color: var(--terminal-bg);
   color: var(--terminal-green);
-  font-family: "VT323", "Courier Prime", "Courier New", monospace;
-  font-size: 18px;
+  font-family: "Courier Prime", "Courier New", monospace;
+  font-size: 16px;
   line-height: 1.4;
   overflow-x: hidden;
   min-height: 100vh;
@@ -83,7 +85,7 @@ body::before {
   padding: 20px;
   margin: 20px 0;
   background-color: var(--terminal-bg);
-  box-shadow: 0 0 20px var(--terminal-green),
+  box-shadow: 0 0 20px var(--terminal-border),
     inset 0 0 20px rgba(0, 255, 0, 0.1);
   position: relative;
 }
@@ -137,7 +139,7 @@ body::before {
   justify-content: space-between;
   align-items: center;
   padding: 15px 0;
-  border-bottom: 1px solid var(--terminal-green);
+  border-bottom: 1px solid var(--terminal-border);
   position: relative;
 }
 
@@ -212,6 +214,7 @@ h1 {
   font-size: 36px;
   margin: 20px 0;
   text-align: center;
+  color: var(--terminal-light-green);
   font-weight: normal;
 }
 
@@ -334,8 +337,7 @@ p {
 .content-section {
   margin: 30px 0;
   padding: 20px;
-  border-left: 3px solid var(--terminal-green);
-  background-color: rgba(0, 255, 0, 0.05);
+  /* border-left: 3px solid var(--content-section-border); */
 }
 
 /* Event info styling */
@@ -385,14 +387,14 @@ p {
 }
 
 .sponsor-card {
-  border: 1px solid var(--terminal-green);
+  border: 1px solid var(--terminal-border);
   padding: 20px;
-  background-color: rgba(0, 255, 0, 0.05);
+  /* background-color: rgba(0, 255, 0, 0.05); */
   transition: all 0.3s ease;
 }
 
 .sponsor-card:hover {
-  box-shadow: 0 0 15px var(--terminal-green);
+  box-shadow: 0 0 15px var(--terminal-border);
   background-color: rgba(0, 255, 0, 0.1);
 }
 
@@ -401,7 +403,7 @@ p {
   max-width: 200px;
   height: 100px;
   background-color: var(--terminal-dim-green);
-  border: 1px solid var(--terminal-green);
+  border: 1px solid var(--terminal-border);
   display: flex;
   align-items: center;
   justify-content: center;
