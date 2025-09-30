@@ -146,19 +146,15 @@
 
         <!-- Event Information -->
         <div class="event-info">
-          <h2>EVENT DETAILS</h2>
-
           <div class="event-date">
-            <strong>DATE:</strong> <span id="event-date">April 18th, 2026</span>
+            <span id="event-date">April 18th, 2026</span>
           </div>
 
           <div class="event-venue">
-            <strong>VENUE:</strong>
             <span id="event-venue">Rowan University</span>
           </div>
 
           <div class="event-venue">
-            <strong>ADDRESS:</strong>
             <a
               href="https://www.google.com/maps/search/?api=1&query=201+Mullica+Hill+Rd,+Glassboro,+NJ+08028"
               target="_blank"
@@ -169,9 +165,7 @@
             </a>
           </div>
 
-          <div class="event-venue">
-            <strong>TIME:</strong> 9:00 AM - 4:00 PM EST
-          </div>
+          <div class="event-venue">9:00 AM - 4:00 PM EST</div>
 
           <div class="cta-button-container center">
             <button
@@ -182,73 +176,131 @@
               Registration coming soon
             </button>
           </div>
-
-          <div class="cta-button-container center">
-            <button
-              id="scroll-to-speakers-btn"
-              class="cta-button scroll-button"
-            >
-              Interested in Speaking? →
-            </button>
-          </div>
         </div>
 
-        <!-- Welcome Message -->
+        <!-- Get Involved -->
         <div class="content-section">
-          <h2>WELCOME!</h2>
-          <p>
-            Greetings! You've successfully connected to BSides South Jersey's
-            mainframe.
-          </p>
-
+          <h2><span class="prompt-symbol">></span> JOIN THE MOVEMENT</h2>
           <p>
             BSides South Jersey brings together hackers, security professionals,
             students, and curious minds for a day of knowledge sharing,
             networking, and exploration of the latest trends in information
-            security. Whether you're a seasoned pentester or just beginning your
-            journey into the world of cybersecurity.
+            security. BSides South Jersey thrives on community participation.
+            Whether you're interested in speaking, volunteering, sponsoring, or
+            simply attending, there are multiple ways to contribute to our
+            cybersecurity community.
           </p>
 
-          <!-- <div class="command-prompt">
-                    <div class="prompt-line">
-                        <span class="prompt-symbol">user@terminal:~$</span> cat mission_statement.txt
-                    </div>
-                    <div class="command-output">
-                        Mission: To create a collaborative environment where cybersecurity professionals<br>
-                        can share knowledge, learn new techniques, and build lasting connections in the<br>
-                        information security community. All skill levels welcome - from script kiddies<br>
-                        to elite hackers.
-                    </div> -->
-        </div>
-
-        <!-- Features Section -->
-        <div class="content-section">
-          <h2>CONFERENCE FEATURES</h2>
-
-          <div class="features-grid">
+          <div
+            style="
+              display: grid;
+              grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+              gap: 20px;
+              margin: 20px 0;
+            "
+          >
             <div class="content-card">
-              <h3>PRESENTATIONS</h3>
-              <p>
-                Expert talks on emerging threats, vulnerability research,
-                incident response, and cutting-edge security technologies.
-              </p>
+              <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSfJ21GqSNAxzRffx1PS5oc71uVCfgPdN4GPrL17_TlckAiC2w/viewform"
+                target="_blank"
+                style="
+                  text-decoration: none;
+                  color: inherit;
+                  display: block;
+                  height: 100%;
+                "
+              >
+                <h3>SPEAK</h3>
+                <p>
+                  Share your knowledge, research, or war stories with the
+                  community.
+                </p>
+              </a>
+              <h5
+                style="
+                  text-align: center;
+                  color: var(--text-note);
+                  margin-top: -25px;
+                "
+              >
+                click to inquire
+              </h5>
             </div>
 
             <div class="content-card">
-              <h3>NETWORKING</h3>
-              <p>
-                Connect with fellow security professionals, share experiences,
-                and build relationships that last beyond the conference.
-              </p>
+              <a
+                href="mailto:bsidessouthjersey@gmail.com"
+                style="
+                  text-decoration: none;
+                  color: inherit;
+                  display: block;
+                  height: 100%;
+                "
+              >
+                <h3>VOLUNTEER</h3>
+                <p>
+                  Help make the event successful while networking with fellow
+                  professionals.
+                </p>
+              </a>
+              <h5
+                style="
+                  text-align: center;
+                  color: var(--text-note);
+                  margin-top: -25px;
+                "
+              >
+                click to inquire
+              </h5>
             </div>
 
             <div class="content-card">
-              <h3>CTF CHALLENGES</h3>
+              <a
+                href="sponsors.html"
+                style="
+                  text-decoration: none;
+                  color: inherit;
+                  display: block;
+                  height: 100%;
+                "
+              >
+                <h3>SPONSOR</h3>
+                <p>
+                  Support the community while showcasing your organization's
+                  commitment to cybersecurity.
+                </p>
+              </a>
+              <h5
+                style="
+                  text-align: center;
+                  color: var(--text-note);
+                  margin-top: -25px;
+                "
+              >
+                click to inquire
+              </h5>
+            </div>
+
+            <div class="content-card content-card-dead">
+              <h3>ATTEND</h3>
               <p>
-                Test your skills in our Capture The Flag competition featuring
-                cryptography, reverse engineering, and web exploitation
-                challenges.
+                Join us for a day of learning, networking, and cybersecurity
+                exploration.
               </p>
+            </div>
+          </div>
+
+          <div class="command-prompt" style="margin: 20px 0">
+            <div class="prompt-line">
+              <br />
+              <span class="prompt-symbol">></span> For all other questions,
+              contact:
+            </div>
+            <div class="prompt-line">
+              <span class="prompt-symbol">></span><span> </span
+              ><a href="mailto:bsidessouthjersey@gmail.com"
+                >bsidessouthjersey@gmail.com</a
+              >
             </div>
           </div>
         </div>
@@ -275,61 +327,28 @@
           </p>
         </div>
 
-        <!-- Call for Speakers -->
-        <div class="content-section" id="call-for-speakers">
-          <h2>CALL FOR SPEAKERS</h2>
-          <div class="command-prompt">
-            <div class="prompt-line">
-              <span class="prompt-symbol">speakers@bsides:~$</span>
-              ./submit_proposal.sh
-            </div>
-            <div class="prompt-line">
-              <span class="prompt-symbol">></span> Scanning for innovative
-              presentations...
-            </div>
-          </div>
-
-          <p>
-            We're looking for passionate security professionals, researchers,
-            and hackers to share their knowledge and insights at BSides South
-            Jersey. Whether you're presenting cutting-edge research, practical
-            techniques, or hard-learned lessons from the trenches, we want to
-            hear from you!
-          </p>
-
-          <div class="cta-button-container left">
-            <a
-              href="https://docs.google.com/forms/d/e/1FAIpQLSfJ21GqSNAxzRffx1PS5oc71uVCfgPdN4GPrL17_TlckAiC2w/viewform"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="cta-button speaker-pulse"
-            >
-              Submit Your Speaker Proposal →
-            </a>
-          </div>
-        </div>
         <!-- Footer -->
         <div class="footer">
           <div class="command-prompt">
-            <div class="prompt-line">
+            <!-- <div class="prompt-line">
               <span class="prompt-symbol">system@bsides-sj:~$</span> uptime
-            </div>
+            </div> -->
             <div class="prompt-line">
               System online since: 2025 | BSides Conference Initiative
             </div>
-            <div class="prompt-line">
+            <!-- <div class="prompt-line">
               <span class="prompt-symbol">system@bsides-sj:~$</span> whoami
-            </div>
+            </div> -->
             <div class="prompt-line">BSides South Jersey</div>
           </div>
 
           <!-- Social Media Icons -->
           <div class="social-media-section">
             <div class="command-prompt">
-              <div class="prompt-line">
+              <!-- <div class="prompt-line">
                 <span class="prompt-symbol">social@bsides:~$</span> ls -la
                 ./social_networks/
-              </div>
+              </div> -->
             </div>
             <div class="social-icons">
               <a
@@ -362,6 +381,33 @@
                 >
                   <path
                     d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"
+                  />
+                </svg>
+              </a>
+              <a
+                href="https://www.linkedin.com/groups/13341005/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Follow BSides South Jersey on LinkedIn"
+              >
+                <svg
+                  class="social-icon"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M6.5 8C7.32843 8 8 7.32843 8 6.5C8 5.67157 7.32843 5 6.5 5C5.67157 5 5 5.67157 5 6.5C5 7.32843 5.67157 8 6.5 8Z"
+                  />
+                  <path
+                    d="M5 10C5 9.44772 5.44772 9 6 9H7C7.55228 9 8 9.44771 8 10V18C8 18.5523 7.55228 19 7 19H6C5.44772 19 5 18.5523 5 18V10Z"
+                  />
+                  <path
+                    d="M11 19H12C12.5523 19 13 18.5523 13 18V13.5C13 12 16 11 16 13V18.0004C16 18.5527 16.4477 19 17 19H18C18.5523 19 19 18.5523 19 18V12C19 10 17.5 9 15.5 9C13.5 9 13 10.5 13 10.5V10C13 9.44771 12.5523 9 12 9H11C10.4477 9 10 9.44772 10 10V18C10 18.5523 10.4477 19 11 19Z"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M20 1C21.6569 1 23 2.34315 23 4V20C23 21.6569 21.6569 23 20 23H4C2.34315 23 1 21.6569 1 20V4C1 2.34315 2.34315 1 4 1H20ZM20 3C20.5523 3 21 3.44772 21 4V20C21 20.5523 20.5523 21 20 21H4C3.44772 21 3 20.5523 3 20V4C3 3.44772 3.44772 3 4 3H20Z"
                   />
                 </svg>
               </a>
