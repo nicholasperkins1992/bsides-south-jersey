@@ -5,13 +5,18 @@
 /* Root variables for consistent theming */
 :root {
   --terminal-green: #71cd71;
-  --terminal-bg: #000000;
-  --terminal-light-green: #44ff44;
-  --terminal-dim-green: #00bb00;
-  --terminal-border: #00dd00;
+  --terminal-red: #a70000ff;
+  --terminal-bg: #111111;
+  --terminal-light-green: #88ff88ff;
+  --terminal-dim-green: #488348ff;
+  --terminal-border: #71cd71;
   --scanline-color: rgba(0, 221, 0, 0.1);
   --sponsor-card-width: 300px;
   --text-note: #304431ff;
+  --vintage-orange: #ffae00ff;
+  --vintage-orange-bright: #ff8f00;
+  --vintage-orange-dark: #e55a00;
+  --vintage-amber: #ffb000;
 }
 
 /* Global reset and base styles */
@@ -84,7 +89,7 @@ body::before {
   border-radius: 8px;
   padding: 20px;
   margin: 20px 0;
-  background-color: var(--terminal-bg);
+  background-color: #000000; // var(--terminal-bg);
   box-shadow: 0 0 20px var(--terminal-border),
     inset 0 0 20px rgba(0, 255, 0, 0.1);
   position: relative;
@@ -342,13 +347,10 @@ p {
 /* Event info styling */
 .event-info {
   text-align: center;
-  margin: 30px 0;
-  padding: 20px;
-  border: 1px dashed var(--terminal-green);
-  text-align: center;
   margin: 15px 0; /* Reduced from 20px */
   padding: 15px; /* Reduced from 20px */
   border: 1px dashed var(--terminal-green);
+  background-color: rgba(0, 88, 52, 0.15);
 }
 
 .event-date {
@@ -417,8 +419,8 @@ p {
   color: var(--terminal-green);
   border: 2px solid var(--terminal-green);
   text-decoration: none;
-  font-family: "VT323", "Courier New", monospace;
-  font-size: 20px;
+  font-family: "Courier New", monospace;
+  font-size: 18px;
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -447,11 +449,6 @@ p {
 
 /* Vintage Terminal Orange Register Button - Special styling for registration */
 .cta-button.pulse-glow {
-  --vintage-orange: #ff6b00;
-  --vintage-orange-bright: #ff8f00;
-  --vintage-orange-dark: #e55a00;
-  --vintage-amber: #ffb000;
-
   background: transparent;
   color: var(--vintage-orange);
   border: 2px solid var(--vintage-orange);
@@ -530,15 +527,66 @@ p {
   margin: 30px 0;
 }
 
+h2 {
+  color: var(--vintage-orange);
+}
+
+.core-value-card {
+  border: 1px solid var(--terminal-border);
+  background-color: rgba(0, 88, 52, 0.15);
+  padding: 20px;
+}
+
 .content-card {
   border: 1px solid var(--terminal-border);
   padding: 20px;
+  background-color: rgba(0, 88, 52, 0.15);
+}
+
+.content-card:hover {
+  box-shadow: 0 0 15px var(--terminal-border);
+  background-color: rgba(72, 122, 72, 0.25);
+}
+
+.content-card-dead {
+  border: 1px solid rgba(100, 100, 100, 0.3);
+  background-color: rgba(100, 100, 100, 0.1);
+  color: rgba(100, 100, 100, 0.3);
+  cursor: not-allowed;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.content-card-dead h1,
+.content-card-dead h2,
+.content-card-dead h3,
+.content-card-dead h4,
+.content-card-dead h5,
+.content-card-dead h6 {
+  color: rgba(100, 100, 100, 0.3) !important;
+}
+
+.content-card-dead::before {
+  content: "COMING SOON";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  font-size: 40px;
+  font-weight: bold;
+  color: #e55a00;
+  z-index: 1;
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
 }
 
 .sponsor-card {
   border: 1px solid var(--terminal-border);
   padding: 20px;
   transition: all 0.3s ease;
+  background-color: rgba(0, 88, 52, 0.15);
 }
 
 .sponsor-card:hover {
@@ -625,10 +673,6 @@ p {
 
 .prompt-line {
   margin: 5px 0;
-}
-
-.prompt-symbol {
-  color: var(--terminal-light-green);
 }
 
 /* Link styling inside terminal prompt blocks (keep consistent green theme) */
