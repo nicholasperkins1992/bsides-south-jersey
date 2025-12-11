@@ -307,6 +307,7 @@ p {
   height: auto;
   width: 400px;
   max-height: 350px;
+  padding: 25px;
   /* Removed haze effect: filter: drop-shadow(0 0 8px var(--terminal-green)); */
   /* Removed transition: transition: filter 0.3s ease; */
 }
