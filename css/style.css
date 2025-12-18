@@ -148,6 +148,28 @@ body::before {
   position: relative;
 }
 
+/* Donate button styling */
+.donate-button {
+  color: var(--vintage-orange);
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 8px 16px;
+  border: 2px solid var(--vintage-orange);
+  transition: all 0.3s ease;
+  background-color: transparent;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.donate-button:hover {
+  border-color: var(--vintage-orange);
+  background-color: var(--vintage-orange);
+  color: var(--terminal-bg);
+  box-shadow: 0 0 15px var(--vintage-orange);
+  text-shadow: none;
+}
+
 .nav-links {
   display: flex;
   gap: 15px;
@@ -787,6 +809,12 @@ h2 {
     box-sizing: border-box;
     background: transparent;
     display: block;
+  }
+
+  /* Donate button mobile styles */
+  .donate-button {
+    font-size: 14px;
+    padding: 8px 12px;
   }
 
   .sponsors-grid {
