@@ -132,6 +132,35 @@
           <h1>Speakers</h1>
         </div>
 
+        <!-- Featured Speakers Section (to be populated) -->
+        <div class="content-section">
+          <h2><span class="prompt-symbol">></span> FEATURED SPEAKERS</h2>
+          <p>
+            Our speaker lineup will be announced soon. Check back here for
+            updates on confirmed presentations and workshops.
+          </p>
+
+          <!-- Speaker cards will go here once speakers are confirmed -->
+          <div
+            style="
+              display: grid;
+              grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+              gap: 20px;
+              margin: 20px 0;
+            "
+          >
+            <!-- Example speaker card structure (commented out until we have actual speakers)
+            <div class="core-value-card">
+              <h3>SPEAKER NAME</h3>
+              <p style="color: var(--vintage-orange); margin: 5px 0">Title/Position</p>
+              <p>
+                Brief bio and presentation topic description goes here.
+              </p>
+            </div>
+            -->
+          </div>
+        </div>
+
         <!-- Call for Speakers -->
         <div class="content-section">
           <h2><span class="prompt-symbol">></span> CALL FOR SPEAKERS</h2>
@@ -207,20 +236,23 @@
               <strong>Notification Date:</strong> January 16th, 2026
             </p>
             <div style="margin-top: 20px">
-              <a
-                href="https://docs.google.com/forms/d/e/1FAIpQLSfJ21GqSNAxzRffx1PS5oc71uVCfgPdN4GPrL17_TlckAiC2w/viewform"
-                target="_blank"
+              <button
+                disabled
                 style="
                   display: inline-block;
                   padding: 12px 24px;
-                  background-color: var(--vintage-orange);
-                  color: var(--terminal-bg);
+                  background-color: #666666;
+                  color: #999999;
                   text-decoration: none;
                   font-weight: bold;
                   border-radius: 4px;
+                  border: none;
+                  cursor: not-allowed;
+                  opacity: 0.6;
                 "
-                >SUBMIT YOUR TALK</a
               >
+                SUBMIT YOUR TALK (CLOSED)
+              </button>
             </div>
           </div>
 
@@ -247,35 +279,6 @@
               • Disclose any potential conflicts of interest<br />
               • All content must be original or properly attributed
             </div>
-          </div>
-        </div>
-
-        <!-- Featured Speakers Section (to be populated) -->
-        <div class="content-section">
-          <h2><span class="prompt-symbol">></span> FEATURED SPEAKERS</h2>
-          <p>
-            Our speaker lineup will be announced soon. Check back here for
-            updates on confirmed presentations and workshops.
-          </p>
-
-          <!-- Speaker cards will go here once speakers are confirmed -->
-          <div
-            style="
-              display: grid;
-              grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-              gap: 20px;
-              margin: 20px 0;
-            "
-          >
-            <!-- Example speaker card structure (commented out until we have actual speakers)
-            <div class="core-value-card">
-              <h3>SPEAKER NAME</h3>
-              <p style="color: var(--vintage-orange); margin: 5px 0">Title/Position</p>
-              <p>
-                Brief bio and presentation topic description goes here.
-              </p>
-            </div>
-            -->
           </div>
         </div>
 
