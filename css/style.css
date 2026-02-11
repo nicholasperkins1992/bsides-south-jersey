@@ -734,6 +734,17 @@ h2 {
     padding: 10px;
   }
 
+  /* Sponsor CTA email button - prevent overflow on mobile */
+  .sponsor-cta-btn {
+    font-size: 1.2em !important;
+    padding: 12px 20px !important;
+    letter-spacing: 1px !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+
   .terminal-window {
     padding: 15px;
     margin: 10px 0;
@@ -886,6 +897,13 @@ h2 {
 }
 
 @media (max-width: 480px) {
+  /* Sponsor CTA email button - smaller screens */
+  .sponsor-cta-btn {
+    font-size: 1em !important;
+    padding: 10px 15px !important;
+    letter-spacing: 0px !important;
+  }
+
   body {
     font-size: 16px;
   }
