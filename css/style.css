@@ -12,6 +12,7 @@
   --terminal-border: #71cd71;
   --scanline-color: rgba(0, 221, 0, 0.1);
   --partner-card-width: 300px;
+  --partner-card-width: 300px;
   --text-note: #304431ff;
   --vintage-orange: #ffae00ff;
   --vintage-orange-bright: #ff8f00;
@@ -522,6 +523,8 @@ p {
 
 /* Partner grid */
 .partners-grid {
+/* Partner grid */
+.partners-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
@@ -584,6 +587,7 @@ h2 {
 }
 
 .partner-card {
+.partner-card {
   border: 1px solid var(--terminal-border);
   padding: 20px;
   transition: all 0.3s ease;
@@ -591,10 +595,12 @@ h2 {
 }
 
 .partner-card:hover {
+.partner-card:hover {
   box-shadow: 0 0 15px var(--terminal-border);
   background-color: rgba(0, 255, 0, 0.1);
 }
 
+.partner-logo {
 .partner-logo {
   width: 190px;
   height: 115px;
@@ -613,6 +619,7 @@ h2 {
   min-width: 0;
 }
 
+.partner-logo a {
 .partner-logo a {
   display: flex;
   align-items: center;
@@ -642,6 +649,7 @@ h2 {
 }
 
 .partner-logo .scanline-overlay {
+.partner-logo .scanline-overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -651,6 +659,7 @@ h2 {
   border-radius: 4px;
 }
 
+.partner-logo-container {
 .partner-logo-container {
   display: flex;
   justify-content: center;
@@ -749,6 +758,7 @@ h2 {
   }
 
   .partners-grid {
+  .partners-grid {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   }
 }
@@ -758,6 +768,8 @@ h2 {
     padding: 10px;
   }
 
+  /* Partner CTA email button - prevent overflow on mobile */
+  .partner-cta-btn {
   /* Partner CTA email button - prevent overflow on mobile */
   .partner-cta-btn {
     font-size: 1.2em !important;
@@ -852,6 +864,7 @@ h2 {
     display: block;
   }
 
+  .partners-grid {
   .partners-grid {
     grid-template-columns: 1fr;
     gap: 15px;
@@ -1028,9 +1041,11 @@ h2 {
   }
 
   .partner-card {
+  .partner-card {
     padding: 15px;
   }
 
+  .partner-logo {
   .partner-logo {
     width: 160px;
     height: 100px;
