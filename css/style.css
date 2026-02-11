@@ -607,14 +607,37 @@ h2 {
   position: relative;
   margin: 0;
   flex-shrink: 0;
+  /* Safari iOS flex bug workaround — prevents child collapse */
+  min-height: 0;
+  min-width: 0;
+}
+
+.sponsor-logo a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  /* Safari iOS — explicit dimensions prevent flex child collapse */
+  min-height: 0;
+  min-width: 0;
 }
 
 .sponsor-logo img {
-  max-width: 100%;
-  max-height: 100%;
+  /* Use explicit width/height instead of max-width/max-height
+     to avoid Safari iOS flex + percentage resolution bug */
+  width: auto;
+  height: auto;
+  max-width: 90%;
+  max-height: 90%;
   object-fit: contain;
   position: relative;
   z-index: 1;
+  /* Safari iOS — force the image to be a block-level element
+     so intrinsic size is properly computed in flex layouts */
+  display: block;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
 }
 
 .sponsor-logo .scanline-overlay {
@@ -732,6 +755,17 @@ h2 {
 @media (max-width: 768px) {
   .terminal-container {
     padding: 10px;
+  }
+
+  /* Sponsor CTA email button - prevent overflow on mobile */
+  .sponsor-cta-btn {
+    font-size: 1.2em !important;
+    padding: 12px 20px !important;
+    letter-spacing: 1px !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
   }
 
   .terminal-window {
@@ -886,6 +920,13 @@ h2 {
 }
 
 @media (max-width: 480px) {
+  /* Sponsor CTA email button - smaller screens */
+  .sponsor-cta-btn {
+    font-size: 1em !important;
+    padding: 10px 15px !important;
+    letter-spacing: 0px !important;
+  }
+
   body {
     font-size: 16px;
   }
