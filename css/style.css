@@ -607,7 +607,8 @@ h2 {
   position: relative;
   margin: 0;
   flex-shrink: 0;
-  /* Safari iOS flex bug workaround — prevents child collapse */
+  /* Safari iOS — clip oversized content so images never blow out */
+  overflow: hidden;
   min-height: 0;
   min-width: 0;
 }
@@ -624,17 +625,17 @@ h2 {
 }
 
 .partner-logo img {
-  /* Use explicit width/height instead of max-width/max-height
-     to avoid Safari iOS flex + percentage resolution bug */
-  width: auto;
-  height: auto;
-  max-width: 90%;
-  max-height: 90%;
+  /* Safari iOS fix: percentage max-width/max-height resolves against
+     intrinsic image size in flex containers, causing blow-out.
+     Use explicit fill + object-fit + padding instead. */
+  width: 100%;
+  height: 100%;
   object-fit: contain;
+  /* Padding replaces the old 90% max effect, giving breathing room */
+  padding: 8px;
+  box-sizing: border-box;
   position: relative;
   z-index: 1;
-  /* Safari iOS — force the image to be a block-level element
-     so intrinsic size is properly computed in flex layouts */
   display: block;
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
