@@ -990,6 +990,13 @@ h2 {
     height: 100px;
   }
 
+  .acknowledgements-names {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    text-align: left !important;
+    gap: 8px !important;
+  }
+
   .event-date,
   .event-venue {
     font-size: 16px;
