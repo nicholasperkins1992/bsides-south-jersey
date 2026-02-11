@@ -1109,17 +1109,16 @@
             class="partner-cta-btn"
             style="
               display: inline-block;
-              font-size: 1.8em;
+              font-size: clamp(0.85em, 3.8vw, 1.8em);
               color: var(--vintage-orange);
               text-decoration: none;
               border: 2px solid var(--vintage-orange);
-              padding: 15px 40px;
-              letter-spacing: 2px;
+              padding: 15px clamp(15px, 4vw, 40px);
+              letter-spacing: clamp(0px, 0.5vw, 2px);
               transition: all 0.3s ease;
               max-width: 100%;
               box-sizing: border-box;
-              word-break: break-word;
-              overflow-wrap: break-word;
+              white-space: nowrap;
             "
             onmouseover="this.style.background='var(--vintage-orange)'; this.style.color='black';"
             onmouseout="this.style.background='transparent'; this.style.color='var(--vintage-orange)';"

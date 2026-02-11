@@ -607,6 +607,8 @@ h2 {
   position: relative;
   margin: 0;
   flex-shrink: 0;
+  /* Safari — clip any content that exceeds the fixed dimensions */
+  overflow: hidden;
   /* Safari iOS flex bug workaround — prevents child collapse */
   min-height: 0;
   min-width: 0;
@@ -624,12 +626,13 @@ h2 {
 }
 
 .partner-logo img {
-  /* Use explicit width/height instead of max-width/max-height
-     to avoid Safari iOS flex + percentage resolution bug */
+  /* Safari flex + percentage resolution bug: use absolute pixel
+     limits derived from the container size so the browser never
+     falls back to the image's intrinsic dimensions */
   width: auto;
   height: auto;
-  max-width: 90%;
-  max-height: 90%;
+  max-width: 170px;
+  max-height: 100px;
   object-fit: contain;
   position: relative;
   z-index: 1;
@@ -759,13 +762,12 @@ h2 {
 
   /* Partner CTA email button - prevent overflow on mobile */
   .partner-cta-btn {
-    font-size: 1.2em !important;
-    padding: 12px 20px !important;
-    letter-spacing: 1px !important;
+    font-size: clamp(0.85em, 3.8vw, 1.2em) !important;
+    padding: 12px 15px !important;
+    letter-spacing: 0px !important;
     max-width: 100% !important;
     box-sizing: border-box !important;
-    word-break: break-word !important;
-    overflow-wrap: break-word !important;
+    white-space: nowrap !important;
   }
 
   .terminal-window {
@@ -922,9 +924,12 @@ h2 {
 @media (max-width: 480px) {
   /* Partner CTA email button - smaller screens */
   .partner-cta-btn {
-    font-size: 1em !important;
-    padding: 10px 15px !important;
+    font-size: clamp(0.7em, 3.5vw, 1em) !important;
+    padding: 10px 10px !important;
     letter-spacing: 0px !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    white-space: nowrap !important;
   }
 
   body {
@@ -1029,6 +1034,11 @@ h2 {
   .partner-logo {
     width: 160px;
     height: 100px;
+  }
+
+  .partner-logo img {
+    max-width: 140px;
+    max-height: 85px;
   }
 
   .acknowledgements-names {
