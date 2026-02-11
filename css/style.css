@@ -11,7 +11,7 @@
   --terminal-dim-green: #488348ff;
   --terminal-border: #71cd71;
   --scanline-color: rgba(0, 221, 0, 0.1);
-  --sponsor-card-width: 300px;
+  --partner-card-width: 300px;
   --text-note: #304431ff;
   --vintage-orange: #ffae00ff;
   --vintage-orange-bright: #ff8f00;
@@ -520,8 +520,8 @@ p {
   outline-offset: 4px;
 }
 
-/* Sponsor grid */
-.sponsors-grid {
+/* Partner grid */
+.partners-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
@@ -583,19 +583,19 @@ h2 {
   white-space: nowrap;
 }
 
-.sponsor-card {
+.partner-card {
   border: 1px solid var(--terminal-border);
   padding: 20px;
   transition: all 0.3s ease;
   background-color: rgba(0, 88, 52, 0.15);
 }
 
-.sponsor-card:hover {
+.partner-card:hover {
   box-shadow: 0 0 15px var(--terminal-border);
   background-color: rgba(0, 255, 0, 0.1);
 }
 
-.sponsor-logo {
+.partner-logo {
   width: 190px;
   height: 115px;
   background: black;
@@ -612,7 +612,7 @@ h2 {
   min-width: 0;
 }
 
-.sponsor-logo a {
+.partner-logo a {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -623,7 +623,7 @@ h2 {
   min-width: 0;
 }
 
-.sponsor-logo img {
+.partner-logo img {
   /* Use explicit width/height instead of max-width/max-height
      to avoid Safari iOS flex + percentage resolution bug */
   width: auto;
@@ -640,7 +640,7 @@ h2 {
   transform: translateZ(0);
 }
 
-.sponsor-logo .scanline-overlay {
+.partner-logo .scanline-overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -650,7 +650,7 @@ h2 {
   border-radius: 4px;
 }
 
-.sponsor-logo-container {
+.partner-logo-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -747,7 +747,7 @@ h2 {
     padding: 15px;
   }
 
-  .sponsors-grid {
+  .partners-grid {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   }
 }
@@ -757,8 +757,8 @@ h2 {
     padding: 10px;
   }
 
-  /* Sponsor CTA email button - prevent overflow on mobile */
-  .sponsor-cta-btn {
+  /* Partner CTA email button - prevent overflow on mobile */
+  .partner-cta-btn {
     font-size: 1.2em !important;
     padding: 12px 20px !important;
     letter-spacing: 1px !important;
@@ -850,7 +850,7 @@ h2 {
     display: block;
   }
 
-  .sponsors-grid {
+  .partners-grid {
     grid-template-columns: 1fr;
     gap: 15px;
   }
@@ -920,8 +920,8 @@ h2 {
 }
 
 @media (max-width: 480px) {
-  /* Sponsor CTA email button - smaller screens */
-  .sponsor-cta-btn {
+  /* Partner CTA email button - smaller screens */
+  .partner-cta-btn {
     font-size: 1em !important;
     padding: 10px 15px !important;
     letter-spacing: 0px !important;
@@ -1022,11 +1022,11 @@ h2 {
     display: none; /* Hide ASCII art on mobile */
   }
 
-  .sponsor-card {
+  .partner-card {
     padding: 15px;
   }
 
-  .sponsor-logo {
+  .partner-logo {
     width: 160px;
     height: 100px;
   }
