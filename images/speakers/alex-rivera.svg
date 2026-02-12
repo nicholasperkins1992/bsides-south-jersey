@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-labelledby="title desc">
+  <title id="title">Alex Rivera profile placeholder</title>
+  <desc id="desc">Placeholder profile illustration in terminal theme colors.</desc>
+  <rect width="400" height="400" fill="#0b140b"/>
+  <circle cx="200" cy="148" r="74" fill="#2d5b2d"/>
+  <path d="M75 336c10-72 63-114 125-114s115 42 125 114" fill="#2d5b2d"/>
+  <circle cx="200" cy="140" r="52" fill="#71cd71"/>
+  <path d="M116 338c8-60 44-93 84-93s76 33 84 93" fill="#71cd71"/>
+  <rect x="35" y="35" width="330" height="330" rx="12" ry="12" fill="none" stroke="#ffae00" stroke-width="8"/>
+</svg>
