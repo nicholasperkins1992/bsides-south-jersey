@@ -141,7 +141,7 @@
           </p>
 
           <div class="speakers-grid">
-            <article class="speaker-card">
+            <article class="speaker-card" data-speaker-id="alex-rivera">
               <img
                 class="speaker-photo"
                 src="images/speakers/alex-rivera.svg"
@@ -152,6 +152,13 @@
               <p class="speaker-bio-preview">
                 Alex leads enterprise threat hunting programs and turns detection engineering into measurable outcomes.
               </p>
+              <button
+                type="button"
+                class="speaker-modal-trigger"
+                data-speaker-id="alex-rivera"
+              >
+                Read more
+              </button>
               <details class="speaker-bio-details">
                 <summary>
                   <span class="speaker-toggle-open">Read more</span>
@@ -164,7 +171,7 @@
               </details>
             </article>
 
-            <article class="speaker-card">
+            <article class="speaker-card" data-speaker-id="priya-shah">
               <img
                 class="speaker-photo"
                 src="images/speakers/priya-shah.svg"
@@ -175,6 +182,13 @@
               <p class="speaker-bio-preview">
                 Priya specializes in cloud-native defense and secure architecture for fast-moving engineering teams.
               </p>
+              <button
+                type="button"
+                class="speaker-modal-trigger"
+                data-speaker-id="priya-shah"
+              >
+                Read more
+              </button>
               <details class="speaker-bio-details">
                 <summary>
                   <span class="speaker-toggle-open">Read more</span>
@@ -187,7 +201,7 @@
               </details>
             </article>
 
-            <article class="speaker-card">
+            <article class="speaker-card" data-speaker-id="marcus-chen">
               <img
                 class="speaker-photo"
                 src="images/speakers/marcus-chen.svg"
@@ -198,6 +212,13 @@
               <p class="speaker-bio-preview">
                 Marcus supports high-impact ransomware and BEC investigations across public and private sectors.
               </p>
+              <button
+                type="button"
+                class="speaker-modal-trigger"
+                data-speaker-id="marcus-chen"
+              >
+                Read more
+              </button>
               <details class="speaker-bio-details">
                 <summary>
                   <span class="speaker-toggle-open">Read more</span>
@@ -210,7 +231,7 @@
               </details>
             </article>
 
-            <article class="speaker-card">
+            <article class="speaker-card" data-speaker-id="danielle-brooks">
               <img
                 class="speaker-photo"
                 src="images/speakers/danielle-brooks.svg"
@@ -221,6 +242,13 @@
               <p class="speaker-bio-preview">
                 Danielle helps engineering teams embed secure development into everyday product delivery.
               </p>
+              <button
+                type="button"
+                class="speaker-modal-trigger"
+                data-speaker-id="danielle-brooks"
+              >
+                Read more
+              </button>
               <details class="speaker-bio-details">
                 <summary>
                   <span class="speaker-toggle-open">Read more</span>
@@ -232,6 +260,31 @@
                 </p>
               </details>
             </article>
+          </div>
+
+          <div
+            class="speaker-modal"
+            id="speakerModal"
+            aria-hidden="true"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="speakerModalName"
+          >
+            <div class="speaker-modal-backdrop" data-close-speaker-modal></div>
+            <div class="speaker-modal-content" role="document">
+              <button
+                type="button"
+                class="speaker-modal-close"
+                id="speakerModalClose"
+                aria-label="Close speaker details"
+              >
+                ×
+              </button>
+              <img class="speaker-modal-photo" id="speakerModalPhoto" src="" alt="" />
+              <h3 class="speaker-modal-name" id="speakerModalName"></h3>
+              <p class="speaker-modal-role" id="speakerModalRole"></p>
+              <p class="speaker-modal-bio" id="speakerModalBio"></p>
+            </div>
           </div>
         </div>
 

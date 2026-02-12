@@ -86,8 +86,100 @@ class TerminalEffects {
         // Setup hamburger menu
         this.setupHamburgerMenu();
 
+        // Setup speaker modal behavior
+        this.setupSpeakerModal();
+
         // Konami code easter egg
         this.setupKonamiCode();
+    }
+
+    /**
+     * Setup desktop speaker modal behavior
+     */
+    setupSpeakerModal() {
+        const modal = document.getElementById('speakerModal');
+        const closeButton = document.getElementById('speakerModalClose');
+        const triggerButtons = document.querySelectorAll('.speaker-modal-trigger');
+        const mobileQuery = window.matchMedia('(max-width: 768px)');
+
+        if (!modal || triggerButtons.length === 0) {
+            return;
+        }
+
+        if (modal.parentElement !== document.body) {
+            document.body.appendChild(modal);
+        }
+
+        const modalPhoto = document.getElementById('speakerModalPhoto');
+        const modalName = document.getElementById('speakerModalName');
+        const modalRole = document.getElementById('speakerModalRole');
+        const modalBio = document.getElementById('speakerModalBio');
+        const backdrop = modal.querySelector('[data-close-speaker-modal]');
+
+        const closeModal = () => {
+            modal.classList.remove('is-open');
+            modal.setAttribute('aria-hidden', 'true');
+            document.body.classList.remove('speaker-modal-open');
+        };
+
+        const openModal = (speakerCard) => {
+            if (!speakerCard || mobileQuery.matches) {
+                return;
+            }
+
+            const photo = speakerCard.querySelector('.speaker-photo');
+            const name = speakerCard.querySelector('.speaker-name');
+            const role = speakerCard.querySelector('.speaker-role');
+            const preview = speakerCard.querySelector('.speaker-bio-preview');
+            const expanded = speakerCard.querySelector('.speaker-bio-expanded');
+
+            if (!photo || !name || !role || !preview || !expanded) {
+                return;
+            }
+
+            modalPhoto.src = photo.src;
+            modalPhoto.alt = photo.alt;
+            modalName.textContent = name.textContent;
+            modalRole.textContent = role.textContent;
+            modalBio.textContent = `${preview.textContent} ${expanded.textContent}`.trim();
+
+            modal.classList.add('is-open');
+            modal.setAttribute('aria-hidden', 'false');
+            document.body.classList.add('speaker-modal-open');
+
+            if (closeButton) {
+                closeButton.focus();
+            }
+        };
+
+        triggerButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const card = button.closest('.speaker-card');
+                openModal(card);
+            });
+        });
+
+        if (closeButton) {
+            closeButton.addEventListener('click', closeModal);
+        }
+
+        if (backdrop) {
+            backdrop.addEventListener('click', closeModal);
+        }
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && modal.classList.contains('is-open')) {
+                closeModal();
+            }
+        });
+
+        if (typeof mobileQuery.addEventListener === 'function') {
+            mobileQuery.addEventListener('change', (event) => {
+                if (event.matches) {
+                    closeModal();
+                }
+            });
+        }
     }
 
     /**

@@ -576,7 +576,32 @@ p {
   padding-bottom: 10px;
 }
 
+.speaker-modal-trigger {
+  margin-top: auto;
+  color: var(--terminal-light-green);
+  cursor: pointer;
+  font-weight: bold;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  font-family: inherit;
+  font-size: 16px;
+  align-self: flex-start;
+}
+
+.speaker-modal-trigger:hover {
+  color: var(--terminal-green);
+}
+
+.speaker-modal-trigger:focus {
+  outline: 1px dashed var(--terminal-light-green);
+  outline-offset: 3px;
+}
+
 .speaker-bio-details {
+  display: none;
   margin-top: auto;
 }
 
@@ -669,6 +694,93 @@ p {
 
 .speaker-card:has(.speaker-bio-details[open]) .speaker-bio-preview::after {
   display: none;
+}
+
+.speaker-modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  padding: 20px;
+}
+
+.speaker-modal.is-open {
+  display: flex;
+}
+
+.speaker-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+}
+
+.speaker-modal-content {
+  position: relative;
+  width: min(680px, 100%);
+  margin: 0 auto;
+  max-height: 90vh;
+  overflow-y: auto;
+  border: 2px solid var(--terminal-border);
+  border-radius: 8px;
+  background: #000000;
+  padding: 24px;
+  box-shadow: 0 0 24px rgba(113, 205, 113, 0.35);
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.speaker-modal-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  background: transparent;
+  border: none;
+  color: var(--terminal-light-green);
+  font-size: 32px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.speaker-modal-close:hover {
+  color: var(--terminal-green);
+}
+
+.speaker-modal-close:focus {
+  outline: 1px dashed var(--terminal-light-green);
+  outline-offset: 2px;
+}
+
+.speaker-modal-photo {
+  width: 100%;
+  max-width: 260px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border: 2px solid var(--vintage-orange);
+  border-radius: 8px;
+  background: #000000;
+  align-self: center;
+}
+
+.speaker-modal-name {
+  margin: 0;
+}
+
+.speaker-modal-role {
+  margin: 0;
+  color: var(--vintage-orange);
+  font-weight: bold;
+}
+
+.speaker-modal-bio {
+  margin: 0;
+}
+
+body.speaker-modal-open {
+  overflow: hidden;
 }
 
 h2 {
@@ -1015,6 +1127,18 @@ h2 {
 
   .speaker-photo {
     max-width: 180px;
+  }
+
+  .speaker-modal-trigger {
+    display: none;
+  }
+
+  .speaker-bio-details {
+    display: block;
+  }
+
+  .speaker-modal {
+    display: none !important;
   }
 
   /* SVG banner responsive sizing */
