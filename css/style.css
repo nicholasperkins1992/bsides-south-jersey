@@ -448,11 +448,24 @@ p {
     inset 0 0 15px rgba(0, 255, 0, 0.3);
 }
 
+@keyframes subtlePulse {
+  0%,
+  100% {
+    box-shadow: 0 0 4px rgba(255, 174, 0, 0.22),
+      inset 0 0 2px rgba(255, 174, 0, 0.08);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(255, 174, 0, 0.72),
+      inset 0 0 12px rgba(255, 174, 0, 0.28);
+  }
+}
+
 /* Vintage Terminal Orange Register Button - Special styling for registration */
 .cta-button.pulse-glow {
   background: transparent;
   color: var(--vintage-orange);
   border: 2px solid var(--vintage-orange);
+  animation: subtlePulse 2.6s ease-in-out infinite;
 }
 
 .cta-button.pulse-glow:hover {
@@ -476,6 +489,12 @@ p {
 .cta-button.pulse-glow:active {
   box-shadow: 0 0 15px var(--vintage-orange),
     inset 0 0 15px rgba(255, 107, 0, 0.3);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cta-button.pulse-glow {
+    animation: none;
+  }
 }
 
 /* Static glow for speaker proposal button */
