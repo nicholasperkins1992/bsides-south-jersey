@@ -99,10 +99,9 @@ class TerminalEffects {
     setupSpeakerModal() {
         const modal = document.getElementById('speakerModal');
         const closeButton = document.getElementById('speakerModalClose');
-        const triggerButtons = document.querySelectorAll('.speaker-modal-trigger');
         const mobileQuery = window.matchMedia('(max-width: 768px)');
 
-        if (!modal || triggerButtons.length === 0) {
+        if (!modal) {
             return;
         }
 
@@ -152,11 +151,13 @@ class TerminalEffects {
             }
         };
 
-        triggerButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const card = button.closest('.speaker-card');
+        // Use event delegation so dynamically loaded speaker cards are handled.
+        document.addEventListener('click', (event) => {
+            const trigger = event.target.closest('.speaker-modal-trigger');
+            if (trigger) {
+                const card = trigger.closest('.speaker-card');
                 openModal(card);
-            });
+            }
         });
 
         if (closeButton) {
