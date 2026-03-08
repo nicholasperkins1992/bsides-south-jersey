@@ -717,8 +717,7 @@ p {
 }
 
 .speaker-card:has(.speaker-bio-details[open]) .speaker-bio-preview {
-  max-height: none;
-  padding-bottom: 0;
+  display: none;
 }
 
 .speaker-card:has(.speaker-bio-details[open]) .speaker-bio-preview::after {
