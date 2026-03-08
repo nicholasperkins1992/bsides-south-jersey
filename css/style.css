@@ -545,15 +545,25 @@ p {
   gap: 14px;
 }
 
-.speaker-photo {
+.speaker-photo-frame {
   width: 100%;
   max-width: 220px;
   aspect-ratio: 1 / 1;
-  object-fit: contain;
-  border: 2px solid var(--vintage-orange);
-  border-radius: 8px;
-  background-color: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   align-self: center;
+  border: 2px solid transparent;
+  border-radius: 8px;
+}
+
+.speaker-photo {
+  max-width: 100%;
+  max-height: 100%;
+  height: auto;
+  display: block;
+  border: 2px solid var(--vintage-orange);
+  border-radius: 6px;
 }
 
 .speaker-name {
@@ -754,15 +764,25 @@ p {
   outline-offset: 2px;
 }
 
-.speaker-modal-photo {
+.speaker-modal-photo-frame {
   width: 100%;
   max-width: 260px;
   aspect-ratio: 1 / 1;
-  object-fit: cover;
-  border: 2px solid var(--vintage-orange);
-  border-radius: 8px;
-  background: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   align-self: center;
+  border: 2px solid transparent;
+  border-radius: 8px;
+}
+
+.speaker-modal-photo {
+  max-width: 100%;
+  max-height: 100%;
+  height: auto;
+  display: block;
+  border: 2px solid var(--vintage-orange);
+  border-radius: 6px;
 }
 
 .speaker-modal-name {
@@ -1125,7 +1145,7 @@ h2 {
     padding: 16px;
   }
 
-  .speaker-photo {
+  .speaker-photo-frame {
     max-width: 180px;
   }
 
@@ -1243,7 +1263,7 @@ h2 {
     font-size: 12px;
   }
 
-  .speaker-photo {
+  .speaker-photo-frame {
     max-width: 160px;
   }
 

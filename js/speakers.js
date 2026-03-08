@@ -49,7 +49,7 @@
     article.className = 'speaker-card';
     article.setAttribute('data-speaker-id', id);
     article.innerHTML = [
-      `<img class="speaker-photo" src="${photo}" alt="Portrait of ${name}" />`,
+      `<div class="speaker-photo-frame"><img class="speaker-photo" src="${photo}" alt="Portrait of ${name}" /></div>`,
       `<h3 class="speaker-name">${name}</h3>`,
       `<p class="speaker-role">${role}</p>`,
       `<p class="speaker-bio-preview">${bioPreview}</p>`,
