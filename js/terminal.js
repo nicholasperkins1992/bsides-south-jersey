@@ -91,6 +91,9 @@ class TerminalEffects {
 
         // Konami code easter egg
         this.setupKonamiCode();
+
+        // "bsides" typing easter egg
+        this.setupBsidesEasterEgg();
     }
 
     /**
@@ -274,6 +277,91 @@ class TerminalEffects {
                 konamiIndex = 0;
             }
         });
+    }
+
+    /**
+     * Setup "bsides" typing easter egg
+     */
+    setupBsidesEasterEgg() {
+        let typedSequence = '';
+        const targetSequence = 'bsides';
+
+        document.addEventListener('keydown', (e) => {
+            // Only track alphabetic characters
+            if (e.key.length === 1 && /[a-zA-Z]/.test(e.key)) {
+                typedSequence += e.key.toLowerCase();
+                
+                // Keep only the last 6 characters to match "bsides"
+                if (typedSequence.length > targetSequence.length) {
+                    typedSequence = typedSequence.slice(-targetSequence.length);
+                }
+
+                // Check if user typed "bsides"
+                if (typedSequence === targetSequence) {
+                    this.activateBsidesEasterEgg();
+                    typedSequence = ''; // Reset after activation
+                }
+            } else if (e.key === 'Backspace' || e.key === 'Delete' || e.key === 'Escape') {
+                // Reset on backspace/delete/escape
+                typedSequence = '';
+            }
+        });
+    }
+
+    /**
+     * Activate "bsides" easter egg effect
+     */
+    activateBsidesEasterEgg() {
+        // Create a terminal-style message
+        const message = document.createElement('div');
+        message.style.cssText = `
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.95);
+            color: #00FF00;
+            padding: 30px;
+            border: 3px solid #00FF00;
+            border-radius: 8px;
+            font-family: 'VT323', monospace;
+            font-size: 28px;
+            text-align: center;
+            z-index: 9999;
+            box-shadow: 0 0 40px #00FF00, inset 0 0 20px rgba(0, 255, 0, 0.2);
+            animation: terminalPulse 0.5s ease-in-out;
+        `;
+        
+        message.innerHTML = `
+            <div style="margin-bottom: 15px;">╔════════════════════════════╗</div>
+            <div style="margin-bottom: 10px;">║   ACCESS GRANTED           ║</div>
+            <div style="margin-bottom: 15px;">╚════════════════════════════╝</div>
+            <div style="font-size: 20px; margin-top: 15px; color: #88ff88;">Welcome to BSides!</div>
+            <div style="font-size: 16px; margin-top: 10px;">You've unlocked the secret terminal.</div>
+            <div style="font-size: 14px; margin-top: 15px; color: #71cd71; cursor: pointer;" onclick="this.parentElement.remove()">
+                [CLICK TO CLOSE]
+            </div>
+        `;
+
+        // Add pulse animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes terminalPulse {
+                0%, 100% { transform: translate(-50%, -50%) scale(1); }
+                50% { transform: translate(-50%, -50%) scale(1.05); }
+            }
+        `;
+        document.head.appendChild(style);
+
+        document.body.appendChild(message);
+
+        // Remove message after 8 seconds or on click
+        setTimeout(() => {
+            if (message.parentElement) {
+                message.remove();
+                style.remove();
+            }
+        }, 5000);
     }
 
     /**
