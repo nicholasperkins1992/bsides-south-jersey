@@ -39,11 +39,14 @@
   function buildCard(speaker, id) {
     const name = esc(speaker.name || 'Unknown Speaker');
     const role = esc(speaker.role || '');
-    const bio = speaker.bio || '';
+    const bioRaw = speaker.bio || '';
+    const bioText = Array.isArray(bioRaw) ? bioRaw.join('\n\n') : bioRaw;
     const photo = speaker.photo ? esc(speaker.photo) : '';
 
-    const bioPreview = esc(truncateAtWord(bio, BIO_PREVIEW_LENGTH));
-    const bioFull = esc(bio);
+    const bioPreview = esc(truncateAtWord(bioText, BIO_PREVIEW_LENGTH));
+    const bioFull = Array.isArray(bioRaw)
+      ? bioRaw.map(function (p) { return '<p>' + esc(p) + '</p>'; }).join('\n')
+      : esc(bioText);
 
     const article = document.createElement('article');
     article.className = 'speaker-card';
@@ -59,7 +62,9 @@
       `    <span class="speaker-toggle-open">Read more</span>`,
       `    <span class="speaker-toggle-close">Show less</span>`,
       `  </summary>`,
-      `  <p class="speaker-bio-expanded">${bioFull}</p>`,
+      Array.isArray(bioRaw)
+        ? `  <div class="speaker-bio-expanded">${bioFull}</div>`
+        : `  <p class="speaker-bio-expanded">${bioFull}</p>`,
       `</details>`,
     ].join('\n');
 

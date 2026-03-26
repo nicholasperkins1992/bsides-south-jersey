@@ -143,7 +143,7 @@ class TerminalEffects {
             modalPhoto.alt = photo.alt;
             modalName.textContent = name.textContent;
             modalRole.textContent = role.textContent;
-            modalBio.textContent = expanded.textContent;
+            modalBio.innerHTML = expanded.innerHTML;
 
             modal.classList.add('is-open');
             modal.setAttribute('aria-hidden', 'false');
