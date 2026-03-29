@@ -256,20 +256,6 @@ body.ctf-flag-unlocked .nav-menu {
   color: #c62828;
 }
 
-.nav-link.active[href$="ctf.html"] {
-  border-color: var(--vintage-amber);
-  background-color: var(--terminal-red);
-  color: #1a1205;
-  box-shadow: 0 0 18px rgb(255, 8, 0);
-}
-
-.nav-link.active[href$="ctf.html"]:hover {
-  border-color: var(--terminal-red);
-  background-color: var(--vintage-orange-dark);
-  color: #1a1205;
-  box-shadow: 0 0 20px rgba(255, 8, 0);
-}
-
 /* Hamburger menu button */
 .hamburger-menu {
   display: none;
