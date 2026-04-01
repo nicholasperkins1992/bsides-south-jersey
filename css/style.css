@@ -1614,3 +1614,523 @@ body::before {
 .terminal-container {
   animation: none !important;
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SCHEDULE PAGE
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Status banner (countdown / today / past) */
+.schedule-status-banner {
+  padding: 10px 16px;
+  margin-bottom: 20px;
+  border-left: 3px solid var(--terminal-green);
+  font-size: 14px;
+  color: var(--terminal-dim-green);
+  background: rgba(0, 88, 52, 0.10);
+}
+.schedule-status-banner--today {
+  border-left-color: var(--terminal-light-green);
+  color: var(--terminal-light-green);
+  background: rgba(113, 205, 113, 0.08);
+}
+.schedule-status-banner--past {
+  border-left-color: var(--terminal-dim-green);
+  opacity: 0.7;
+}
+
+/* ── Outer container ──────────────────────────────────────────────────────── */
+.schedule-grid-container {
+  position: relative;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ── Desktop grid layout ─────────────────────────────────────────────────── */
+.schedule-grid-wrapper {
+  display: flex;
+  gap: 0;
+  min-width: 600px;
+}
+
+/* Time label column */
+.schedule-time-column {
+  position: relative;
+  width: 72px;
+  flex-shrink: 0;
+  border-right: 1px solid rgba(113, 205, 113, 0.2);
+  margin-right: 0;
+}
+.schedule-time-label {
+  position: absolute;
+  right: 8px;
+  font-size: 11px;
+  color: var(--terminal-dim-green);
+  white-space: nowrap;
+  transform: translateY(-50%);
+  user-select: none;
+}
+
+/* Tracks area */
+.schedule-tracks-area {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Track header row */
+.schedule-track-headers {
+  display: flex;
+  border-bottom: 2px solid var(--vintage-orange);
+  margin-bottom: 0;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: var(--terminal-bg);
+}
+.schedule-track-header {
+  flex: 1;
+  padding: 8px 10px;
+  font-size: 13px;
+  font-weight: bold;
+  color: var(--vintage-orange);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-right: 1px solid rgba(255, 174, 0, 0.2);
+}
+.schedule-track-header:last-child {
+  border-right: none;
+}
+
+/* Columns body — the clock-face area */
+.schedule-columns-body {
+  position: relative;
+  display: flex;
+}
+
+.schedule-track-column {
+  flex: 1;
+  position: relative;
+  border-right: 1px solid rgba(113, 205, 113, 0.12);
+}
+.schedule-track-column:last-child {
+  border-right: none;
+}
+
+/* ── Slot cards ──────────────────────────────────────────────────────────── */
+.schedule-slot {
+  position: absolute;
+  left: 3px;
+  right: 3px;
+  box-sizing: border-box;
+  padding: 6px 8px;
+  border: 1px solid var(--terminal-border);
+  border-radius: 4px;
+  background: rgba(0, 88, 52, 0.18);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  transition: opacity 0.4s ease, filter 0.4s ease;
+}
+
+.schedule-slot--clickable {
+  cursor: pointer;
+  /* iOS Safari: click events only bubble from tappable elements.
+     Setting cursor:pointer on all children ensures taps on inner text
+     (title, speaker name, time) still trigger the delegation handler. */
+  touch-action: manipulation;
+}
+.schedule-slot--clickable * {
+  cursor: pointer;
+}
+.schedule-slot--clickable:hover,
+.schedule-slot--clickable:focus {
+  background: rgba(72, 122, 72, 0.30);
+  box-shadow: 0 0 10px rgba(113, 205, 113, 0.25);
+  outline: none;
+}
+
+/* Talk */
+.schedule-slot--talk {
+  border-color: var(--terminal-border);
+}
+
+/* Keynote — orange glow */
+.schedule-slot--keynote,
+.schedule-slot--is-keynote {
+  border-color: var(--vintage-orange);
+  background: rgba(255, 174, 0, 0.08);
+}
+.schedule-slot--keynote:hover,
+.schedule-slot--is-keynote:hover,
+.schedule-slot--keynote:focus,
+.schedule-slot--is-keynote:focus {
+  background: rgba(255, 174, 0, 0.15);
+  box-shadow: 0 0 14px rgba(255, 174, 0, 0.30);
+}
+
+/* Panel */
+.schedule-slot--panel {
+  border-color: var(--terminal-light-green);
+  background: rgba(136, 255, 136, 0.06);
+}
+
+/* Breaks / registration / ceremony — full-width, subdued, not clickable */
+.schedule-slot--break,
+.schedule-slot--registration,
+.schedule-slot--lunch {
+  border-color: rgba(113, 205, 113, 0.3);
+  background: rgba(0, 88, 52, 0.10);
+  cursor: default;
+}
+.schedule-slot--ceremony {
+  border-color: rgba(255, 174, 0, 0.35);
+  background: rgba(255, 174, 0, 0.05);
+}
+
+/* Past event greying */
+.schedule-slot--past {
+  opacity: 0.40;
+  filter: grayscale(45%);
+}
+
+/* Slot inner text */
+.schedule-slot-badge {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  color: var(--vintage-orange);
+  margin-bottom: 1px;
+  text-transform: uppercase;
+}
+.schedule-slot-badge--panel {
+  color: var(--terminal-light-green);
+}
+.schedule-slot-time {
+  font-size: 10px;
+  color: var(--terminal-dim-green);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.schedule-slot-speaker {
+  font-size: 12px;
+  font-weight: bold;
+  color: var(--terminal-light-green);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.schedule-slot-title {
+  font-size: 12px;
+  color: var(--terminal-green);
+  line-height: 1.3;
+  /* Allow wrapping but limit overflow */
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.schedule-slot--keynote .schedule-slot-speaker,
+.schedule-slot--is-keynote .schedule-slot-speaker {
+  color: var(--vintage-orange);
+  font-size: 13px;
+}
+.schedule-slot--keynote .schedule-slot-title,
+.schedule-slot--is-keynote .schedule-slot-title {
+  color: var(--vintage-orange-bright);
+  font-size: 13px;
+  -webkit-line-clamp: 3;
+}
+.schedule-slot-hint {
+  font-size: 10px;
+  color: var(--terminal-dim-green);
+  margin-top: auto;
+  font-style: italic;
+  white-space: nowrap;
+}
+
+/* ── Now bar ─────────────────────────────────────────────────────────────── */
+.schedule-now-bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #ff3333;
+  z-index: 10;
+  box-shadow: 0 0 8px rgba(255, 51, 51, 0.70);
+  pointer-events: none;
+}
+.schedule-now-label {
+  position: absolute;
+  left: 6px;
+  top: 3px;
+  font-size: 11px;
+  color: #ff3333;
+  white-space: nowrap;
+  font-weight: bold;
+  text-shadow: 0 0 6px rgba(255, 51, 51, 0.8);
+  pointer-events: none;
+}
+
+/* ── Schedule Modal ──────────────────────────────────────────────────────── */
+/* Reuses .speaker-modal layout classes; only new/override rules needed */
+#scheduleModal .speaker-modal-content {
+  gap: 10px;
+}
+/* The speakers page hides .speaker-modal on mobile (uses <details> instead).
+   Override that blanket rule so the schedule modal still works on phones. */
+@media (max-width: 768px) {
+  #scheduleModal.is-open {
+    display: flex !important;
+  }
+}
+.schedule-modal-time {
+  font-size: 13px;
+  color: var(--terminal-dim-green);
+}
+.schedule-modal-speaker {
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--vintage-orange);
+}
+.schedule-modal-title {
+  font-size: 18px;
+  color: var(--terminal-light-green);
+  line-height: 1.35;
+  margin: 0;
+}
+.schedule-modal-desc {
+  font-size: 14px;
+  color: var(--terminal-green);
+  line-height: 1.6;
+  margin: 0;
+}
+.schedule-modal-bio-wrap {
+  border-top: 1px solid rgba(113, 205, 113, 0.25);
+  padding-top: 12px;
+  margin-top: 4px;
+}
+.schedule-modal-bio-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--terminal-dim-green);
+  margin-bottom: 8px;
+}
+#scheduleModalBio p {
+  font-size: 13px;
+  color: var(--terminal-green);
+  line-height: 1.6;
+  margin: 0 0 10px;
+}
+#scheduleModalBio p:last-child {
+  margin-bottom: 0;
+}
+
+/* ── Mobile: hide desktop grid, show linear list ─────────────────────────── */
+.schedule-mobile-list {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .schedule-grid-wrapper {
+    display: none;
+  }
+  .schedule-mobile-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .schedule-slot--mobile {
+    position: static;
+    left: auto;
+    right: auto;
+    padding: 10px 12px;
+    border-radius: 5px;
+  }
+  .schedule-slot-title {
+    -webkit-line-clamp: 6;
+  }
+  .schedule-slot-track-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--terminal-dim-green);
+    margin-bottom: 2px;
+    display: block;
+  }
+}
+
+/* ── Mobile group wrappers (NOW and NEXT) ────────────────────────────────── */
+.schedule-mobile-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-radius: 6px;
+  padding: 8px;
+}
+.schedule-mobile-group--current {
+  border: 2px solid #ff3333;
+  box-shadow: 0 0 14px rgba(255, 51, 51, 0.25);
+  background: rgba(255, 51, 51, 0.04);
+}
+.schedule-mobile-group--next {
+  border: 2px solid #ffae00;
+  box-shadow: 0 0 14px rgba(255, 174, 0, 0.25);
+  background: rgba(255, 174, 0, 0.04);
+}
+.schedule-mobile-group-label {
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  padding-bottom: 6px;
+  margin-bottom: 2px;
+}
+.schedule-mobile-group--current .schedule-mobile-group-label {
+  color: #ff3333;
+  text-shadow: 0 0 6px rgba(255, 51, 51, 0.55);
+  border-bottom: 1px solid rgba(255, 51, 51, 0.25);
+}
+.schedule-mobile-group--next .schedule-mobile-group-label {
+  color: #ffae00;
+  text-shadow: 0 0 6px rgba(255, 174, 0, 0.55);
+  border-bottom: 1px solid rgba(255, 174, 0, 0.25);
+}
+
+/* ── Debug / Test Mode overlay ───────────────────────────────────────────── */
+.schedule-debug-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.80);
+  padding: 20px;
+}
+
+.schedule-debug-box {
+  background: var(--terminal-bg);
+  border: 2px solid var(--terminal-light-green);
+  border-radius: 6px;
+  padding: 24px 28px;
+  width: min(400px, 100%);
+  box-shadow: 0 0 30px rgba(136, 255, 136, 0.30);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.schedule-debug-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--terminal-light-green);
+  letter-spacing: 0.08em;
+}
+
+.schedule-debug-hint {
+  font-size: 12px;
+  color: var(--terminal-dim-green);
+  line-height: 1.5;
+}
+
+.schedule-debug-input-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--terminal-border);
+  padding: 6px 10px;
+  border-radius: 3px;
+  background: #000;
+}
+
+.schedule-debug-prompt {
+  color: var(--terminal-light-green);
+  font-size: 14px;
+  flex-shrink: 0;
+  user-select: none;
+}
+
+.schedule-debug-input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--terminal-light-green);
+  font-family: inherit;
+  font-size: 15px;
+  flex: 1;
+  caret-color: var(--terminal-light-green);
+}
+
+.schedule-debug-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.schedule-debug-btn {
+  background: transparent;
+  border: 1px solid var(--terminal-border);
+  color: var(--terminal-green);
+  font-family: inherit;
+  font-size: 12px;
+  padding: 6px 14px;
+  cursor: pointer;
+  border-radius: 3px;
+  letter-spacing: 0.06em;
+}
+.schedule-debug-btn:hover {
+  background: rgba(113, 205, 113, 0.15);
+}
+.schedule-debug-btn--cancel {
+  border-color: var(--terminal-dim-green);
+  color: var(--terminal-dim-green);
+}
+.schedule-debug-btn--cancel:hover {
+  background: rgba(72, 131, 72, 0.15);
+}
+
+.schedule-debug-error {
+  font-size: 12px;
+  color: var(--terminal-red, #a70000);
+  min-height: 16px;
+}
+
+/* Persistent TEST MODE badge */
+.schedule-debug-badge {
+  position: fixed;
+  bottom: 14px;
+  right: 14px;
+  z-index: 8000;
+  background: var(--terminal-bg);
+  border: 2px solid var(--vintage-orange);
+  border-radius: 4px;
+  padding: 6px 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 12px;
+  color: var(--vintage-orange);
+  box-shadow: 0 0 16px rgba(255, 174, 0, 0.30);
+  font-weight: bold;
+  letter-spacing: 0.05em;
+}
+
+.schedule-debug-reset {
+  background: transparent;
+  border: 1px solid var(--vintage-orange);
+  color: var(--vintage-orange);
+  font-family: inherit;
+  font-size: 11px;
+  padding: 3px 8px;
+  cursor: pointer;
+  border-radius: 3px;
+  letter-spacing: 0.04em;
+}
+.schedule-debug-reset:hover {
+  background: rgba(255, 174, 0, 0.15);
+}

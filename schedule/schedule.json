@@ -1,0 +1,238 @@
+{
+  "conference": {
+    "name": "BSides South Jersey",
+    "date": "2026-04-18",
+    "displayDate": "Saturday, April 18, 2026",
+    "displayTime": "8:30 AM – 4:00 PM"
+  },
+  "tracks": [
+    { "id": "main",   "label": "Main Stage" },
+    { "id": "side-a", "label": "Conference Side A" },
+    { "id": "side-b", "label": "Conference Side B" }
+  ],
+  "slots": [
+    {
+      "id": "registration",
+      "start": "08:00",
+      "end": "09:00",
+      "type": "registration",
+      "track": "all",
+      "title": "Check-In & Registration",
+      "description": "Speaker and attendee check-in and registration opens. Pick up your badge and get settled in!"
+    },
+    {
+      "id": "opening-remarks",
+      "start": "08:45",
+      "end": "09:00",
+      "type": "ceremony",
+      "track": "main",
+      "title": "Opening Remarks",
+      "description": "Welcome to BSides South Jersey! Opening remarks and conference kickoff."
+    },
+    {
+      "id": "alex-muentz",
+      "start": "09:00",
+      "end": "09:30",
+      "type": "talk",
+      "track": "side-a",
+      "title": "AI Governance – How Do You Balance Productivity and Risk with Shadow AI",
+      "speaker": "Alex Muentz",
+      "speakerFile": "alex-muentz",
+      "description": "A practical look at AI governance challenges organizations face when employees adopt AI tools outside of sanctioned channels — and how security teams can balance productivity gains against the risks of Shadow AI."
+    },
+    {
+      "id": "craig-porter",
+      "start": "09:00",
+      "end": "09:30",
+      "type": "talk",
+      "track": "side-b",
+      "title": "Digital Manhunts & Cyber Clues: My Journey Through Federal Digital Forensics",
+      "speaker": "Craig Porter",
+      "speakerFile": "craig-porter",
+      "description": "A first-hand account of federal digital forensics investigations — the tools, techniques, and surprising challenges of tracking adversaries through digital evidence."
+    },
+    {
+      "id": "thomas-heverin",
+      "start": "10:00",
+      "end": "10:30",
+      "type": "talk",
+      "track": "side-a",
+      "title": "Using LLMs to Compare Enterprise AI Security Strategies with MITRE ATLAS",
+      "speaker": "Thomas Heverin & Baldwin Students",
+      "speakerFile": "thomas-heverin",
+      "description": "An academic-practitioner collaboration exploring how large language models can be used to analyze and compare enterprise AI security strategies against the MITRE ATLAS framework."
+    },
+    {
+      "id": "christopher-eng",
+      "start": "10:00",
+      "end": "10:30",
+      "type": "talk",
+      "track": "side-b",
+      "title": "Learning Out Loud: My Ongoing DF/IR Challenge",
+      "speaker": "Christopher Eng",
+      "speakerFile": "christopher-eng",
+      "description": "A candid talk about the ongoing journey of learning digital forensics and incident response — what works, what doesn't, and how to build skills in the field."
+    },
+    {
+      "id": "bill-batchelor",
+      "start": "10:30",
+      "end": "11:00",
+      "type": "talk",
+      "track": "side-a",
+      "title": "ATT&CK in the Cloud – Identifying MITRE ATT&CK Cloud Techniques in Intrusion Analysis",
+      "speaker": "Bill Batchelor",
+      "speakerFile": "bill-batchelor",
+      "description": "A hands-on look at how MITRE ATT&CK cloud techniques manifest in real intrusion investigations — mapping attacker behavior to the framework to improve detection and response."
+    },
+    {
+      "id": "brian-callahan",
+      "start": "10:30",
+      "end": "11:00",
+      "type": "talk",
+      "track": "side-b",
+      "title": "We are building the Next-Generation Quantum-Enhanced Cybersecurity Tools You're going to be using!",
+      "speaker": "Brian Callahan",
+      "speakerFile": "brian-callahan",
+      "description": "An exploration of quantum-enhanced cybersecurity tooling in development — what's coming, what the hype is, and what practitioners actually need to know to prepare."
+    },
+    {
+      "id": "morning-break",
+      "start": "11:00",
+      "end": "11:15",
+      "type": "break",
+      "track": "all",
+      "title": "Morning Break"
+    },
+    {
+      "id": "pavan-reddy",
+      "start": "11:15",
+      "end": "11:45",
+      "type": "talk",
+      "track": "side-a",
+      "title": "AI Security 101: A Practical Roadmap from AppSec to LLM Threat Hunting",
+      "speaker": "Pavan Reddy",
+      "speakerFile": "pavan-reddy",
+      "description": "From traditional application security to LLM threat hunting — a practical roadmap covering the evolving AI attack surface, threat models, and detection strategies for security practitioners."
+    },
+    {
+      "id": "zachary-schmidt",
+      "start": "11:15",
+      "end": "11:45",
+      "type": "talk",
+      "track": "side-b",
+      "title": "The Applied Science Approach to Corporate Defense for the Corporate National Security Mission",
+      "speaker": "Zachary Schmidt",
+      "description": "How applied science principles can transform corporate cybersecurity defense programs — bridging the gap between academic research and the national security mission of the enterprise."
+    },
+    {
+      "id": "lunch",
+      "start": "11:45",
+      "end": "12:30",
+      "type": "break",
+      "track": "all",
+      "title": "Lunch"
+    },
+    {
+      "id": "hazel-cerra",
+      "start": "12:30",
+      "end": "13:15",
+      "type": "keynote",
+      "track": "main",
+      "isKeynote": true,
+      "title": "How to Protect Your Enterprise Using the Presidential Protection Methodology",
+      "speaker": "Hazel Cerra",
+      "speakerFile": "hazel-cerra",
+      "description": "KEYNOTE: Drawing on 25 years with the United States Secret Service — including protective detail for President Clinton — Hazel Cerra outlines how enterprise security teams can adopt the layered, intelligence-driven methodology used to protect the most high-value targets in the world."
+    },
+    {
+      "id": "michael-meyer",
+      "start": "13:30",
+      "end": "14:00",
+      "type": "talk",
+      "track": "side-a",
+      "title": "The Secret Threats All Around Us",
+      "speaker": "Michael Meyer",
+      "speakerFile": "michael-meyer",
+      "description": "An eye-opening look at the hidden threats hiding in plain sight — physical, digital, and social vulnerabilities most organizations overlook until it's too late."
+    },
+    {
+      "id": "yotam-perkal",
+      "start": "13:30",
+      "end": "14:00",
+      "type": "talk",
+      "track": "side-b",
+      "title": "Fully Automated Phishing: How Attackers Use Vibe Coding to Generate and Launch Campaigns in Minutes",
+      "speaker": "Yotam Perkal",
+      "speakerFile": "yotam-perkal",
+      "description": "A deep dive into the emerging threat of AI-assisted phishing — how attackers are using vibe coding and LLM tooling to generate, personalize, and launch phishing campaigns at machine speed."
+    },
+    {
+      "id": "tapan-soni",
+      "start": "14:00",
+      "end": "14:30",
+      "type": "talk",
+      "track": "side-a",
+      "title": "An Experience and Journey in Incident Response",
+      "speaker": "Tapan Soni",
+      "speakerFile": "tapan-soni",
+      "description": "A practitioner's personal story navigating the world of incident response — lessons learned from the field, the tools that failed, the ones that worked, and what it takes to build a mature IR program."
+    },
+    {
+      "id": "rich-mozeleski",
+      "start": "14:00",
+      "end": "14:30",
+      "type": "talk",
+      "track": "side-b",
+      "title": "We're Losing the War for Identity",
+      "speaker": "Rich Mozeleski",
+      "description": "A stark assessment of the identity security landscape — why attackers consistently win the war for identity, and what defenders need to do differently to turn the tide."
+    },
+    {
+      "id": "kay-davis",
+      "start": "14:30",
+      "end": "15:00",
+      "type": "talk",
+      "track": "side-a",
+      "title": "Security Operation Fundamentals (SOC)",
+      "speaker": "Kay Davis",
+      "description": "A ground-up look at Security Operations Center fundamentals — building effective detection pipelines, escalation workflows, and analyst skills that scale."
+    },
+    {
+      "id": "al-crowley",
+      "start": "14:30",
+      "end": "15:00",
+      "type": "talk",
+      "track": "side-b",
+      "title": "When the Watchdog Bites: Reputational Denial of Service Attacks",
+      "speaker": "Al Crowley",
+      "speakerFile": "al-crowley",
+      "description": "An exploration of Reputational Denial of Service attacks — how adversaries weaponize public perception, social media, and disinformation to damage organizations without ever touching their infrastructure."
+    },
+    {
+      "id": "afternoon-break",
+      "start": "15:00",
+      "end": "15:15",
+      "type": "break",
+      "track": "all",
+      "title": "Afternoon Break"
+    },
+    {
+      "id": "panel-discussion",
+      "start": "15:15",
+      "end": "16:00",
+      "type": "panel",
+      "track": "main",
+      "title": "Panel Discussion",
+      "description": "A moderated panel bringing together today's speakers for an open discussion on the state of cybersecurity, lessons from the field, and what comes next."
+    },
+    {
+      "id": "closing-awards",
+      "start": "16:00",
+      "end": "16:15",
+      "type": "ceremony",
+      "track": "main",
+      "title": "Closing Remarks & Awards",
+      "description": "Thank you for joining us at BSides South Jersey. Award presentations, closing remarks, and farewell."
+    }
+  ]
+}

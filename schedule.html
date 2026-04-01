@@ -17,36 +17,32 @@
       content="geolocation=(), microphone=(), camera=(), fullscreen=(self)"
     />
     <title>
-      CTF - BSides South Jersey Cybersecurity Conference | Capture The Flag
+      Schedule - BSides South Jersey Cybersecurity Conference
     </title>
     <meta
       name="description"
-      content="BSides South Jersey CTF powered by the National Cyber League. Live all day for event attendees."
-    />
-    <meta
-      name="keywords"
-      content="cybersecurity, BSides, South Jersey, CTF, capture the flag, NCL, National Cyber League, competition"
+      content="Full schedule for BSides South Jersey cybersecurity conference on April 18, 2026. View talks, keynote, panels, and times for all tracks."
     />
     <meta name="author" content="BSides South Jersey" />
     <meta name="robots" content="index,follow" />
     <link
       rel="canonical"
-      href="https://www.bsidessouthjersey.org/ctf.html"
+      href="https://www.bsidessouthjersey.org/schedule.html"
     />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta
       property="og:url"
-      content="https://www.bsidessouthjersey.org/ctf.html"
+      content="https://www.bsidessouthjersey.org/schedule.html"
     />
     <meta
       property="og:title"
-      content="CTF - BSides South Jersey Cybersecurity Conference"
+      content="Schedule - BSides South Jersey Cybersecurity Conference"
     />
     <meta
       property="og:description"
-      content="BSides South Jersey CTF powered by the National Cyber League. Live all day for event attendees."
+      content="View the full schedule for BSides South Jersey on April 18, 2026."
     />
     <meta
       property="og:image"
@@ -58,15 +54,15 @@
     <meta property="twitter:card" content="summary_large_image" />
     <meta
       property="twitter:url"
-      content="https://www.bsidessouthjersey.org/ctf.html"
+      content="https://www.bsidessouthjersey.org/schedule.html"
     />
     <meta
       property="twitter:title"
-      content="CTF - BSides South Jersey | Capture The Flag Competition"
+      content="Schedule - BSides South Jersey | Cybersecurity Conference"
     />
     <meta
       property="twitter:description"
-      content="BSides South Jersey CTF powered by the National Cyber League. Live all day for event attendees."
+      content="View the full schedule for BSides South Jersey on April 18, 2026."
     />
     <meta
       property="twitter:image"
@@ -84,7 +80,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   </head>
-  <body class="theme-terminal">
+  <body>
     <!-- Main terminal container -->
     <div class="terminal-container">
       <!-- Terminal window -->
@@ -121,104 +117,40 @@
             <a href="index.html" class="nav-link">HOME</a>
             <a href="about.html" class="nav-link">ABOUT</a>
             <a href="speakers.html" class="nav-link">SPEAKERS</a>
-            <a href="schedule.html" class="nav-link">SCHEDULE</a>
+            <a href="schedule.html" class="nav-link active">SCHEDULE</a>
             <a href="volunteers.html" class="nav-link">VOLUNTEERS</a>
             <a href="sponsors.html" class="nav-link">SPONSORS</a>
-            <a href="ctf.html" class="nav-link active">CTF</a>
+            <a href="ctf.html" class="nav-link">CTF</a>
           </div>
         </nav>
 
         <!-- Page Header -->
         <div class="content-section">
-          <h1>B-Sides South Jersey CTF</h1>
-        </div>
-
-        <!-- CTF Introduction -->
-        <div class="content-section">
-          <div class="command-prompt" style="margin: 20px 0">
-            <div class="prompt-line">
-              <span class="prompt-symbol">admin@bsides</span>:<span class="path">~</span>$ echo "<strong>BSides South Jersey CTF — Powered by the National Cyber League (NCL)</strong>"
-            </div>
-          </div>
-
-          <div style="text-align: center; margin: 30px 0">
-            <a href="https://cyberskyline.com" target="_blank" rel="noopener noreferrer" style="display: inline-block; text-decoration: none;">
-              <img 
-                src="images/partners/Cyber_Skyline_Logo.png" 
-                alt="Cyber Skyline - National Cyber League" 
-                style="max-width: 300px; height: auto; filter: brightness(0.9); transition: filter 0.3s ease;"
-                onmouseover="this.style.filter='brightness(1.1)'"
-                onmouseout="this.style.filter='brightness(0.9)'"
-              />
-            </a>
-          </div>
-
-          <p>
-            The BSides South Jersey CTF is provided by the <strong>National Cyber League (NCL)</strong> and is
-            live for the <em>entire duration of the conference</em>. Participation is exclusively for
-            on‑site attendees with valid badges.
+          <h1>Schedule</h1>
+          <p style="text-align: center; color: var(--terminal-dim-green); margin-top: -10px; margin-bottom: 0;">
+            Saturday, April 18, 2026 &nbsp;|&nbsp; 8:30 AM – 4:00 PM
           </p>
         </div>
 
-        <!-- Who Can Participate -->
+        <!-- Schedule content -->
         <div class="content-section">
-          <h2><span class="prompt-symbol">></span> WHO CAN PARTICIPATE?</h2>
-          <p>Any <strong>registered, on‑site</strong> BSides South Jersey attendee. No separate signup required.</p>
+          <h2><span class="prompt-symbol">></span> CONFERENCE SCHEDULE</h2>
 
-          <h2><span class="prompt-symbol">></span> WHAT TO BRING</h2>
-          <ul style="margin-left: 20px; margin-top: 10px">
-            <li>Laptop + your preferred tooling</li>
-            <li>Respect for others & ethical play</li>
-            <li>Curiosity to learn and collaborate</li>
-          </ul>
-        </div>
+          <!-- Status banner (countdown / today / concluded) — populated by JS -->
+          <div id="schedule-status-banner" class="schedule-status-banner" aria-live="polite"></div>
 
-        <!-- Challenge Areas -->
-        <div class="content-section">
-          <h2><span class="prompt-symbol">></span> CHALLENGE AREAS</h2>
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 20px 0">
-            <div style="padding: 10px 15px; background-color: rgba(113, 205, 113, 0.1); border: 1px solid var(--terminal-border); border-radius: 4px; text-align: center">Web Exploitation</div>
-            <div style="padding: 10px 15px; background-color: rgba(113, 205, 113, 0.1); border: 1px solid var(--terminal-border); border-radius: 4px; text-align: center">Cryptography</div>
-            <div style="padding: 10px 15px; background-color: rgba(113, 205, 113, 0.1); border: 1px solid var(--terminal-border); border-radius: 4px; text-align: center">Reverse Engineering</div>
-            <div style="padding: 10px 15px; background-color: rgba(113, 205, 113, 0.1); border: 1px solid var(--terminal-border); border-radius: 4px; text-align: center">Forensics</div>
-            <div style="padding: 10px 15px; background-color: rgba(113, 205, 113, 0.1); border: 1px solid var(--terminal-border); border-radius: 4px; text-align: center">OSINT</div>
-            <div style="padding: 10px 15px; background-color: rgba(113, 205, 113, 0.1); border: 1px solid var(--terminal-border); border-radius: 4px; text-align: center">Networking / Logs</div>
+          <!-- Desktop: time-proportional grid (hidden on mobile via CSS) -->
+          <div class="schedule-grid-container" aria-label="Conference schedule grid">
+            <!-- Populated by js/schedule.js -->
           </div>
-        </div>
 
-        <!-- Scoring & Prizes -->
-        <div class="content-section">
-          <h2><span class="prompt-symbol">></span> SCORING &amp; PRIZES</h2>
-          <ul style="margin-left: 20px; margin-top: 10px">
-            <li>Challenges scored by difficulty; live scoreboard view</li>
-            <li>Top performers recognized at closing</li>
-            <li>Prizes subject to sponsor announcements</li>
-          </ul>
-        </div>
-
-        <!-- Rules & Ethics -->
-        <div class="content-section">
-          <div style="margin: 30px 0; padding: 20px; border: 2px solid var(--vintage-orange); background-color: rgba(255, 174, 0, 0.1)">
-            <h3 style="color: var(--vintage-orange); margin-top: 0">
-              <span class="prompt-symbol">></span> RULES &amp; ETHICS
-            </h3>
-            <p style="margin-bottom: 0">
-              Stay within the provided CTF environment. Follow the conference code of conduct and practice responsible, ethical hacking.
-            </p>
-          </div>
-        </div>
-
-        <!-- Questions & Volunteer -->
-        <div class="content-section">
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin: 25px 0">
-            <div>
-              <h2><span class="prompt-symbol">></span> QUESTIONS?</h2>
-              <p>Email <a href="mailto:bsidessouthjersey@gmail.com" style="color: var(--vintage-orange); text-decoration: underline;">bsidessouthjersey@gmail.com</a></p>
-            </div>
-            <div>
-              <h2><span class="prompt-symbol">></span> VOLUNTEER</h2>
-              <p>Want to help with future CTFs? See the <a href="volunteers.html" style="color: var(--vintage-orange); text-decoration: underline;">Volunteers</a> page.</p>
-            </div>
+          <!-- Mobile: linear list (hidden on desktop via CSS) -->
+          <div
+            id="schedule-mobile-list"
+            class="schedule-mobile-list"
+            aria-label="Conference schedule list"
+          >
+            <!-- Populated by js/schedule.js -->
           </div>
         </div>
 
@@ -299,7 +231,7 @@
           </div>
 
           <p class="footer-text">
-            © 2026 BSides South Jersey. All rights reserved.<br />
+            © 2025 BSides South Jersey. All rights reserved.<br />
           </p>
 
           <div class="footer-tip">
@@ -310,21 +242,59 @@
     </div>
 
     <!-- JavaScript -->
+    <!-- Modal lives here, outside .terminal-container, so position:fixed is
+         relative to the viewport and not trapped by the parent's transform -->
+    <div
+      class="speaker-modal"
+      id="scheduleModal"
+      aria-hidden="true"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="scheduleModalTitle"
+    >
+      <div class="speaker-modal-backdrop" data-close-schedule-modal></div>
+      <div class="speaker-modal-content" role="document">
+        <button
+          type="button"
+          class="speaker-modal-close"
+          id="scheduleModalClose"
+          aria-label="Close talk details"
+        >
+          &times;
+        </button>
+
+        <!-- Talk info -->
+        <p class="schedule-modal-time" id="scheduleModalTime"></p>
+        <p class="schedule-modal-speaker" id="scheduleModalSpeaker"></p>
+        <h3 class="schedule-modal-title" id="scheduleModalTitle"></h3>
+        <p class="schedule-modal-desc" id="scheduleModalDesc"></p>
+
+        <!-- Speaker bio (lazy-loaded) -->
+        <div class="schedule-modal-bio-wrap" id="scheduleModalBioWrap" style="display: none;">
+          <p class="schedule-modal-bio-label">About the Speaker</p>
+          <div id="scheduleModalBio"></div>
+        </div>
+      </div>
+    </div>
+
     <script src="js/page-config.js"></script>
-    <script src="js/terminal.js"></script>
+    <script src="js/schedule.js"></script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "WebPage",
-        "name": "CTF - BSides South Jersey",
-        "description": "BSides South Jersey CTF powered by the National Cyber League. Live all day for event attendees.",
-        "url": "https://www.bsidessouthjersey.org/ctf.html",
-        "isPartOf": {
-          "@type": "WebSite",
+        "@type": "Event",
+        "name": "BSides South Jersey",
+        "startDate": "2026-04-18T08:30",
+        "endDate": "2026-04-18T16:15",
+        "description": "BSides South Jersey cybersecurity conference featuring talks, keynote, workshops, and CTF.",
+        "url": "https://www.bsidessouthjersey.org/schedule.html",
+        "organizer": {
+          "@type": "Organization",
           "name": "BSides South Jersey",
           "url": "https://www.bsidessouthjersey.org/"
         }
       }
     </script>
+    <script src="js/terminal.js"></script>
   </body>
 </html>
