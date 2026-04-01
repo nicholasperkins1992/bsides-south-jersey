@@ -338,8 +338,8 @@
       banner.textContent = '> Conference is TODAY! Times shown are Eastern.';
       banner.className = 'schedule-status-banner schedule-status-banner--today';
     } else {
-      banner.textContent = '> This conference has concluded. See you next year!';
-      banner.className = 'schedule-status-banner schedule-status-banner--past';
+      banner.textContent = '';
+      banner.className = 'schedule-status-banner';
     }
   }
 

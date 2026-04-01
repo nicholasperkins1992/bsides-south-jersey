@@ -6,6 +6,7 @@
 :root {
   --terminal-green: #71cd71;
   --terminal-red: #a70000ff;
+  --terminal-blue: #4d9fcd;
   --terminal-bg: #111111;
   --terminal-light-green: #88ff88ff;
   --terminal-dim-green: #488348ff;
@@ -1753,8 +1754,10 @@ body::before {
 }
 
 /* Talk */
-.schedule-slot--talk {
+.schedule-slot--talk,
+.schedule-slot--panel {
   border-color: var(--terminal-border);
+  background: rgba(0, 88, 52, 0.18);
 }
 
 /* Keynote — orange glow */
@@ -1771,23 +1774,14 @@ body::before {
   box-shadow: 0 0 14px rgba(255, 174, 0, 0.30);
 }
 
-/* Panel */
-.schedule-slot--panel {
-  border-color: var(--terminal-light-green);
-  background: rgba(136, 255, 136, 0.06);
-}
-
-/* Breaks / registration / ceremony — full-width, subdued, not clickable */
+/* Breaks / registration / lunch / ceremony — terminal blue */
 .schedule-slot--break,
 .schedule-slot--registration,
-.schedule-slot--lunch {
-  border-color: rgba(113, 205, 113, 0.3);
-  background: rgba(0, 88, 52, 0.10);
-  cursor: default;
-}
+.schedule-slot--lunch,
 .schedule-slot--ceremony {
-  border-color: rgba(255, 174, 0, 0.35);
-  background: rgba(255, 174, 0, 0.05);
+  border-color: var(--terminal-blue);
+  background: rgba(77, 159, 205, 0.08);
+  cursor: default;
 }
 
 /* Past event greying */
