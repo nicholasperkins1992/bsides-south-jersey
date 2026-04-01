@@ -718,6 +718,16 @@ li {
   color: var(--terminal-light-green);
 }
 
+.staff-section-heading {
+  color: var(--vintage-orange);
+  font-size: 1.1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 2rem 0 1rem;
+  border-bottom: 1px solid var(--vintage-orange);
+  padding-bottom: 0.4rem;
+}
+
 .speaker-role {
   margin: 0;
   color: var(--vintage-orange);
