@@ -1624,3 +1624,51 @@ body::before {
 .terminal-container {
   animation: none !important;
 }
+
+/* Parking lots badges */
+.parking-lots {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 12px 0 20px 0;
+}
+
+.parking-lot {
+  display: inline-block;
+  border: 1px solid var(--terminal-green);
+  color: var(--terminal-light-green);
+  font-family: "VT323", "Courier New", monospace;
+  font-size: 22px;
+  padding: 4px 14px;
+  letter-spacing: 0.05em;
+  background-color: rgba(113, 205, 113, 0.07);
+}
+
+/* Parking map */
+.parking-map-container {
+  margin: 8px 0;
+  text-align: center;
+}
+
+.parking-map {
+  display: block;
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  border: 1px solid var(--terminal-green);
+  margin: 0 auto;
+  cursor: pointer;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.parking-map:hover {
+  border-color: var(--terminal-light-green);
+  box-shadow: 0 0 10px rgba(113, 205, 113, 0.4);
+}
+
+.parking-map-hint {
+  text-align: center;
+  font-size: 13px;
+  color: var(--terminal-dim-green);
+  margin-top: 6px;
+}
