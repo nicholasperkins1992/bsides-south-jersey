@@ -1,10 +1,11 @@
 /**
  * BSides South Jersey - Dynamic Staff Loader
  * Fetches staff JSON files from the staff/ directory and
- * populates the .staff-grid element on about.html.
+ * populates the #staff-founders and #staff-organizers grids on about.html.
  *
- * Staff are grouped by their "order" priority (lower = displayed first).
- * Within each priority group the display order is randomised on every page load.
+ * Staff with category "founder" appear in the Founders section.
+ * Staff with category "organizer" appear in the Organizers section.
+ * Within each section the display order is randomised on every page load.
  */
 (function () {
   'use strict';
@@ -34,12 +35,11 @@
   }
 
   /**
-   * Build a staff <article> card element.
+   * Build a staff <a> card element.
    * Shows photo + name linked to LinkedIn.
    */
   function buildCard(member) {
     var name = esc(member.name || 'Unknown');
-    var linkedin = esc(member.linkedin || '#');
     var photo = member.photo ? esc(member.photo) : '';
 
     var a = document.createElement('a');
@@ -58,10 +58,11 @@
     return a;
   }
 
-  /** Fetch and render all staff into the .staff-grid element. */
+  /** Fetch and render all staff into the two category grids. */
   async function loadStaff() {
-    var grid = document.querySelector('.staff-grid');
-    if (!grid) return;
+    var foundersGrid = document.getElementById('staff-founders');
+    var organizersGrid = document.getElementById('staff-organizers');
+    if (!foundersGrid && !organizersGrid) return;
 
     try {
       var indexResp = await fetch(INDEX_FILE);
@@ -88,26 +89,25 @@
 
       if (members.length === 0) return;
 
-      // Group by order priority.
-      var groups = {};
-      members.forEach(function (m) {
-        var priority = (m.order !== undefined && m.order !== null) ? m.order : 0;
-        if (!groups[priority]) groups[priority] = [];
-        groups[priority].push(m);
-      });
+      // Split into founders and organizers, shuffle each group.
+      var founders = shuffle(members.filter(function (m) { return m.category === 'founder'; }));
+      var organizers = shuffle(members.filter(function (m) { return m.category === 'organizer'; }));
 
-      // Sort priority keys ascending, shuffle within each group, then flatten.
-      var sortedKeys = Object.keys(groups).map(Number).sort(function (a, b) { return a - b; });
-      var ordered = [];
-      sortedKeys.forEach(function (key) {
-        shuffle(groups[key]).forEach(function (m) { ordered.push(m); });
-      });
+      // Render founders.
+      if (foundersGrid) {
+        foundersGrid.innerHTML = '';
+        founders.forEach(function (member) {
+          foundersGrid.appendChild(buildCard(member));
+        });
+      }
 
-      // Render cards.
-      grid.innerHTML = '';
-      ordered.forEach(function (member) {
-        grid.appendChild(buildCard(member));
-      });
+      // Render organizers.
+      if (organizersGrid) {
+        organizersGrid.innerHTML = '';
+        organizers.forEach(function (member) {
+          organizersGrid.appendChild(buildCard(member));
+        });
+      }
     } catch (err) {
       console.error('[staff.js]', err);
     }
