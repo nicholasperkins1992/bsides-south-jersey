@@ -1800,6 +1800,15 @@ body::before {
   filter: grayscale(45%);
 }
 
+/* Compact slot (short duration — reduce padding so content fits) */
+.schedule-slot--compact {
+  padding: 2px 8px;
+  gap: 0;
+}
+.schedule-slot--compact .schedule-slot-time {
+  font-size: 9px;
+}
+
 /* Slot inner text */
 .schedule-slot-badge {
   display: inline-block;
@@ -1935,37 +1944,68 @@ body::before {
   margin-bottom: 0;
 }
 
-/* ── Mobile: hide desktop grid, show linear list ─────────────────────────── */
-.schedule-mobile-list {
-  display: none;
+/* ── Schedule: always use list view ──────────────────────────────────────── */
+.schedule-grid-container {
+  display: none !important;
 }
 
-@media (max-width: 768px) {
-  .schedule-grid-wrapper {
-    display: none;
-  }
+.schedule-mobile-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.schedule-slot--mobile {
+  position: static;
+  left: auto;
+  right: auto;
+  padding: 10px 12px;
+  border-radius: 5px;
+}
+
+.schedule-slot-title {
+  -webkit-line-clamp: 6;
+}
+
+.schedule-slot-track-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--terminal-dim-green);
+  margin-bottom: 2px;
+  display: block;
+}
+
+/* ── Desktop enhancements for list view ──────────────────────────────────── */
+@media (min-width: 769px) {
   .schedule-mobile-list {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+    gap: 12px;
   }
+
   .schedule-slot--mobile {
-    position: static;
-    left: auto;
-    right: auto;
-    padding: 10px 12px;
-    border-radius: 5px;
+    padding: 14px 18px;
   }
+
+  .schedule-slot-time {
+    font-size: 12px;
+  }
+
+  .schedule-slot-speaker {
+    font-size: 15px;
+  }
+
   .schedule-slot-title {
-    -webkit-line-clamp: 6;
+    font-size: 15px;
   }
+
   .schedule-slot-track-label {
-    font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--terminal-dim-green);
-    margin-bottom: 2px;
-    display: block;
+    font-size: 11px;
+  }
+
+  .schedule-slot-hint {
+    font-size: 12px;
   }
 }
 

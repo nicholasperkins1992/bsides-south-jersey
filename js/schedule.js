@@ -424,7 +424,7 @@
       if (slot.type === 'transition') return; // skip dividers
 
       const top    = topPx(slot.start);
-      const height = Math.max(heightPx(slot.start, slot.end), 28);
+      const height = heightPx(slot.start, slot.end);
       const isClickable = ['talk', 'keynote', 'panel', 'ceremony'].includes(slot.type);
 
       if (slot.track === 'all' || slot.isKeynote) {
