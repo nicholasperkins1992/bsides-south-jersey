@@ -134,7 +134,7 @@
 
   // ─── Debug / Test Mode ───────────────────────────────────────────────────────
   // mockDate overrides the real clock when set.
-  // Press 'C' to open the input overlay; Enter to apply; Escape to cancel.
+  // Click/tap "Schedule" 5× to open the input overlay; Enter to apply; Escape to cancel.
   let mockDate = null;
 
   /** Returns the effective "now" — real clock or mock override. */
@@ -607,7 +607,7 @@
 
   // ─── Debug / Test Overlay ────────────────────────────────────────────────────
   // Press 'C' to open. Type a datetime like "2026-04-18 10:30", press Enter.
-  // A TEST MODE badge appears while active. Press 'C' again or click Reset to clear.
+  // A TEST MODE badge appears while active. Click/tap "Schedule" 5× again or click Reset to clear.
 
   function setupDebugOverlay(data, tick) {
     // Build overlay DOM
@@ -731,18 +731,26 @@
       if (e.target === overlay) closeOverlay();
     });
 
-    // 'C' key toggles the overlay (only when no other input/modal is focused)
-    document.addEventListener('keydown', function (e) {
-      if (e.key !== 'c' && e.key !== 'C') return;
-      const tag = document.activeElement && document.activeElement.tagName;
-      if (tag === 'INPUT' || tag === 'TEXTAREA') return;
-      if (document.body.classList.contains('speaker-modal-open')) return;
-      if (overlay.style.display === 'flex') {
-        closeOverlay();
-      } else {
-        openOverlay();
-      }
-    });
+    // 5 taps/clicks on the "Schedule" heading toggles the overlay
+    var _titleClickCount = 0;
+    var _titleClickTimer = null;
+    var titleEl = document.getElementById('schedule-page-title');
+    if (titleEl) {
+      titleEl.addEventListener('click', function () {
+        _titleClickCount++;
+        clearTimeout(_titleClickTimer);
+        if (_titleClickCount >= 5) {
+          _titleClickCount = 0;
+          if (overlay.style.display === 'flex') {
+            closeOverlay();
+          } else {
+            openOverlay();
+          }
+        } else {
+          _titleClickTimer = setTimeout(function () { _titleClickCount = 0; }, 3000);
+        }
+      });
+    }
   }
 
   // ─── Init ────────────────────────────────────────────────────────────────────
@@ -827,7 +835,7 @@
       if (document.visibilityState === 'visible') tick();
     });
 
-    // Debug / test mode overlay (press 'C')
+    // Debug / test mode overlay (tap "Schedule" 5×)
     setupDebugOverlay(data, tick);
   }
 
