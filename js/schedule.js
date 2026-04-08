@@ -778,6 +778,14 @@
       conferenceDate = new Date(data.conference.date + 'T00:00:00');
     }
 
+    // Populate date/time subtitle from JSON
+    const datetimeEl = document.getElementById('schedule-page-datetime');
+    if (datetimeEl && data.conference) {
+      const d = data.conference.displayDate || '';
+      const t = data.conference.displayTime || '';
+      datetimeEl.innerHTML = esc(d) + (d && t ? ' &nbsp;|&nbsp; ' : '') + esc(t);
+    }
+
     renderStatusBanner(data.conference.date);
 
     // Build desktop grid
