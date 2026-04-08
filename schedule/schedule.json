@@ -1,0 +1,264 @@
+{
+  "conference": {
+    "name": "BSides South Jersey",
+    "date": "2026-04-10",
+    "displayDate": "Wednesday, April 18, 2026",
+    "displayTime": "8:15 AM – 5:00 PM"
+  },
+  "tracks": [
+    {
+      "id": "main",
+      "label": "Main Stage"
+    },
+    {
+      "id": "side-a",
+      "label": "Conference Side A"
+    },
+    {
+      "id": "side-b",
+      "label": "Conference Side B"
+    }
+  ],
+  "slots": [
+    {
+      "id": "registration",
+      "start": "08:15",
+      "end": "09:00",
+      "type": "registration",
+      "track": "all",
+      "title": "Check-In & Registration",
+      "description": "Speaker and attendee check-in and registration opens. Pick up your badge and get settled in!"
+    },
+    {
+      "id": "opening-remarks",
+      "start": "09:00",
+      "end": "09:10",
+      "type": "ceremony",
+      "track": "main",
+      "title": "Opening Remarks",
+      "description": "Welcome to BSides South Jersey! Opening remarks and conference kickoff."
+    },
+    {
+      "id": "hazel-cerra",
+      "start": "09:10",
+      "end": "09:55",
+      "type": "keynote",
+      "track": "main",
+      "isKeynote": true,
+      "title": "How to Protect Your Enterprise Using the Presidential Protection Methodology",
+      "speaker": "Hazel Cerra",
+      "speakerFile": "hazel-cerra",
+      "description": "Hazel will speak on parallels between cyber security and how we protect the president in the Secret Service. Cyber security and presidential protection, share several similarities, we both have something valuable to protect, we both have adversaries that want to hurt us, and we have competing interests. Hazel will compare the attempted assassination on Ronald Reagan and how creating a stress testing your incident response plan is the best way to come out unscathed from an cyber incident."
+    },
+    {
+      "id": "alex-muentz",
+      "start": "10:00",
+      "end": "10:30",
+      "type": "talk",
+      "track": "side-a",
+      "title": "AI Governance – How Do You Balance Productivity and Risk with Shadow AI",
+      "speaker": "Alex Muentz",
+      "speakerFile": "alex-muentz",
+      "description": "AI is another disruptive technology like cloud or SaaS. When used correctly, it can bring productivity gains. If used poorly, your data and operations are at significant risk. There's a spectrum between an absolute ban and uncontrolled use.\n\nThis talk will discuss approaches to understand and treat AI risk with technical, policy and contract approaches.\n\nWe'll discuss technical approaches such as CASB and DLP. Policy approaches will include scrubbing, deindividuation and use guidance. Contract approaches will include AI addendums and indemnification clauses."
+    },
+    {
+      "id": "yotam-perkal",
+      "start": "10:00",
+      "end": "10:30",
+      "type": "talk",
+      "track": "side-b",
+      "title": "Fully Automated Phishing: How Attackers Use Vibe Coding to Generate and Launch Campaigns in Minutes",
+      "speaker": "Yotam Perkal",
+      "speakerFile": "yotam-perkal",
+      "description": "AI-powered “builder” platforms—Lovable, Cursor, and others—are enabling attackers to automate phishing campaigns from end to end. In our research, we found clear evidence in the wild of adversaries using vibe coding workflows to identify trending themes, generate phishing sites, auto-clone brands, and deploy full campaigns with no human in the loop. Recent incidents like the nano-banana phishing clone and the Claude autonomous campaign illustrate how trivial it has become for attackers to spin up convincing, high-velocity phishing infrastructure.\n\nThis talk presents a deep, technical, step-by-step breakdown of how automated phishing operations are conducted today. We will walk through the full pipeline: idea discovery, asset generation, credential capture pipelines, automated deployment, and autonomous promotion using AI agents to distribute campaigns across email, SMS, social media, and ad platforms at scale.\n\nWe will present case studies of real phishing campaigns we analyzed, including builder fingerprints, artifact leaks, and misconfigurations that reveal how these systems work under the hood. We conclude with guidance for defenders on recognizing the signals of builder-generated phishing, detecting automated domain churn, and disrupting these pipelines before they scale."
+    },
+    {
+      "id": "thomas-heverin",
+      "start": "10:30",
+      "end": "11:00",
+      "type": "talk",
+      "track": "side-a",
+      "title": "Using LLMs to Compare Enterprise AI Security Strategies with MITRE ATLAS",
+      "speaker": "Thomas Heverin & Baldwin Students",
+      "speakerFile": "thomas-heverin",
+      "description": "As organizations rapidly deploy generative AI tools, security teams are increasingly asked to secure AI systems without clear guidance on which controls actually matter or how to prioritize defenses. Frameworks such as the MITRE Adversarial Threat Landscape for Artificial Intelligence Systems (ATLAS) provide extensive lists of adversarial techniques and mitigations, but they are largely descriptive and difficult to translate into practical security decisions.\n\nThis talk demonstrates a hands-on, practitioner-focused approach for turning MITRE ATLAS into a decision-support tool using large language models (LLMs). The session reframes ATLAS from a defender perspective and shows how ChatGPT can be used as a security analysis co-pilot to ingest ATLAS data, construct a lightweight ontology of tactics, techniques, and mitigations, and rapidly evaluate realistic enterprise AI defense strategies.\n\nThe presentation compares three IT-led AI security strategies: a technical controls strategy, a governance focused strategy, and a balanced strategy that combines both approaches. Attendees will see why deploying more controls does not necessarily result in better AI security, how some controls act as single points of failure, and why balanced mitigation strategies consistently outperform single category approaches."
+    },
+    {
+      "id": "christopher-eng",
+      "start": "10:30",
+      "end": "11:00",
+      "type": "talk",
+      "track": "side-b",
+      "title": "Learning Out Loud: My Ongoing DF/IR Challenge",
+      "speaker": "Christopher Eng",
+      "speakerFile": "christopher-eng",
+      "description": "At the start of 2025, Christopher Eng set out on a simple but ambitious personal challenge: to learn something new in DF/IR every week — and to share that journey publicly. There wasn’t a rigid structure or endpoint, just curiosity and a commitment to consistency.\n\nSince then, Christopher has written about everything from the quirks of Windows Notepad artifacts to participating in CTFs, exploring Windows and Android forensics, building a DF/IR homelab, and contributing to open-source projects. Each post has pushed Christopher a little further outside my comfort zone, helping me connect theory to hands-on investigation and understand not just the tools, but the mindset behind effective forensic work.\n\nIn this talk, Christopher will share how this experiment in continuous learning has shaped my DF/IR skills and mindset, what he learned from doing forensics in public, and how documenting even small discoveries can help both you and the wider DF/IR community grow."
+    },
+    {
+      "id": "morning-break",
+      "start": "11:00",
+      "end": "11:15",
+      "type": "break",
+      "track": "all",
+      "title": "Morning Break"
+    },
+    {
+      "id": "rich-mozeleski",
+      "start": "11:15",
+      "end": "11:45",
+      "type": "talk",
+      "track": "side-a",
+      "title": "We're Losing the War for Identity",
+      "speaker": "Rich Mozeleski",
+      "description": "Identity attacks are exploding. The days of the easily cast-aside Nigerian Prince scam email are over. Despite a few decades of cybersecurity training, our users are more vulnerable than ever to a wide range of tradecraft (often exacerbated by LLMs). Is there any hope? We certainly hope so! Dive in with Rich Mozeleski on the latest trends in the identity tradecraft space and what defenders can do to counter these ever-evolving attacks."
+    },
+    {
+      "id": "brian-callahan",
+      "start": "11:15",
+      "end": "11:45",
+      "type": "talk",
+      "track": "side-b",
+      "title": "We are building the Next-Generation Quantum-Enhanced Cybersecurity Tools You're going to be using!",
+      "speaker": "Brian Callahan",
+      "speakerFile": "brian-callahan",
+      "description": "Quantum computing is going to revolutionize a wide variety of tasks in the Cybersecurity field. If you’ve heard about quantum at all, you have heard about it breaking cryptography and stealing secrets. However, a critically under-researched aspect of quantum cybersecurity is how we can use quantum computing to enhance the defenses of our practitioners, improving business and security outcomes for all organizations, large and small.\n\nWe are building the first generation of quantum-enhanced tools that everyday practitioners will be able to use to improve their organization’s security posture. In our research, we examine the ability for quantum computers to analyze emails and categorize them as phishing or not phishing. We use this to build a real-world and fully usable anti-phishing tool, enhanced by quantum, that is currently close to on-par with the best tools you can buy today.\n\nWe present our research to excite you about the quantum-enhanced future of cybersecurity, to demonstrate that it can and will be used by the blue team, not just the red team stealing secrets, and show you how you can begin to leverage the excitement of quantum computing in your own organizations."
+    },
+    {
+      "id": "pavan-reddy",
+      "start": "11:45",
+      "end": "12:15",
+      "type": "talk",
+      "track": "side-a",
+      "title": "AI Security 101: A Practical Roadmap from AppSec to LLM Threat Hunting",
+      "speaker": "Pavan Reddy",
+      "speakerFile": "pavan-reddy",
+      "description": "AI security isn’t about the model itself—it’s securing the system around the model: prompts, retrieval, tools, and the permissions those components quietly inherit. This talk gives attendees a practical mental model for AI attack surfaces (prompt injection, indirect injection via untrusted content, insecure tool use, data leakage, and excessive agency) using a threat-model-first approach aligned with community frameworks like the OWASP Top 10 for LLM Applications.\n\nAttendees leave with a clear learning path into AI security: the foundational knowledge to build (LLM/RAG/agent basics), the security fundamentals that transfer (authz, isolation, logging, SDLC), and a resource map (MITRE ATLAS, NIST AI RMF, and practical red-teaming/testing tools) to keep progressing after the conference."
+    },
+    {
+      "id": "zachary-schmidt",
+      "start": "11:45",
+      "end": "12:15",
+      "type": "talk",
+      "track": "side-b",
+      "title": "The Applied Science Approach to Corporate Defense for the Corporate National Security Mission",
+      "speaker": "Zachary Schmidt",
+      "description": "The next evolution of cybersecurity leadership requires a fundamental shift—from a technical expert to a business strategist who can quantify risk in dollars to prioritize the most impactful initiative to deliver cyber resilience.\n\nThis session reveals a powerful, math-based framework that transforms your role. We’ll show you how to connect security to business outcomes, execute with surgical precision, speak the language of money, and champion national resilience.\n\nWe are releasing a groundbreaking report analyzing the hidden cyber risk within organizations of any size. In this session, we will apply our risk quantification engine directly to the report’s findings, translating the data into hard financial numbers. Your budget is finite. Your risk is almost always expanding—and this is one fight we cannot afford to lose. Remember, it’s not Magic, it’s Math."
+    },
+    {
+      "id": "lunch",
+      "start": "12:15",
+      "end": "13:10",
+      "type": "break",
+      "track": "all",
+      "title": "Lunch"
+    },
+    {
+      "id": "kay-prashad",
+      "start": "13:10",
+      "end": "13:55",
+      "type": "keynote",
+      "track": "main",
+      "isKeynote": true,
+      "title": "Security Operation Fundamentals (SOC)",
+      "speaker": "Kay Prashad",
+      "description": "Security Operations Fundamentals is a practical keynote on how a Security Operations Center (SOC) really works—bringing together people, process, and technology to detect, investigate, and respond to threats. The session will break down the fundamentals of effective security operations, showing how strong visibility, disciplined workflows, and sound decision-making turn cybersecurity strategy into day-to-day resilience."
+    },
+    {
+      "id": "michael-meyer",
+      "start": "14:00",
+      "end": "14:30",
+      "type": "talk",
+      "track": "side-a",
+      "title": "The Secret Threats All Around Us",
+      "speaker": "Michael Meyer",
+      "speakerFile": "michael-meyer",
+      "description": "We are under continuous threats from our adversaries not through open war, but through quiet, persistent campaigns designed to impact how we think, what we trust, and how we live our lives. Operatives target information systems, industries and businesses at all levels, without most of us ever noticing. College campuses are not on the sidelines; they are one of their primary targets.\n\nThese efforts rarely make headlines; in fact, they seem small and are easy to miss as background noise. Taken together, however, they represent a constant strategic threat that operates below the level of national awareness but directly affects us, impacts what you are learning and all of our futures."
+    },
+    {
+      "id": "jennifer-landon",
+      "start": "14:00",
+      "end": "14:30",
+      "type": "talk",
+      "track": "side-b",
+      "title": "Why Teachers Are the Best Hackers",
+      "speaker": "Jennifer Landon",
+      "description": "There’s the adage that says those who can’t do, teach. But what if, in fact, we’re undermining and overlooking some of the greatest social engineers of our time? This session plans to bestow upon you the skills (and swagger) of the greatest hackers: classroom teachers. You might not need to get over one hundred 12 year olds to correctly name the layers of the Earth, but you’re going to learn the same methodology and know-how to get the results YOU need. In 20 short minutes, you will gain skills and resources to lead, guide, mentor, redirect and plan like a master, but apply it to your own work starting today, tomorrow, next week, and next month."
+    },
+    {
+      "id": "bill-batchelor",
+      "start": "14:30",
+      "end": "15:00",
+      "type": "talk",
+      "track": "side-a",
+      "title": "ATT&CK in the Cloud – Identifying MITRE ATT&CK Cloud Techniques in Intrusion Analysis",
+      "speaker": "Bill Batchelor",
+      "speakerFile": "bill-batchelor",
+      "description": "This session is a primer on MITRE ATT&CK mapping that covers threat actor cloud and identity techniques and tooling. Mapping threat actor TTPs to MITRE ATT&CK is an important fundamental skill for analysts, both new and seasoned, to get right. I will guide participants through several examples of threat actor cloud techniques and tooling, and how to break those down using MITRE ATT&CK.\n\nWe will take a close look at AzureHound which has been employed in real-world attacks by nation-state threat actors such as Curious Serpens and Void Blizzard. The goal is for attendees to participate actively in the analysis and come away with the knowledge to proficiently tag threat actor cloud techniques based on MITRE ATT&CK as part of their intelligence analysis, intrusion research and/or SOC investigations."
+    },
+    {
+      "id": "tapan-soni",
+      "start": "14:30",
+      "end": "15:00",
+      "type": "talk",
+      "track": "side-b",
+      "title": "An Experience and Journey in Incident Response",
+      "speaker": "Tapan Soni",
+      "speakerFile": "tapan-soni",
+      "description": "Sharing a few lessons learned from Tapan's experience with cyber incident response."
+    },
+    {
+      "id": "craig-porter",
+      "start": "15:00",
+      "end": "15:30",
+      "type": "talk",
+      "track": "side-a",
+      "title": "Digital Manhunts & Cyber Clues: My Journey Through Federal Digital Forensics",
+      "speaker": "Craig Porter",
+      "speakerFile": "craig-porter",
+      "description": "Craig will discuss previous experiences and cases he was involved within the Digital Forensics/Cyber Crime world of US Federal Law Enforcement. He usually includes breaking into the Digital Forensics Law Enforcement/DFIR world, war stories, lessons learned and Q&A."
+    },
+    {
+      "id": "al-crowley",
+      "start": "15:00",
+      "end": "15:30",
+      "type": "talk",
+      "track": "side-b",
+      "title": "When the Watchdog Bites: Reputational Denial of Service Attacks",
+      "speaker": "Al Crowley",
+      "speakerFile": "al-crowley",
+      "description": "As security professionals, we train to defend against hackers, script kiddies, and even state-sponsored actors. But what happens when the threat does not come from a typical black hat, but instead comes from the well-meaning infrastructure designed to protect the internet?\n\nRecently, a mission-critical federal government public portal we support was suddenly flagged by a community-driven “watchdog” as a “Cryptocurrency Wallet Drainer.” The result was a Reputational Denial of Service (RDoS)—security tools used by millions instantly began blocking access to the site, not because it was hacked, but because an automated bot decided to “shoot first and ask questions later.”\n\nIn this talk, we will dissect the anatomy of this incident, revealing how a single unverified report can cascade into a major outage, and walk through a step-by-step response playbook for developers and incident responders to triage, validate, and successfully appeal false positives."
+    },
+    {
+      "id": "afternoon-break",
+      "start": "15:30",
+      "end": "15:45",
+      "type": "break",
+      "track": "all",
+      "title": "Afternoon Break"
+    },
+    {
+      "id": "panel-discussion",
+      "start": "15:45",
+      "end": "16:30",
+      "type": "panel",
+      "track": "main",
+      "title": "Panel Discussion",
+      "speakers": [
+        "Brian Callahan",
+        "Kay Prashad",
+        "Craig Porter",
+        "Bill Batchelor"
+      ],
+      "description": ""
+    },
+    {
+      "id": "closing-awards",
+      "start": "16:30",
+      "end": "16:45",
+      "type": "ceremony",
+      "track": "main",
+      "title": "Closing Remarks & Awards",
+      "description": "Thank you for joining us at BSides South Jersey. Award presentations, closing remarks, and farewell."
+    }
+  ]
+}
