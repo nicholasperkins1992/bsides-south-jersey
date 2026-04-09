@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes, minimum-scale=1.0, maximum-scale=3.0"
+    />
+    <!-- Security: Hardened CSP & meta policies -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'none'; upgrade-insecure-requests; block-all-mixed-content;"
+    />
+    <meta name="referrer" content="no-referrer" />
+    <meta
+      http-equiv="Permissions-Policy"
+      content="geolocation=(), microphone=(), camera=(), fullscreen=(self)"
+    />
+    <title>Live View - BSides South Jersey Cybersecurity Conference</title>
+    <meta
+      name="description"
+      content="Real-time session tracker for BSides South Jersey — see what's on now and coming up next on April 18, 2026."
+    />
+    <meta name="author" content="BSides South Jersey" />
+    <!-- Keep out of search results; this is a day-of operational page -->
+    <meta name="robots" content="noindex,nofollow" />
+    <link
+      rel="canonical"
+      href="https://www.bsidessouthjersey.org/live.html"
+    />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- TV display overrides: plain black, no terminal chrome -->
+    <style>
+      body { background-color: #000; }
+      .terminal-container { padding: 20px; max-width: 100%; }
+      .terminal-window { border: none; box-shadow: none; border-radius: 0; margin: 0; padding: 20px; background-color: #000; }
+      .terminal-header { border-bottom: none; }
+    </style>
+
+    <!-- Preload fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  </head>
+  <body>
+    <!-- Main terminal container -->
+    <div class="terminal-container">
+      <!-- Terminal window -->
+      <div class="terminal-window">
+        <!-- Page Header -->
+        <div class="content-section">
+          <h1>Live View</h1>
+          <p
+            id="live-page-datetime"
+            style="
+              text-align: center;
+              color: var(--terminal-dim-green);
+              margin-top: -10px;
+              margin-bottom: 0;
+            "
+          ></p>
+        </div>
+
+        <!-- 10-minute warning banner (shown by JS) -->
+        <div
+          id="live-alert-banner"
+          class="live-alert-banner"
+          style="display: none"
+          role="alert"
+          aria-live="assertive"
+          aria-atomic="true"
+        >
+          <span id="live-alert-text"></span>
+          <button
+            type="button"
+            id="live-alert-close"
+            class="live-alert-close"
+            aria-label="Dismiss alert"
+          >
+            &times;
+          </button>
+        </div>
+
+
+        <!-- Countdown block -->
+        <div
+          id="live-countdown-block"
+          class="content-section live-countdown-block"
+          style="display: none"
+          aria-live="polite"
+          aria-atomic="true"
+        >
+          <div id="live-countdown-label" class="live-countdown-label"></div>
+          <div
+            id="live-countdown-value"
+            class="live-countdown-value"
+            aria-label="Time remaining until next session"
+          >
+            00:00
+          </div>
+          <div class="live-countdown-sublabel">MINUTES &nbsp;:&nbsp; SECONDS</div>
+        </div>
+
+        <!-- COMING UP NEXT section -->
+        <div
+          id="live-next-section"
+          class="content-section"
+          style="display: none"
+        >
+          <h2 id="live-next-header">
+            <span class="prompt-symbol">&gt;</span> COMING UP NEXT
+          </h2>
+          <div id="live-next-cards" class="live-cards-grid"></div>
+        </div>
+
+        <!-- NOW ON STAGE section -->
+        <div id="live-now-section" class="content-section" style="display: none">
+          <h2><span class="prompt-symbol">&gt;</span> NOW ON STAGE</h2>
+          <div id="live-now-cards" class="live-cards-grid"></div>
+        </div>
+
+        <!-- Shown when not the conference day -->
+        <div
+          id="live-preconf-section"
+          class="content-section"
+          style="display: none"
+        >
+          <p
+            id="live-preconf-message"
+            class="live-preconf-message"
+          >
+            The live view activates on conference day.<br />
+            Check the <a href="schedule.html" class="live-preconf-link">full schedule</a> for session details.
+          </p>
+        </div>
+
+
+      </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/page-config.js"></script>
+    <script src="js/live.js"></script>
+
+  </body>
+</html>

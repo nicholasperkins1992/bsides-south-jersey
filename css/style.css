@@ -2226,3 +2226,209 @@ body::before {
 .schedule-debug-reset:hover {
   background: rgba(255, 174, 0, 0.15);
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   Live Page  (live.html / js/live.js)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── Status line ─────────────────────────────────────────────────────────── */
+.live-status {
+  padding: 10px 16px;
+  margin-bottom: 4px;
+  border-left: 3px solid var(--terminal-green);
+  font-size: 14px;
+  color: var(--terminal-dim-green);
+  background: rgba(0, 88, 52, 0.10);
+}
+.live-status--today {
+  border-left-color: var(--terminal-light-green);
+  color: var(--terminal-light-green);
+  background: rgba(113, 205, 113, 0.08);
+}
+.live-status--past {
+  border-left-color: var(--terminal-dim-green);
+  opacity: 0.7;
+}
+.live-status--upcoming {
+  border-left-color: var(--vintage-orange);
+  color: var(--vintage-orange);
+  background: rgba(255, 174, 0, 0.06);
+}
+.live-status--error {
+  border-left-color: #ff3333;
+  color: #ff3333;
+}
+
+/* ── 10-minute warning banner ────────────────────────────────────────────── */
+.live-alert-banner {
+  position: relative;
+  padding: 14px 48px 14px 16px;
+  background: rgba(255, 51, 51, 0.12);
+  border-left: 4px solid #ff3333;
+  border-top: 1px solid rgba(255, 51, 51, 0.35);
+  border-bottom: 1px solid rgba(255, 51, 51, 0.35);
+  color: #ff6666;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 0.04em;
+  margin-bottom: 8px;
+}
+.live-alert-icon {
+  margin-right: 8px;
+}
+.live-alert-close {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: #ff6666;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 4px 8px;
+  opacity: 0.7;
+  line-height: 1;
+}
+.live-alert-close:hover { opacity: 1; }
+
+@keyframes live-pulse {
+  0%, 100% { box-shadow: 0 0 8px rgba(255, 51, 51, 0.35); }
+  50%       { box-shadow: 0 0 28px rgba(255, 51, 51, 0.80); }
+}
+.live-alert-pulse {
+  animation: live-pulse 1.5s ease-in-out infinite;
+}
+
+/* ── Countdown block ─────────────────────────────────────────────────────── */
+.live-countdown-block {
+  text-align: center;
+  padding: 24px 20px 28px;
+  border: 2px solid var(--vintage-orange);
+  border-radius: 6px;
+  background: rgba(255, 174, 0, 0.04);
+  box-shadow: 0 0 20px rgba(255, 174, 0, 0.14);
+  max-width: 480px;
+  margin: 0 auto 8px;
+}
+.live-countdown-label {
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  color: var(--vintage-orange);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+.live-countdown-value {
+  font-family: 'VT323', monospace;
+  font-size: clamp(72px, 18vw, 120px);
+  color: var(--vintage-orange);
+  letter-spacing: 0.04em;
+  line-height: 1;
+  text-shadow: 0 0 20px rgba(255, 174, 0, 0.50);
+}
+.live-countdown-sublabel {
+  font-size: 10px;
+  letter-spacing: 0.20em;
+  color: var(--terminal-dim-green);
+  margin-top: 6px;
+  text-transform: uppercase;
+}
+
+/* Warning state — countdown ≤ 10 min */
+.live-countdown-block--warning {
+  border-color: #ff3333;
+  box-shadow: 0 0 20px rgba(255, 51, 51, 0.20);
+}
+.live-countdown-block--warning .live-countdown-value {
+  color: #ff3333;
+  text-shadow: 0 0 20px rgba(255, 51, 51, 0.60);
+}
+.live-countdown-block--warning .live-countdown-label {
+  color: #ff6666;
+}
+
+/* ── Session card grid ───────────────────────────────────────────────────── */
+.live-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 12px;
+  margin-top: 12px;
+}
+
+/* Individual session card */
+.live-track-card {
+  padding: 16px 18px;
+  border: 1px solid var(--terminal-border);
+  border-radius: 5px;
+  background: rgba(0, 88, 52, 0.18);
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.live-track-card--keynote {
+  border-color: var(--vintage-orange);
+  background: rgba(255, 174, 0, 0.06);
+  box-shadow: 0 0 12px rgba(255, 174, 0, 0.14);
+}
+.live-track-card--break {
+  border-color: var(--terminal-blue);
+  background: rgba(77, 159, 205, 0.06);
+}
+.live-track-card--panel {
+  border-color: var(--terminal-light-green);
+  background: rgba(136, 255, 136, 0.04);
+}
+.live-card-track {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.10em;
+  color: var(--terminal-dim-green);
+}
+.live-card-badge {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  color: var(--vintage-orange);
+  text-transform: uppercase;
+}
+.live-card-badge--panel {
+  color: var(--terminal-light-green);
+}
+.live-card-title {
+  font-size: 15px;
+  color: var(--terminal-green);
+  line-height: 1.35;
+  font-weight: bold;
+}
+.live-track-card--keynote .live-card-title {
+  color: var(--vintage-orange-bright);
+}
+.live-card-speaker {
+  font-size: 13px;
+  color: var(--terminal-light-green);
+}
+.live-track-card--keynote .live-card-speaker {
+  color: var(--vintage-orange);
+}
+.live-card-time {
+  font-size: 12px;
+  color: var(--terminal-dim-green);
+  margin-top: auto;
+  padding-top: 4px;
+}
+
+/* ── Pre-conference placeholder ──────────────────────────────────────────── */
+.live-preconf-message {
+  text-align: center;
+  color: var(--terminal-dim-green);
+  padding: 40px 0;
+  line-height: 1.8;
+}
+.live-preconf-link {
+  color: var(--terminal-green);
+  text-decoration: underline;
+}
+.live-preconf-link:hover {
+  color: var(--terminal-light-green);
+}
