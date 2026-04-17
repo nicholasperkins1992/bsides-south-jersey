@@ -218,15 +218,15 @@
       "description": "Craig will discuss previous experiences and cases he was involved within the Digital Forensics/Cyber Crime world of US Federal Law Enforcement. He usually includes breaking into the Digital Forensics Law Enforcement/DFIR world, war stories, lessons learned and Q&A."
     },
     {
-      "id": "al-crowley",
+      "id": "george-frazier",
       "start": "15:00",
       "end": "15:30",
       "type": "talk",
       "track": "side-b",
-      "title": "When the Watchdog Bites: Reputational Denial of Service Attacks",
-      "speaker": "Al Crowley",
-      "speakerFile": "al-crowley",
-      "description": "As security professionals, we train to defend against hackers, script kiddies, and even state-sponsored actors. But what happens when the threat does not come from a typical black hat, but instead comes from the well-meaning infrastructure designed to protect the internet?\n\nRecently, a mission-critical federal government public portal we support was suddenly flagged by a community-driven “watchdog” as a “Cryptocurrency Wallet Drainer.” The result was a Reputational Denial of Service (RDoS)—security tools used by millions instantly began blocking access to the site, not because it was hacked, but because an automated bot decided to “shoot first and ask questions later.”\n\nIn this talk, we will dissect the anatomy of this incident, revealing how a single unverified report can cascade into a major outage, and walk through a step-by-step response playbook for developers and incident responders to triage, validate, and successfully appeal false positives."
+      "title": "API Fundamentals and OWASP Top 10 Risks.",
+      "speaker": "George Frazier",
+      "speakerFile": "george-frazier",
+      "description": "In this session, George M. Frazier will introduce the fundamentals of APIs and their growing significance in modern software ecosystems. He will highlight the OWASP Top 10 API Security Risks for 2023, offering insights into common vulnerabilities and how they can be exploited. Attendees will also be introduced to practical tools like Postman and Burp Suite to begin interacting with and learning more about APIs."
     },
     {
       "id": "afternoon-break",
