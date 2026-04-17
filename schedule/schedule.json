@@ -2,7 +2,7 @@
   "conference": {
     "name": "BSides South Jersey",
     "date": "2026-04-18",
-    "displayDate": "Wednesday, April 18, 2026",
+    "displayDate": "Saturday, April 18, 2026",
     "displayTime": "8:15 AM – 5:00 PM"
   },
   "tracks": [
@@ -101,16 +101,6 @@
       "type": "break",
       "track": "all",
       "title": "Morning Break"
-    },
-    {
-      "id": "rich-mozeleski",
-      "start": "11:15",
-      "end": "11:45",
-      "type": "talk",
-      "track": "side-a",
-      "title": "We're Losing the War for Identity",
-      "speaker": "Rich Mozeleski",
-      "description": "Identity attacks are exploding. The days of the easily cast-aside Nigerian Prince scam email are over. Despite a few decades of cybersecurity training, our users are more vulnerable than ever to a wide range of tradecraft (often exacerbated by LLMs). Is there any hope? We certainly hope so! Dive in with Rich Mozeleski on the latest trends in the identity tradecraft space and what defenders can do to counter these ever-evolving attacks."
     },
     {
       "id": "brian-callahan",
