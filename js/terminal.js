@@ -89,6 +89,9 @@ class TerminalEffects {
         // Setup speaker modal behavior
         this.setupSpeakerModal();
 
+        // Thank you modal (post-event)
+        this.setupThankYouModal();
+
         // Konami code easter egg
         this.setupKonamiCode();
 
@@ -184,6 +187,50 @@ class TerminalEffects {
                 }
             });
         }
+    }
+
+    /**
+     * Setup the post-event thank you modal.
+     * Shows once per session on the home page.
+     */
+    setupThankYouModal() {
+        const modal = document.getElementById('thankYouModal');
+        if (!modal) return;
+
+        // Only show on the home page
+        const path = window.location.pathname;
+        const isHome = path === '/' || path === '/index.html' || path.endsWith('/index.html') || path.endsWith('/');
+        if (!isHome) return;
+
+        const STORAGE_KEY = 'bssj_thankyou_seen';
+        const closeModal = () => {
+            modal.classList.remove('is-open');
+            modal.setAttribute('aria-hidden', 'true');
+            document.body.classList.remove('speaker-modal-open');
+            sessionStorage.setItem(STORAGE_KEY, '1');
+        };
+
+        const openModal = () => {
+            modal.classList.add('is-open');
+            modal.setAttribute('aria-hidden', 'false');
+            document.body.classList.add('speaker-modal-open');
+        };
+
+        // Wire up close controls
+        const closeBtn = document.getElementById('thankYouModalClose');
+        const backdrop = modal.querySelector('[data-close-thankyou-modal]');
+
+        if (closeBtn) closeBtn.addEventListener('click', closeModal);
+        if (backdrop) backdrop.addEventListener('click', closeModal);
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('is-open')) {
+                closeModal();
+            }
+        });
+
+        // Show on every page load
+        setTimeout(openModal, 800);
     }
 
     /**

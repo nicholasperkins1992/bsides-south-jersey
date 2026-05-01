@@ -172,14 +172,9 @@
           <div class="event-venue">Doors open 8:15 AM &nbsp;|&nbsp; 9:00 AM - 5:00 PM EST</div>
 
           <div class="cta-button-container center">
-            <a
-              href="https://www.eventbrite.com/e/bsides-south-jersey-tickets-1534180819129"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="cta-button pulse-glow"
-            >
+            <span class="cta-button pulse-glow" aria-disabled="true" style="opacity:0.4; cursor:not-allowed; pointer-events:none;">
               Register Now ⮕
-            </a>
+            </span>
           </div>
         </div>
 
@@ -496,6 +491,58 @@
             [TIP: Try the Konami Code for a special surprise!]
           </div>
         </div>
+      </div>
+    </div>
+
+    <!-- Thank You Modal -->
+    <div
+      id="thankYouModal"
+      class="speaker-modal thankyou-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="thankYouModalTitle"
+      aria-hidden="true"
+    >
+      <div class="speaker-modal-backdrop" data-close-thankyou-modal></div>
+      <div class="speaker-modal-content thankyou-modal-content">
+        <button
+          type="button"
+          class="speaker-modal-close"
+          id="thankYouModalClose"
+          aria-label="Close thank you message"
+        >&times;</button>
+
+        <div class="thankyou-modal-logo">
+          <img
+            src="images/bsides-logo-pine-barrens.png"
+            alt="BSides South Jersey"
+            class="thankyou-logo-img"
+          />
+        </div>
+
+        <div class="thankyou-modal-body">
+          <h2 id="thankYouModalTitle" class="thankyou-modal-title">
+            <span class="prompt-symbol">></span> MISSION COMPLETE
+          </h2>
+
+          <div class="command-prompt thankyou-prompt">
+            <div class="prompt-line">
+              THANK YOU! To the attendees who stayed curious, the speakers who
+              shared what they knew, the volunteers who gave their time, and the
+              sponsors who believed before anyone else did — all of you made
+              this possible. This is how communities are built.
+            </div>
+          </div>
+
+          <p class="thankyou-seeyou">
+            See you next year. <span class="cursor-blink">█</span>
+          </p>
+
+          <p class="thankyou-signature">
+            &mdash; The BSides South Jersey Team
+          </p>
+        </div>
+
       </div>
     </div>
 

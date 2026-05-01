@@ -2432,3 +2432,88 @@ body::before {
 .live-preconf-link:hover {
   color: var(--terminal-light-green);
 }
+
+/* ── Thank You Modal ─────────────────────────────────────────────────────── */
+.thankyou-modal-content {
+  width: min(960px, 96vw);
+  max-height: 96vh;
+  text-align: center;
+  gap: 24px;
+}
+
+.thankyou-modal-logo {
+  display: flex;
+  justify-content: center;
+  padding: 8px 0 4px;
+}
+
+.thankyou-logo-img {
+  width: 260px;
+  max-width: 80%;
+  height: auto;
+  display: block;
+}
+
+.thankyou-modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.thankyou-modal-title {
+  font-size: 26px;
+  color: var(--vintage-orange);
+  margin: 0;
+}
+
+.thankyou-prompt {
+  text-align: left;
+  margin: 0;
+  padding-left: 0;
+}
+
+.thankyou-prompt .prompt-line {
+  margin: 10px 0;
+  line-height: 1.7;
+}
+
+.thankyou-seeyou {
+  font-size: 22px;
+  color: var(--terminal-light-green);
+  margin: 8px 0 0;
+  font-family: "VT323", "Courier New", monospace;
+  letter-spacing: 0.04em;
+}
+
+@keyframes cursorBlink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.cursor-blink {
+  display: inline-block;
+  color: var(--terminal-green);
+  animation: cursorBlink 1s infinite;
+}
+
+.thankyou-signature {
+  font-size: 15px;
+  color: var(--terminal-dim-green);
+  margin: 0;
+  font-style: italic;
+}
+
+/* Override: thank-you modal always visible on mobile too */
+@media (max-width: 768px) {
+  #thankYouModal.is-open {
+    display: flex !important;
+  }
+
+  .thankyou-logo-img {
+    width: 200px;
+  }
+
+  .thankyou-prompt {
+    font-size: 14px;
+  }
+}
