@@ -197,18 +197,10 @@ class TerminalEffects {
         const modal = document.getElementById('thankYouModal');
         if (!modal) return;
 
-        // Only show on the home page
+        // Keep the modal permanently visible on the home page and block dismissal.
         const path = window.location.pathname;
         const isHome = path === '/' || path === '/index.html' || path.endsWith('/index.html') || path.endsWith('/');
         if (!isHome) return;
-
-        const STORAGE_KEY = 'bssj_thankyou_seen';
-        const closeModal = () => {
-            modal.classList.remove('is-open');
-            modal.setAttribute('aria-hidden', 'true');
-            document.body.classList.remove('speaker-modal-open');
-            sessionStorage.setItem(STORAGE_KEY, '1');
-        };
 
         const openModal = () => {
             modal.classList.add('is-open');
@@ -216,21 +208,15 @@ class TerminalEffects {
             document.body.classList.add('speaker-modal-open');
         };
 
-        // Wire up close controls
-        const closeBtn = document.getElementById('thankYouModalClose');
-        const backdrop = modal.querySelector('[data-close-thankyou-modal]');
-
-        if (closeBtn) closeBtn.addEventListener('click', closeModal);
-        if (backdrop) backdrop.addEventListener('click', closeModal);
-
+        // Prevent close interactions entirely.
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && modal.classList.contains('is-open')) {
-                closeModal();
+                e.preventDefault();
+                e.stopPropagation();
             }
         });
 
-        // Show on every page load
-        setTimeout(openModal, 800);
+        setTimeout(openModal, 250);
     }
 
     /**
