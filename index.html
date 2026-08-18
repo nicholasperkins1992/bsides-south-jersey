@@ -497,21 +497,14 @@
     <!-- Thank You Modal -->
     <div
       id="thankYouModal"
-      class="speaker-modal thankyou-modal"
+      class="speaker-modal thankyou-modal is-open"
       role="dialog"
       aria-modal="true"
       aria-labelledby="thankYouModalTitle"
-      aria-hidden="true"
+      aria-hidden="false"
     >
-      <div class="speaker-modal-backdrop" data-close-thankyou-modal></div>
+      <div class="speaker-modal-backdrop" aria-hidden="true"></div>
       <div class="speaker-modal-content thankyou-modal-content">
-        <button
-          type="button"
-          class="speaker-modal-close"
-          id="thankYouModalClose"
-          aria-label="Close thank you message"
-        >&times;</button>
-
         <div class="thankyou-modal-logo">
           <img
             src="images/bsides-logo-pine-barrens.png"
@@ -522,27 +515,25 @@
 
         <div class="thankyou-modal-body">
           <h2 id="thankYouModalTitle" class="thankyou-modal-title">
-            <span class="prompt-symbol">></span> MISSION COMPLETE
+            <span class="prompt-symbol">></span> LOADING: 2027
           </h2>
 
           <div class="command-prompt thankyou-prompt">
             <div class="prompt-line">
-              THANK YOU! To the attendees who stayed curious, the speakers who
-              shared what they knew, the volunteers who gave their time, and the
-              sponsors who believed before anyone else did — all of you made
-              this possible. This is how communities are built.
+              The mission is LIVE! The next BSides South Jersey experience is
+              being assembled for the community. More information is coming
+              soon.
             </div>
           </div>
 
           <p class="thankyou-seeyou">
-            See you next year. <span class="cursor-blink">█</span>
+            Stay Tuned. <span class="cursor-blink">█</span>
           </p>
 
           <p class="thankyou-signature">
             &mdash; The BSides South Jersey Team
           </p>
         </div>
-
       </div>
     </div>
 
